@@ -1,0 +1,134 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+//画面に線を絵画する処理
+public class DrawLineController : MonoBehaviour
+{
+
+	public GameObject linePrefab;
+	public float lineLength = 0.2f;
+	public float lineWidth = 0.1f;
+
+	private Vector3 touchPos;
+
+	//線を引く際のエフェクト
+	public GameObject effectPre;
+	GameObject effect;
+
+	//線を全体を格納する空のオブジェクト指定
+	public GameObject summarize_object;
+
+	//操作説明シーンで、線がかけたかどうか判定処理
+	public bool painting_termination=false;
+	private float draw_time;//絵画している時間を格納
+
+	//いっぱい複製したオブジェクトを空のオブジェクトにまとめる
+	public GameObject summarize_linePre;
+	GameObject summarize_ink_NoGravity;
+
+	//消しゴム機能の処理関連
+	public GameObject eraser;
+	private Vector3 screenToWorldPointPosition;//マウスと消しゴムの位置を同期させるための処理
+	public float distance = 100f;
+	GameObject deleting_target_object;//消しゴムを使っている状態で、Rayが衝突したものを削除対象のオブジェクト
+
+	//どの機能を選択しているか
+	private string selected_feature="drawLine";
+
+	void Start(){
+		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
+		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。
+	}
+
+	void Update (){
+		if (selected_feature == "drawLine")
+			drawLine ();//線を絵画する処理
+		else if (selected_feature == "eraser")
+			Eraser ();//消しゴム機能を担う処理
+	}
+
+	//会がスタートから終了までの処理全般
+	void drawLine(){
+
+		if(Input.GetMouseButtonDown(0))//マウスが押したら(一度だけ)
+		{
+			touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			touchPos.z=0;
+			summarize_ink_NoGravity = (GameObject)Instantiate (summarize_linePre,transform.position,Quaternion.identity);
+			summarize_ink_NoGravity.transform.parent=gameObject.transform;//インクをまとめるオブジェクトはこのスクリプトがアタッチされてるオブジェクトの子要素にする。
+		}
+
+		//線を絵画している最中の処理
+		if(Input.GetMouseButton(0))
+		{
+
+			Vector3 startPos = touchPos;//一番最初の座標は42行目での処理で、スクリーン座標を取得している
+			Vector3 endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//ボタンを押している間取得し続ける
+			endPos.z=0;//2Dなので、z軸の座標は常に0に設定する。
+
+			if((endPos-startPos).magnitude > lineLength){
+				GameObject obj = Instantiate(linePrefab, transform.position, transform.rotation) as GameObject;
+				obj.transform.position = (startPos+endPos)/2;
+				obj.transform.right = (endPos-startPos).normalized;
+
+				obj.transform.localScale = new Vector3( (endPos-startPos).magnitude, lineWidth , lineWidth );
+
+				summarize_ink_NoGravity.transform.parent = summarize_object.transform;
+				obj.transform.parent = summarize_ink_NoGravity.transform;
+	
+				touchPos = endPos;
+
+				//線を引く際のエフェクト生成
+				effect=(GameObject)Instantiate(effectPre,obj.transform.position,Quaternion.identity);
+
+				//描いてる時間を測定
+				draw_time+=Time.deltaTime;
+
+			}
+		}
+
+		//書き終わるたびに処理
+		if (Input.GetMouseButtonUp (0)) {
+			if (draw_time > 0.01f) {//書いている時間が0.01fだったた処理
+				painting_termination = true;
+			}
+		}
+	}//drawLine
+
+	//消しゴム機能を実装
+	void Eraser(){
+		if (Input.GetMouseButton(0)) {
+			// クリックしたスクリーン座標をrayに変換
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			// Rayの当たったオブジェクトの情報を格納する
+			RaycastHit hit = new RaycastHit();
+			// Rayの可視化
+			Debug.DrawRay(ray.origin, ray.direction, Color.red, 3.0f);
+
+			//消しゴムの画像とマウスのポジションを同期させる(消しゴムはただ表示しているだけでこの画像に衝突判定はない)
+			eraser.transform.position = Input.mousePosition;
+			// オブジェクトにrayが当たった時に処理
+			if (Physics.Raycast(ray, out hit, distance)){ 
+			//if(Physics.SphereCast(ray, 5.0f, out hit, 10.0f)) {//球型のRayを作成する
+				// rayが当たったオブジェクトの名前を取得
+				string objectName = hit.collider.gameObject.name;//Rayに衝突したオブジェクト名を格納する
+				deleting_target_object=hit.collider.gameObject;//Rayに衝突したオブジェクトを格納する
+				Destroy(deleting_target_object);//Rayに衝突したオブジェクトを削除する
+				Debug.Log(objectName);
+			}
+		}
+	}
+
+	//線を描くボタンを選択したら処理
+	public void DrawLineButton(){
+		selected_feature = "drawLine";
+		eraser.SetActive (false);
+	}
+
+	//消しゴムボタンを選択したら処理
+	public void EraserButton(){
+		selected_feature = "eraser";
+		eraser.SetActive (true);
+	}
+}
