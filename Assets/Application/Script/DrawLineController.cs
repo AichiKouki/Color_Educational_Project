@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class DrawLineController : MonoBehaviour
 {
 
-	public GameObject linePrefab;
+	public GameObject[] linePrefab;
 	public float lineLength = 0.2f;
 	public float lineWidth = 0.1f;
 
 	private Vector3 touchPos;
 
 	//線を引く際のエフェクト
-	public GameObject effectPre;
+	public GameObject[] effectPre;
 	GameObject effect;
 
 	//線を全体を格納する空のオブジェクト指定
@@ -34,7 +34,11 @@ public class DrawLineController : MonoBehaviour
 	GameObject deleting_target_object;//消しゴムを使っている状態で、Rayが衝突したものを削除対象のオブジェクト
 
 	//どの機能を選択しているか
-	private string selected_feature="drawLine";
+	private string selected_feature="drawLine";//線を描く機能と消しゴム機能どちらを選んでいるか
+
+	//色の変更処理関連
+	public int changeColorNum=0;//インク自体の配列の添え字の部分
+	private int changeColorEffectNum=0;//線を描いた時のエフェクトの配列の添え字
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -68,19 +72,20 @@ public class DrawLineController : MonoBehaviour
 			endPos.z=0;//2Dなので、z軸の座標は常に0に設定する。
 
 			if((endPos-startPos).magnitude > lineLength){
-				GameObject obj = Instantiate(linePrefab, transform.position, transform.rotation) as GameObject;
+				GameObject obj = Instantiate(linePrefab[changeColorNum], transform.position, transform.rotation) as GameObject;
 				obj.transform.position = (startPos+endPos)/2;
 				obj.transform.right = (endPos-startPos).normalized;
 
 				obj.transform.localScale = new Vector3( (endPos-startPos).magnitude, lineWidth , lineWidth );
 
-				summarize_ink_NoGravity.transform.parent = summarize_object.transform;
-				obj.transform.parent = summarize_ink_NoGravity.transform;
+				summarize_ink_NoGravity.transform.parent = summarize_object.transform;//一個一個のオブジェクトを空のオブジェクトにまとめる。これでバラバラにならない。
+				obj.transform.parent = summarize_ink_NoGravity.transform;//線をまとめたオブジェクトをさらに空のオブジェクトにまとめる
 	
-				touchPos = endPos;
+				touchPos = endPos;//マウスのポジションを、マウスが押されている間、更新し続ける
 
 				//線を引く際のエフェクト生成
-				effect=(GameObject)Instantiate(effectPre,obj.transform.position,Quaternion.identity);
+				changeColorEffectNum=changeColorNum;//インク自体とエフェクトの配列の添え字は同いなので、それを利用する
+				effect=(GameObject)Instantiate(effectPre[changeColorEffectNum],obj.transform.position,Quaternion.identity);
 
 				//描いてる時間を測定
 				draw_time+=Time.deltaTime;
@@ -115,7 +120,7 @@ public class DrawLineController : MonoBehaviour
 				string objectName = hit.collider.gameObject.name;//Rayに衝突したオブジェクト名を格納する
 				deleting_target_object=hit.collider.gameObject;//Rayに衝突したオブジェクトを格納する
 				Destroy(deleting_target_object);//Rayに衝突したオブジェクトを削除する
-				Debug.Log(objectName);
+				Debug.Log(objectName);//Rayが衝突したオブジェクトの名前を取得
 			}
 		}
 	}
@@ -131,4 +136,5 @@ public class DrawLineController : MonoBehaviour
 		selected_feature = "eraser";
 		eraser.SetActive (true);
 	}
+
 }
