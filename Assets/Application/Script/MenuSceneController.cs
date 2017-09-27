@@ -27,7 +27,8 @@ public class MenuSceneController : MonoBehaviour {
 			SceneManager.LoadScene ("AlbumScene");
 		} else if (name == "DrawingSceneButton") {//お絵かきボタンが押されたら処理
 			SceneManager.LoadScene ("DrawingScene");
-		} else if (name == "ConfigSceneButton") {
+		} else if (name == "ConfigSceneButton") {//シーン繊維処理はしないで、PanelにまとめたUIだけを表示する。
+			
 		}
 	}
 

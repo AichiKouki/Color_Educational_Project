@@ -10,17 +10,17 @@ public class DrawLineController : MonoBehaviour
 	public float lineLength = 0.2f;
 	public float lineWidth = 0.1f;
 
-	private Vector3 touchPos;
+	private Vector3 touchPos;//マウスを使っている間のポジションを格納
 
 	//線を引く際のエフェクト
-	public GameObject[] effectPre;
+	public GameObject[] effectPre;//絵画する時に使うエフェクトをここに格納する。
 	GameObject effect;
 
 	//線を全体を格納する空のオブジェクト指定
 	public GameObject summarize_object;
 
 	//操作説明シーンで、線がかけたかどうか判定処理
-	public bool painting_termination=false;
+	public bool painting_termination=false;//線を書いた瞬間(絵画時間が0.01秒以上ならフラグを変更する)
 	private float draw_time;//絵画している時間を格納
 
 	//いっぱい複製したオブジェクトを空のオブジェクトにまとめる
@@ -28,9 +28,9 @@ public class DrawLineController : MonoBehaviour
 	GameObject summarize_ink_NoGravity;
 
 	//消しゴム機能の処理関連
-	public GameObject eraser;
+	public GameObject eraser;//消しゴムのアイコン
 	private Vector3 screenToWorldPointPosition;//マウスと消しゴムの位置を同期させるための処理
-	public float distance = 100f;
+	public float distance = 100f;//最低でもこの距離を絵画しないと絵画されない
 	GameObject deleting_target_object;//消しゴムを使っている状態で、Rayが衝突したものを削除対象のオブジェクト
 
 	//どの機能を選択しているか
@@ -46,6 +46,7 @@ public class DrawLineController : MonoBehaviour
 	}
 
 	void Update (){
+		//選択されている機能によって、呼び出す機能を変更する。
 		if (selected_feature == "drawLine")
 			drawLine ();//線を絵画する処理
 		else if (selected_feature == "eraser")
@@ -96,7 +97,7 @@ public class DrawLineController : MonoBehaviour
 		//書き終わるたびに処理
 		if (Input.GetMouseButtonUp (0)) {
 			if (draw_time > 0.01f) {//書いている時間が0.01fだったた処理
-				painting_termination = true;
+				painting_termination = true;//ここで、線を絵画したことを知らせる
 			}
 		}
 	}//drawLine

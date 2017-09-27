@@ -54,6 +54,7 @@
      <Compile Include="Assets\Application\Script\ArduinoController.cs" />
      <Compile Include="Assets\Application\Script\BlinkyLight.cs" />
      <Compile Include="Assets\Application\Script\ChangeColorController.cs" />
+     <Compile Include="Assets\Application\Script\CtrlMain.cs" />
      <Compile Include="Assets\Application\Script\DrawLineController.cs" />
      <Compile Include="Assets\Application\Script\GameController.cs" />
      <Compile Include="Assets\Application\Script\MenuSceneController.cs" />

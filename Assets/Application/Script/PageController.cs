@@ -22,7 +22,7 @@ public class PageController : MonoBehaviour {
 	void Start () {
 		image = GetComponent<Image> ();//コンポーネンチ取得
 		specified_color="red";//最初は赤色に指定
-		specified_color_Label.text = "赤色を読み取ってください";//UIの文字を変更
+		specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
 	}
 		
 	void FixedUpdate () {
@@ -67,22 +67,22 @@ public class PageController : MonoBehaviour {
 		}
 	}
 
-	//次の色を指定する処理をまとめている。実際にはランダムにはしない
+	//次の色を指定する処理をまとめている。実際にはランダムにはしない。指定された色を読み取れた場合にこの関数が呼ばれる
 	void Specified_Next_Color(){
 		//テスト用。ランダムに色を指定する。本番では、実際の物語を使って色を決めるので、ランダムにはしないで、固定にする。
 		ran = Random.Range (0, 4);
 		if (ran == 0) {
 			specified_color = "red";//指定する色を変更
-			specified_color_Label.text = "赤色を読み取ってください";//UIの文字を変更
+			specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
 		} else if (ran == 1) {
 			specified_color = "blue";
-			specified_color_Label.text = "青色を読み取ってください";
+			specified_color_Label.text = "「あお」をもってきてね";
 		} else if (ran == 2) {
 			specified_color = "yellow";
-			specified_color_Label.text = "黄色を読み取ってください";
+			specified_color_Label.text = "「きいろ」をもってきてね";
 		} else if (ran == 3) {
 			specified_color = "white";
-			specified_color_Label.text = "白色を読み取ってください";
+			specified_color_Label.text = "「しろ」をもってきてね";
 		}
 	}
 }

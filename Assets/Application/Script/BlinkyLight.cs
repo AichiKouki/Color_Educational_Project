@@ -3,6 +3,8 @@ using System.Collections;
 using Uniduino;
 using System.IO.Ports;
 using System.Runtime.InteropServices;
+
+//Arduino関連の処理をするスクリプト
 public class BlinkyLight : MonoBehaviour
 {
 	private Arduino arduino;
@@ -56,7 +58,7 @@ public class BlinkyLight : MonoBehaviour
 	void Update(){
 	}
 
-
+	//Arduino IDEでのloop関数の部分の処理
 	IEnumerator BlinkLoop()
 	{
 		while (true) {
