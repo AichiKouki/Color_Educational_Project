@@ -44,3 +44,6 @@
 /Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Temp/bin/Debug/SerialLib.dll
+/Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb

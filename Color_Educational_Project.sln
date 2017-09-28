@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Color_Educational_Project", "Assembly-CSharp-firstpass.csproj", "{68FDA82F-02D5-B128-A4E1-CA447C611E6C}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Color_Educational_Project", "Assembly-CSharp.csproj", "{07AFB211-744B-2462-E9F7-1211157E77CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Color_Educational_Project", "Assembly-CSharp-Editor.csproj", "{36F1F434-D1B7-CCCC-34BC-4CDE8CD1C3D0}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68FDA82F-02D5-B128-A4E1-CA447C611E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68FDA82F-02D5-B128-A4E1-CA447C611E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68FDA82F-02D5-B128-A4E1-CA447C611E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68FDA82F-02D5-B128-A4E1-CA447C611E6C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07AFB211-744B-2462-E9F7-1211157E77CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07AFB211-744B-2462-E9F7-1211157E77CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07AFB211-744B-2462-E9F7-1211157E77CA}.Release|Any CPU.ActiveCfg = Release|Any CPU

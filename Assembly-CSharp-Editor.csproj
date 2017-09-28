@@ -54,6 +54,7 @@
      <Compile Include="Assets\Uniduino\Editor\UniduinoAutorun.cs" />
      <Compile Include="Assets\Uniduino\Editor\UniduinoSetup.cs" />
      <None Include="Assets\Font\readme.txt" />
+     <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -117,6 +118,9 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="SerialLib">
+ <HintPath>/Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Assets/Plugins/SerialLib.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
@@ -125,6 +129,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{68FDA82F-02D5-B128-A4E1-CA447C611E6C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{07AFB211-744B-2462-E9F7-1211157E77CA}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

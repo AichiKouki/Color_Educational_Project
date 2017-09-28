@@ -51,14 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Application\Script\ArduinoController.cs" />
-     <Compile Include="Assets\Application\Script\BlinkyLight.cs" />
      <Compile Include="Assets\Application\Script\ChangeColorController.cs" />
      <Compile Include="Assets\Application\Script\CtrlMain.cs" />
      <Compile Include="Assets\Application\Script\DrawLineController.cs" />
      <Compile Include="Assets\Application\Script\GameController.cs" />
+     <Compile Include="Assets\Application\Script\GetColorController.cs" />
      <Compile Include="Assets\Application\Script\MenuSceneController.cs" />
      <Compile Include="Assets\Application\Script\PageController.cs" />
+     <Compile Include="Assets\Application\Script\SerialController.cs" />
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
      <Compile Include="Assets\Uniduino\Scripts\Arduino.cs" />
      <Compile Include="Assets\Uniduino\Scripts\Arduino.Firmata.cs" />
@@ -73,6 +73,7 @@
      <Compile Include="Assets\Uniduino\Tutorials\Servo\ServoSlideControl.cs" />
      <Compile Include="Assets\Uniduino\UniduinoTestPanel\UniduinoTestPanel.cs" />
      <None Include="Assets\Font\readme.txt" />
+     <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -94,6 +95,13 @@
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
+ <Reference Include="SerialLib">
+ <HintPath>/Users/aichitakumiki/Desktop/Unity/Projects/self_made/Color_Educational_Project/Assets/Plugins/SerialLib.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{68FDA82F-02D5-B128-A4E1-CA447C611E6C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
