@@ -57,6 +57,7 @@
      <Compile Include="Assets\Application\Script\FillScreenController.cs" />
      <Compile Include="Assets\Application\Script\GameController.cs" />
      <Compile Include="Assets\Application\Script\GetColorController.cs" />
+     <Compile Include="Assets\Application\Script\Location_sync_Controller.cs" />
      <Compile Include="Assets\Application\Script\MenuSceneController.cs" />
      <Compile Include="Assets\Application\Script\PageController.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\IPicker.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerUnsupported.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Rotator.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Unimgpicker.cs" />
+     <Compile Include="Assets\Application\Script\ScreenShot.cs" />
      <Compile Include="Assets\Application\Script\SerialController.cs" />
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
      <Compile Include="Assets\Uniduino\Scripts\Arduino.cs" />

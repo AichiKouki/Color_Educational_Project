@@ -16,6 +16,7 @@ public class SerialController : MonoBehaviour {
 
 	//他のスクリプトに値を取得してもらいたいから、そのための変数
 	public string[] RGB=new string[3];//RGBだから、三つ文初期化
+	//Arduino側では、一つの文字列として取得するので、文字列を分割してすyとくするので、RGBに分ける
 	public int r;
 	public int g;
 	public int b;
@@ -44,7 +45,8 @@ public class SerialController : MonoBehaviour {
 			string message = this.serial.ReadLine();
 			Debug.Log(message);//Arduino側の、printlnの部分を取得している
 			RGB=message.Split(',');//「,」で区切り文字で分割して配列に変換している
-			r = int.Parse (RGB[0]);//文字列で取得している部分をint型に変換して、rに代入
+			//文字列で取得している部分をint型に変換して、このスクリプトのrgb変数に代入している
+			r = int.Parse (RGB[0]);
 			g = int.Parse (RGB[1]);
 			b = int.Parse (RGB[2]);
 		}
