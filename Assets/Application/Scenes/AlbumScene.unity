@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce35a4db1d9974d79bd9a898d4a1a30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagePicker: {fileID: 1744470094}
+  imagePicker: {fileID: 1303959318}
   imageRenderer: {fileID: 610755817}
 --- !u!4 &600148124
 Transform:
