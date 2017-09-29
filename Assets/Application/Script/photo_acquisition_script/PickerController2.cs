@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Kakera
 {
-    public class PickerController : MonoBehaviour
+    public class PickerController2 : MonoBehaviour
     {
         [SerializeField]//privateでも、Unityエディタでも編集ができる
         private Unimgpicker imagePicker;
@@ -23,7 +23,7 @@ namespace Kakera
         public void OnPressShowPicker()
         {
 			//以下の関数を呼び出す前までは、PickerController2の状態だが、以下の関数を呼び出したあとは、PickerControllerになってしまう
-            imagePicker.Show("Select Image", "unimgpicker", 1024);//タイトル、ファイルめい、ファイルのサイズを引数として渡す
+            imagePicker.Show("Select Image2", "unimgpicker", 1024);//タイトル、ファイルめい、ファイルのサイズを引数として渡す
         }
 
 		//画像を読みこむ処理

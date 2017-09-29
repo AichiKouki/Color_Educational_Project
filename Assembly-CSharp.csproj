@@ -64,6 +64,7 @@
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Picker_editor.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerAndroid.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerController.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerController2.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\PickeriOS.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerUnsupported.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Rotator.cs" />

@@ -407,7 +407,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 600148122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce35a4db1d9974d79bd9a898d4a1a30c, type: 3}
+  m_Script: {fileID: 11500000, guid: bc34281192e1543528dbcdeb1f07c7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imagePicker: {fileID: 1303959318}
@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 1303959319}
   - component: {fileID: 1303959318}
   m_Layer: 0
-  m_Name: Unimgpicker 2
+  m_Name: Unimgpicker2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1029,8 +1029,7 @@ GameObject:
 --- !u!114 &1303959318
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11470950, guid: bd2d8c44dea634500aeb856bd233b9af,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1303959317}
   m_Enabled: 1

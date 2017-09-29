@@ -24,6 +24,7 @@ namespace Kakera
             new PickerUnsupported();
         #endif
 
+		//PickerContrllerから引数付きで呼ばれる
         public void Show(string title, string outputFileName, int maxSize)
         {
             picker.Show(title, outputFileName, maxSize);
