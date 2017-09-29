@@ -7,6 +7,23 @@ using UnityEngine;
 public class ScreenShot : MonoBehaviour {
 	public Camera ArCam;//カメラのプレファブ
 
+	//スクリーンショットした時に、スクショしたことをユーザーに知らせるために、ラベルをフェードインしてフェードアウトする処理
+	public Text screenShotLabel;
+	private float screenShot_done_indicate_time;//スクリーンショットをしたことを知らせる時間
+	private bool is_screenShot=false;
+
+	void FixedUpdate(){
+		if (is_screenShot==true) {
+			screenShotLabel.text = "写真を保存しました";
+			screenShot_done_indicate_time += Time.deltaTime;
+			if (screenShot_done_indicate_time > 1.5f) {
+				screenShotLabel.text = "";
+				screenShot_done_indicate_time = 0;
+				is_screenShot = false;
+			}
+		}
+	}
+
 	//ここを呼び出すことによって、UIをのぞいた部分のスクリーンショットができる
 	public void CaptchaScreen()
 	{
@@ -31,5 +48,8 @@ public class ScreenShot : MonoBehaviour {
 		//File.WriteAllBytesで、ローカルにファイルを保存できる
 		//persistentDataPathは実行中に保存されるファイルがあるパス。アプリ内での永続的なデータを保存するパス
 		File.WriteAllBytes(Application.persistentDataPath + "/" + fileName, bytes);
+
+		//スクリーンショットをしたことを表すフラグを変更する
+		is_screenShot=true;
 	}
 }

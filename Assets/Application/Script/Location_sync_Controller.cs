@@ -17,6 +17,13 @@ public class Location_sync_Controller : MonoBehaviour {
 	public GameObject ImageCube;//一名めのオブジェクト
 	public GameObject ImageCube2;//二つ目のオブジェクト
 
+	//Rayの衝突で処理しているので、①枚目の画像移動中にRayが②枚目に当たったら二枚目が移動してしまう問題を修正
+	private bool first_processing=false;//一個目の写真を処理している最中か
+	private bool second_processing=false;//②こ目の写真を処理している最中か
+	//Rayが遮られないように、移動中のオブジェクトのz軸を少し手前に移動させるため
+	Vector3 ImageCubePos;
+	Vector3 ImageCube2Pos;
+
 	void Update () {
 
 		Location_sync ();//位置を同期させる処理
@@ -26,10 +33,13 @@ public class Location_sync_Controller : MonoBehaviour {
 	//位置を同期させる処理
 	void Location_sync(){
 		if (Input.GetMouseButton (0)) {
+
+			//他の写真に影響を与えないための処理
+
 			// クリックしたスクリーン座標をrayに変換
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			// Rayの当たったオブジェクトの情報を格納する
-			RaycastHit hit = new RaycastHit();
+			RaycastHit hit = new RaycastHit ();
 			// Vector3でマウス位置座標を取得する
 			position = Input.mousePosition;
 			// Z軸修正
@@ -38,19 +48,37 @@ public class Location_sync_Controller : MonoBehaviour {
 			screenToWorldPointPosition = Camera.main.ScreenToWorldPoint (position);
 
 			// オブジェクトにrayが当たった時
-			if (Physics.Raycast(ray, out hit, distance)) {
+			if (Physics.Raycast (ray, out hit, distance)) {
 				// rayが当たったオブジェクトの名前を取得
 				string objectName = hit.collider.gameObject.name;
 				//Rayに当たったオブジェクトによって、動かすオブジェクとを変更する。
-				if (objectName == "Cube") {
+				if (objectName == "Cube" && second_processing==false) {
 					// ワールド座標に変換されたマウス座標を代入
 					ImageCube.gameObject.transform.position = screenToWorldPointPosition;
+					first_processing = true;//一個目の写真を移動していることを知らせるフラグ
+					ImageCubePos=new Vector3(ImageCube.transform.position.x,ImageCube.transform.position.y,-2);
+					ImageCube.transform.position = ImageCubePos;
 
-				} else if (objectName == "Cube2") {
+				} else if (objectName == "Cube2" && first_processing==false) {
 					ImageCube2.gameObject.transform.position = screenToWorldPointPosition;
+					second_processing = true;//二つ目の写真を移動していることを知らせる処理
+					ImageCube2Pos=new Vector3(ImageCube2.transform.position.x,ImageCube2.transform.position.y,-2);
+					ImageCube2.transform.position = ImageCube2Pos;
+
 				}
-				Debug.Log(objectName);
+				Debug.Log (objectName);
 			}
+		} else if (Input.GetMouseButtonUp(0)) {
+			//処理中華どうかのリセット
+			first_processing = false;
+			second_processing = false;
+
+			//Rayが遮られないように、z軸の位置調整を下ので、元に戻す処理
+			ImageCubePos=new Vector3(ImageCube.transform.position.x,ImageCube.transform.position.y,0);
+			ImageCube2Pos=new Vector3(ImageCube2.transform.position.x,ImageCube2.transform.position.y,0);
+			ImageCube.transform.position = ImageCubePos;
+			ImageCube2.transform.position = ImageCube2Pos;
+
 		}
 	}
 }
