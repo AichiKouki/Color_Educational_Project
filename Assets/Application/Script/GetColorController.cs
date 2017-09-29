@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class GetColorController : MonoBehaviour {
 
 	public SerialController serialController;//シリアル通信を行うスクリプト
+	private int r;
+	private int g;
+	private int b;
 	public Text R_Label;
 	public Text G_Label;
 	public Text B_Label;
+
+	public Image color_Display_Image;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +22,14 @@ public class GetColorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		R_Label.text = serialController.r;
-		G_Label.text = serialController.b;
-		B_Label.text = serialController.b;
+		this.r = serialController.r;
+		this.g = serialController.g;
+		this.b = serialController.b;
+		R_Label.text = "" + this.r;
+		G_Label.text = "" + this.g;
+		B_Label.text = "" + this.b;
+
+		color_Display_Image.color=new Color(this.r/255,this.g/255,this.b/255,255/255);
+
 	}
 }

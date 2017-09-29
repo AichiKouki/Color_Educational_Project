@@ -54,10 +54,19 @@
      <Compile Include="Assets\Application\Script\ChangeColorController.cs" />
      <Compile Include="Assets\Application\Script\CtrlMain.cs" />
      <Compile Include="Assets\Application\Script\DrawLineController.cs" />
+     <Compile Include="Assets\Application\Script\FillScreenController.cs" />
      <Compile Include="Assets\Application\Script\GameController.cs" />
      <Compile Include="Assets\Application\Script\GetColorController.cs" />
      <Compile Include="Assets\Application\Script\MenuSceneController.cs" />
      <Compile Include="Assets\Application\Script\PageController.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\IPicker.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\Picker_editor.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerAndroid.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerController.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\PickeriOS.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerUnsupported.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\Rotator.cs" />
+     <Compile Include="Assets\Application\Script\photo_acquisition_script\Unimgpicker.cs" />
      <Compile Include="Assets\Application\Script\SerialController.cs" />
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
      <Compile Include="Assets\Uniduino\Scripts\Arduino.cs" />
@@ -72,7 +81,9 @@
      <Compile Include="Assets\Uniduino\Tutorials\Servo\Servo.cs" />
      <Compile Include="Assets\Uniduino\Tutorials\Servo\ServoSlideControl.cs" />
      <Compile Include="Assets\Uniduino\UniduinoTestPanel\UniduinoTestPanel.cs" />
+     <None Include="Assets\Editor\NSPhotoLibraryUsageDescription.txt" />
      <None Include="Assets\Font\readme.txt" />
+     <None Include="Assets\Plugins\Android\Unimgpicker\AndroidManifest.xml" />
      <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

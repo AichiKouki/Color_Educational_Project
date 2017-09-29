@@ -51,9 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\XcodeConfigurator.cs" />
      <Compile Include="Assets\Uniduino\Editor\UniduinoAutorun.cs" />
      <Compile Include="Assets\Uniduino\Editor\UniduinoSetup.cs" />
+     <None Include="Assets\Editor\NSPhotoLibraryUsageDescription.txt" />
      <None Include="Assets\Font\readme.txt" />
+     <None Include="Assets\Plugins\Android\Unimgpicker\AndroidManifest.xml" />
      <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
