@@ -59,7 +59,7 @@ public class Location_sync_Controller : MonoBehaviour {
 					ImageCubePos=new Vector3(ImageCube.transform.position.x,ImageCube.transform.position.y,-2);
 					ImageCube.transform.position = ImageCubePos;
 
-				} else if (objectName == "Cube2" && first_processing==false) {
+				} else if (objectName == "Image_Cylinder" && first_processing==false) {
 					ImageCube2.gameObject.transform.position = screenToWorldPointPosition;
 					second_processing = true;//二つ目の写真を移動していることを知らせる処理
 					ImageCube2Pos=new Vector3(ImageCube2.transform.position.x,ImageCube2.transform.position.y,-2);
