@@ -43,7 +43,7 @@ public class ScreenShot : MonoBehaviour {
 		//スクショが保存される場所
 		//Users/[ユーザ名]/Library/Application Support/[Company Name]/[Product Name]
 		///Users/aichitakumiki/Library/Application Support/DefaultCompany/HUE_Educational_Project
-		string fileName = "cap_" + DateTime.Now.ToString("screenSoot") + ".png";//DataTime.Now.ToStringは、現在の時間をファイル名にしている
+		string fileName = "cap_" + DateTime.Now.ToString("screenShot") + ".png";//DataTime.Now.ToStringは、現在の時間をファイル名にしている
 
 		//File.WriteAllBytesで、ローカルにファイルを保存できる
 		//persistentDataPathは実行中に保存されるファイルがあるパス。アプリ内での永続的なデータを保存するパス
