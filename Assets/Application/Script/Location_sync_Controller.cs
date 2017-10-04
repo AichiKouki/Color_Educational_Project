@@ -21,8 +21,8 @@ public class Location_sync_Controller : MonoBehaviour {
 	private bool first_processing=false;//一個目の写真を処理している最中か
 	private bool second_processing=false;//②こ目の写真を処理している最中か
 	//Rayが遮られないように、移動中のオブジェクトのz軸を少し手前に移動させるため
-	Vector3 ImageCubePos;
-	Vector3 ImageCube2Pos;
+	Vector3 ImageCubePos;//一個めの写真のポジションを格納
+	Vector3 ImageCube2Pos;//二つめの写真のポジションを格納
 
 	void Update () {
 
@@ -59,16 +59,17 @@ public class Location_sync_Controller : MonoBehaviour {
 					ImageCubePos=new Vector3(ImageCube.transform.position.x,ImageCube.transform.position.y,-2);
 					ImageCube.transform.position = ImageCubePos;
 
+					//丸い写真側のオブジェクトをそうさしていて、もう片方の写真を操作していなかったら処理
 				} else if (objectName == "Image_Cylinder" && first_processing==false) {
-					ImageCube2.gameObject.transform.position = screenToWorldPointPosition;
+					ImageCube2.gameObject.transform.position = screenToWorldPointPosition;//二つねの写真のポジションをマウスの位置を同期させる
 					second_processing = true;//二つ目の写真を移動していることを知らせる処理
 					ImageCube2Pos=new Vector3(ImageCube2.transform.position.x,ImageCube2.transform.position.y,-2);
-					ImageCube2.transform.position = ImageCube2Pos;
+					ImageCube2.transform.position = ImageCube2Pos;//z軸を少しずらしたポジションを新たに適応させる
 
 				}
-				Debug.Log (objectName);
+				Debug.Log (objectName);//Rayに触れているオブジェクト名を取得
 			}
-		} else if (Input.GetMouseButtonUp(0)) {
+		} else if (Input.GetMouseButtonUp(0)) {//ボタンを話した時の処理
 			//処理中華どうかのリセット
 			first_processing = false;
 			second_processing = false;

@@ -4,6 +4,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine;
 
+//スクリーンショットをする機能をになるプログラム
 public class ScreenShot : MonoBehaviour {
 	public Camera ArCam;//カメラのプレファブ
 
@@ -13,14 +14,8 @@ public class ScreenShot : MonoBehaviour {
 	private bool is_screenShot=false;
 
 	void FixedUpdate(){
-		if (is_screenShot==true) {
-			screenShotLabel.text = "写真を保存しました";
-			screenShot_done_indicate_time += Time.deltaTime;
-			if (screenShot_done_indicate_time > 1.5f) {
-				screenShotLabel.text = "";
-				screenShot_done_indicate_time = 0;
-				is_screenShot = false;
-			}
+		if (is_screenShot==true) {//スクショしている主な部分でフラグを変更している
+			Indicate_done_screenshot ();//スクリーンショットをしたことを知らせる
 		}
 	}
 
@@ -51,5 +46,16 @@ public class ScreenShot : MonoBehaviour {
 
 		//スクリーンショットをしたことを表すフラグを変更する
 		is_screenShot=true;
+	}
+
+	//スクリーンショットをしたことを知らせるための処理
+	void Indicate_done_screenshot(){
+		screenShotLabel.text = "写真を保存しました";
+		screenShot_done_indicate_time += Time.deltaTime;//上記の写真を保存しましたと表示するラベルを表示する時間
+		if (screenShot_done_indicate_time > 1.5f) {//ラベルを表示する時間は1.6秒ぐらい
+			screenShotLabel.text = "";//スクショをしたことを表示して1.6秒ぐらいたったら、写真保存ラベルの表示をリセットする。
+			screenShot_done_indicate_time = 0;//時間をリセット
+			is_screenShot = false;//スクショしたことを知らせrフラグをリセットする。
+		}
 	}
 }
