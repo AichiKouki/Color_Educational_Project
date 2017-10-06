@@ -58,8 +58,8 @@ public class DrawLineController : MonoBehaviour
 
 		if(Input.GetMouseButtonDown(0))//マウスが押したら(一度だけ)
 		{
-			touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			touchPos.z=0;
+			touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//UIの座標をワールド座標に変換して代入する
+			touchPos.z=0;//2Dなので、奥行きは無視する
 			summarize_ink_NoGravity = (GameObject)Instantiate (summarize_linePre,transform.position,Quaternion.identity);
 			summarize_ink_NoGravity.transform.parent=gameObject.transform;//インクをまとめるオブジェクトはこのスクリプトがアタッチされてるオブジェクトの子要素にする。
 		}
@@ -72,9 +72,9 @@ public class DrawLineController : MonoBehaviour
 			Vector3 endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//ボタンを押している間取得し続ける
 			endPos.z=0;//2Dなので、z軸の座標は常に0に設定する。
 
-			if((endPos-startPos).magnitude > lineLength){
-				GameObject obj = Instantiate(linePrefab[changeColorNum], transform.position, transform.rotation) as GameObject;
-				obj.transform.position = (startPos+endPos)/2;
+			if((endPos-startPos).magnitude > lineLength){//最後のポジションから最初にクリックされたポジションの差が、指定した長さより長かったら処理
+				GameObject obj = Instantiate(linePrefab[changeColorNum], transform.position, transform.rotation) as GameObject;//線を作る3Dオブジェクトを作成
+				obj.transform.position = (startPos+endPos)/2;							
 				obj.transform.right = (endPos-startPos).normalized;
 
 				obj.transform.localScale = new Vector3( (endPos-startPos).magnitude, lineWidth , lineWidth );
@@ -104,9 +104,9 @@ public class DrawLineController : MonoBehaviour
 
 	//消しゴム機能を実装
 	void Eraser(){
-		if (Input.GetMouseButton(0)) {
+		if (Input.GetMouseButton(0)) {//クリックされている間処理
 			// クリックしたスクリーン座標をrayに変換
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);//マウスのポジションに光線を作成
 			// Rayの当たったオブジェクトの情報を格納する
 			RaycastHit hit = new RaycastHit();
 			// Rayの可視化
@@ -129,13 +129,13 @@ public class DrawLineController : MonoBehaviour
 	//線を描くボタンを選択したら処理
 	public void DrawLineButton(){
 		selected_feature = "drawLine";
-		eraser.SetActive (false);
+		eraser.SetActive (false);//線を描く機能ボタンを押したら、消しゴムは非表示にする
 	}
 
 	//消しゴムボタンを選択したら処理
 	public void EraserButton(){
 		selected_feature = "eraser";
-		eraser.SetActive (true);
+		eraser.SetActive (true);//消しゴムを使う機能を選択したら、消しゴムを表示する。
 	}
 
 }

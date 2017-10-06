@@ -26,20 +26,20 @@ public class ScreenShot : MonoBehaviour {
 		RenderTexture rt = new RenderTexture(screenShot.width, screenShot.height, 24);
 		RenderTexture prev = ArCam.targetTexture;
 		ArCam.targetTexture = rt;
-		ArCam.Render();
-		ArCam.targetTexture = prev;
+		ArCam.Render();//カメラのプレファブを使って、カメラレンダリングの関数を使っている
+		ArCam.targetTexture = prev;//カメラの絵画先が、画面ではなくオフスクリーンになる。
 		RenderTexture.active = rt;
 		screenShot.ReadPixels(new Rect(0, 0, screenShot.width, screenShot.height), 0, 0);
-		screenShot.Apply();
+		screenShot.Apply();//テクスチャの変更を実際に適応させる
 
-		byte[] bytes = screenShot.EncodeToPNG();
+		byte[] bytes = screenShot.EncodeToPNG();//Texure2DをPngとして保存
 		UnityEngine.Object.Destroy(screenShot);
 
 		//スクショが保存される場所
 		//Users/[ユーザ名]/Library/Application Support/[Company Name]/[Product Name]
 		///Users/aichitakumiki/Library/Application Support/DefaultCompany/HUE_Educational_Project
-		string fileName = "cap_" + DateTime.Now.ToString("screenShot") + ".png";//DataTime.Now.ToStringは、現在の時間をファイル名にしている
-
+		//string fileName = "cap_" + DateTime.Now.ToString("screenShot") + ".png";//DataTime.Now.ToStringは、現在の時間をファイル名にしている
+		string fileName = "スクショ" + DateTime.Now.ToString("screenShot") + ".png";//DataTime.Now.ToStringは、現在の時間をファイル名にしている
 		//File.WriteAllBytesで、ローカルにファイルを保存できる
 		//persistentDataPathは実行中に保存されるファイルがあるパス。アプリ内での永続的なデータを保存するパス
 		File.WriteAllBytes(Application.persistentDataPath + "/" + fileName, bytes);

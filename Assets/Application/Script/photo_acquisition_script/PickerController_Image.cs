@@ -4,18 +4,18 @@ using UnityEngine.UI;
 
 namespace Kakera
 {
-    public class PickerController : MonoBehaviour
+    public class PickerController_Image : MonoBehaviour
     {
         [SerializeField]//privateでも、Unityエディタでも編集ができる
         private Unimgpicker imagePicker;
 
         [SerializeField]
-        private MeshRenderer imageRenderer;//3Dオブジェクトのマテリアルを変更するので、ここではマテリアルの部分を宣言する。UIのImageを変更したかったら、ここでImageをせんげんすr。
+		private Image changeImage_left;//UIのImageを変えてみる
         void Awake()
         {
             imagePicker.Completed += (string path) =>
             {
-                StartCoroutine(LoadImage(path, imageRenderer));//imageRendererの部分を変更したい部分にする。
+				StartCoroutine(LoadImage(path, changeImage_left));//imageRendererの部分を変更したい部分にする。
             };
         }
 
@@ -27,7 +27,7 @@ namespace Kakera
         }
 
 		//画像を読みこむ処理
-        private IEnumerator LoadImage(string path, MeshRenderer output)
+		private IEnumerator LoadImage(string path, Image output)
         {
             var url = "file://" + path;
             var www = new WWW(url);
@@ -39,10 +39,9 @@ namespace Kakera
                 Debug.LogError("Failed to load texture url:" + url);
             }
 
-            output.material.mainTexture = texture;//ここで、実際にテクスチャが反映されている
-
 			// Texture -> Spriteに変換する
 			Sprite texture_sprite = Sprite.Create(texture, new Rect(0,0,256,256), Vector2.zero);
+			changeImage_left.sprite = texture_sprite;//textureからspriteに変換したものをImageのspriteに代入
         }
     }
 }
