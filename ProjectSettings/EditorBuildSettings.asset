@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Application/Scenes/AlbumScene.unity
     guid: f7f5d16e1a4bd45b3a93a3088393d3e5
+  - enabled: 1
+    path: Assets/Application/Scenes/ColoringScene.unity
+    guid: 88c0fc96d94084dc692866420c9098f0

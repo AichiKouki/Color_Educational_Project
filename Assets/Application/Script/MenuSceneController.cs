@@ -21,7 +21,7 @@ public class MenuSceneController : MonoBehaviour {
 
 	//ボタンによって処理を分岐させる処理
 	void ChangeColor(string name){
-		 if (name == "StorySceneButton") {//ストーリーボタンが押されたら処理
+		if (name == "StorySceneButton") {//ストーリーボタンが押されたら処理
 			SceneManager.LoadScene ("Get_Color_Scene");
 		} else if (name == "AlbumSceneButton") {//アルバムボタンが押されたら処理
 			SceneManager.LoadScene ("AlbumScene");
@@ -29,6 +29,8 @@ public class MenuSceneController : MonoBehaviour {
 			SceneManager.LoadScene ("DrawingScene");
 		} else if (name == "ConfigSceneButton") {//シーン繊維処理はしないで、PanelにまとめたUIだけを表示する。
 			
+		} else if (name == "ColoringSceneButton") {
+			SceneManager.LoadScene ("ColoringScene");
 		}
 	}
 
