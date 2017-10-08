@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0149cd9cfeaf64eed8ffa75b70168f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coloring_illustImage: {fileID: 0}
+  menu_panel: {fileID: 0}
 --- !u!4 &36284553
 Transform:
   m_ObjectHideFlags: 0

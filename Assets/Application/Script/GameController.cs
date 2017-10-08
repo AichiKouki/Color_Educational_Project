@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+	public GameObject coloring_illust_panel;
+	public GameObject menu_panel;
+
 	//やり直し機能を作成
 	private string sceneName;//現在のシーン名を取得
 
@@ -22,11 +25,14 @@ public class GameController : MonoBehaviour {
 	public void RetryButton(){
 		SceneManager.LoadScene (sceneName);//現在のシーンを再読み込みして、やり直しを実現する。
 	}
-
-	//メニューボタンが押されたらメニューシーンに繊維する処理
-	public void MenuButton(){
-		SceneManager.LoadScene ("MenuScene");
+		
+	//塗り絵のイラストを選択するパネルを表示する
+	public void coloring_illustButton(){
+		coloring_illust_panel.SetActive (true);
 	}
 
-	//ボタンが絵画された時の
+	//メニューパネルを表示する
+	public void MenuButton(){
+		menu_panel.SetActive (true);
+	}
 }
