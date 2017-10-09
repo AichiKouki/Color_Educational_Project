@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Coloring_illustration_Controller : MonoBehaviour {
 //塗り絵のイラストを選択して表示するスクリプト
-	public Image display_coloring_illustration;
+	public SpriteRenderer spriteRenderer;//UIではなく通常の画像
 
 	// publicで宣言し、inspectorで設定可能にする
 	SpriteRenderer renderer;
@@ -32,13 +32,13 @@ public class Coloring_illustration_Controller : MonoBehaviour {
 	//全てのボッタんおを共通化させる
 	void TappedButton(string name){
 		if (name == "crab1_Button") {//crab1_Buttonが押されたら処理
-			display_coloring_illustration.sprite = sprite [0];
+			spriteRenderer.sprite = sprite [0];
 			illustPanel.SetActive (false);
 		} else if (name == "crab2_Button") {
-			display_coloring_illustration.sprite = sprite [1];
+			spriteRenderer.sprite = sprite [1];
 			illustPanel.SetActive (false);
 		} else if (name == "crab3_Button") {
-			display_coloring_illustration.sprite = sprite [2];
+			spriteRenderer.sprite = sprite [2];
 			illustPanel.SetActive (false);
 		}
 	}
