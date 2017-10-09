@@ -21,8 +21,7 @@ public class Coloring_illustration_Controller : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
 	}
 
 	//全てのボタンのスクリプト呼び出しを共通化

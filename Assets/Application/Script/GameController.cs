@@ -35,4 +35,14 @@ public class GameController : MonoBehaviour {
 	public void MenuButton(){
 		menu_panel.SetActive (true);
 	}
+
+	//メニューシーンに遷移するボタン
+	public void MoveToMenuButton(){
+		SceneManager.LoadScene ("MenuScene");
+	}
+
+	//メニューパネルの再開ボタンの処理。パネルを非表示にするだけ
+	public void ResumeButton(){
+		menu_panel.SetActive (false);
+	}
 }
