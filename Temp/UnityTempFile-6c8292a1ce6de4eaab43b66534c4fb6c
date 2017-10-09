@@ -104,6 +104,7 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 'Assets/Application/Script/ChangeColorController.cs'
+'Assets/Application/Script/Coloring_illustration_Controller.cs'
 'Assets/Application/Script/CtrlMain.cs'
 'Assets/Application/Script/DrawLineController.cs'
 'Assets/Application/Script/FillScreenController.cs'
@@ -112,7 +113,6 @@
 'Assets/Application/Script/Location_sync_Controller.cs'
 'Assets/Application/Script/MenuSceneController.cs'
 'Assets/Application/Script/PageController.cs'
-'Assets/Application/Script/PanelController.cs'
 'Assets/Application/Script/photo_acquisition_script/IPicker.cs'
 'Assets/Application/Script/photo_acquisition_script/Picker_editor.cs'
 'Assets/Application/Script/photo_acquisition_script/PickerAndroid.cs'

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Application\Script\ChangeColorController.cs" />
+     <Compile Include="Assets\Application\Script\Coloring_illustration_Controller.cs" />
      <Compile Include="Assets\Application\Script\CtrlMain.cs" />
      <Compile Include="Assets\Application\Script\DrawLineController.cs" />
      <Compile Include="Assets\Application\Script\FillScreenController.cs" />
