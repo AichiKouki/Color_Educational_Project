@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Application\Script\AlbumSceneController.cs" />
      <Compile Include="Assets\Application\Script\ChangeColorController.cs" />
      <Compile Include="Assets\Application\Script\Coloring_illustration_Controller.cs" />
      <Compile Include="Assets\Application\Script\ColorPicker.cs" />

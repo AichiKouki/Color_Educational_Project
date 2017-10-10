@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Application/Scenes/ColoringScene.unity
+- path: Assets/Application/Scenes/AlbumScene.unity
   isLoaded: 1
   isActive: 1

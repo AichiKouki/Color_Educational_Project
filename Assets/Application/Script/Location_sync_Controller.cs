@@ -5,7 +5,7 @@ using UnityEngine;
 public class Location_sync_Controller : MonoBehaviour {
 
 	// 位置座標
-	private Vector3 position;
+	private Vector3 position;//掴むオブジェクトの位置を格納する
 
 	// スクリーン座標をワールド座標に変換した位置座標
 	private Vector3 screenToWorldPointPosition;
@@ -32,12 +32,12 @@ public class Location_sync_Controller : MonoBehaviour {
 
 	//位置を同期させる処理
 	void Location_sync(){
-		if (Input.GetMouseButton (0)) {
+		if (Input.GetMouseButton (0)) {//ボタンを押している間処理
 
 			//他の写真に影響を与えないための処理
 
 			// クリックしたスクリーン座標をrayに変換
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);//カメラからマウスのポジションにRayを飛ばす
 			// Rayの当たったオブジェクトの情報を格納する
 			RaycastHit hit = new RaycastHit ();
 			// Vector3でマウス位置座標を取得する

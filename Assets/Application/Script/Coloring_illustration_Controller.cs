@@ -32,11 +32,11 @@ public class Coloring_illustration_Controller : MonoBehaviour {
 	//全てのボッタんおを共通化させる
 	void TappedButton(string name){
 		if (name == "crab1_Button") {//crab1_Buttonが押されたら処理
-			spriteRenderer.sprite = sprite [0];
-			illustPanel.SetActive (false);
+			spriteRenderer.sprite = sprite [0];//用意していたイラストの0番目を表示する
+			illustPanel.SetActive (false);//イラストを選択下なら、選択パネルの表示をやめる
 		} else if (name == "crab2_Button") {
-			spriteRenderer.sprite = sprite [1];
-			illustPanel.SetActive (false);
+			spriteRenderer.sprite = sprite [1];//用意していたイラストの2番目を表示する
+			illustPanel.SetActive (false);//イラストを選んだならイラスト選択パネルを非表示にする。
 		} else if (name == "crab3_Button") {
 			spriteRenderer.sprite = sprite [2];
 			illustPanel.SetActive (false);

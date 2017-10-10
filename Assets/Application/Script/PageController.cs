@@ -26,13 +26,13 @@ public class PageController : MonoBehaviour {
 	}
 		
 	void FixedUpdate () {
-		Debug.Log (specified_color);//常に色の状態を確認する。
+		//Debug.Log (specified_color);//常に色の状態を確認する。
 	}
 
 	//赤のボタンが押された時の処理
 	public void RedButton(){
 		//指定されている色が赤だったら、次のページを表示する。
-		if(specified_color=="red"){//現在指定されている色が赤色だったら処理
+		if(specified_color=="red" && page<8){//現在指定されている色が赤色だったら処理
 			page++;//ページ数を進める
 			image.sprite = sprite [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
@@ -42,7 +42,7 @@ public class PageController : MonoBehaviour {
 	//青が押された時のボタン
 	public void BlueButton(){
 		//指定されている色が青だったら次のページを表示する。
-		if (specified_color == "blue") {//現在指定されている色が青色だったら処理
+		if (specified_color == "blue" && page<8) {//現在指定されている色が青色だったら処理
 			page++;//ページ数を進める
 			image.sprite = sprite [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
@@ -51,7 +51,7 @@ public class PageController : MonoBehaviour {
 
 	//黄色のボタンが押されたら処理
 	public void YellowButton(){
-		if (specified_color == "yellow") {//現在指定されている色が黄色だったら処理
+		if (specified_color == "yellow" && page<8) {//現在指定されている色が黄色だったら処理
 			page++;//ページ数を進める
 			image.sprite = sprite [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
@@ -60,7 +60,7 @@ public class PageController : MonoBehaviour {
 
 	//白のボタンが押されたら処理
 	public void WhiteButton(){
-		if (specified_color == "white") {//現在指定されている色が白だったら、処理
+		if (specified_color == "white" && page<8) {//現在指定されている色が白だったら、処理
 			page++;//ページ数を進める
 			image.sprite = sprite [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
