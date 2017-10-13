@@ -9,13 +9,12 @@ public class ColorPicker : MonoBehaviour {
 
 	void OnGUI(){
 		//ここで、ポジションとサイズを設定している
-		if (GUI.RepeatButton(new Rect(500, 500, ImageWidth, ImageHeight), colorPicker)) {
+		if (GUI.RepeatButton(new Rect(1400, 400, ImageWidth, ImageHeight), colorPicker)) {
 			Vector2 pickpos = Event.current.mousePosition;
 			//文字から数値に変換
-			//int aaa = Convert.ToInt32(pickpos.x);
-			//int bbb = Convert.ToInt32(pickpos.y);
-			int aaa=Convert.ToInt64(pickpos.x);
-			int bbb=Convert.ToInt64(pickpos.y);
+			//intParseとの違いは、nullが渡されても例外は発生しない
+			int aaa = Convert.ToInt32(pickpos.x);
+			int bbb = Convert.ToInt32(pickpos.y);
 			Color col = colorPicker.GetPixel(aaa,41-bbb);
 
 			Debug.Log(col);

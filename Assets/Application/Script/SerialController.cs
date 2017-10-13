@@ -42,7 +42,7 @@ public class SerialController : MonoBehaviour {
 	{
 		while (this.isLoop)
 		{
-			string message = this.serial.ReadLine();
+			string message = this.serial.ReadLine();//シリアルプロッタやシリアルモニターで取得できるような値を全て取得する
 			Debug.Log(message);//Arduino側の、printlnの部分を取得している
 			RGB=message.Split(',');//「,」で区切り文字で分割して配列に変換している
 			//文字列で取得している部分をint型に変換して、このスクリプトのrgb変数に代入している
@@ -56,6 +56,6 @@ public class SerialController : MonoBehaviour {
 	void OnDestroy()
 	{
 		this.isLoop = false;
-		this.serial.Close ();
+		this.serial.Close ();//シリアルポートを閉じる
 	}
 }
