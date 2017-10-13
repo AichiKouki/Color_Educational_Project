@@ -39,7 +39,7 @@ public class Coloring_illustration_Controller : MonoBehaviour {
 			illustPanel.SetActive (false);//イラストを選んだならイラスト選択パネルを非表示にする。
 		} else if (name == "crab3_Button") {
 			spriteRenderer.sprite = sprite [2];
-			illustPanel.SetActive (false);
+			illustPanel.SetActive (false);//イラストを選んだなら、イラスト選択パネルを非表示にする。
 		}
 	}
 

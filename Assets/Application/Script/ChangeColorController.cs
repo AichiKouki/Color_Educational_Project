@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeColorController : MonoBehaviour {
+
+	//使う色を、実際に線を描く処理を担当するスクリプトに渡すために必要
 	public DrawLineController drawLineController;
 
 	// Use this for initialization

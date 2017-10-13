@@ -7,13 +7,17 @@ public class FillScreenController : MonoBehaviour {
 	public Image image;
 
 	// Use this for initialization
+	/*
 	void Start () {
 	}
+	*/
 	
 	// Update is called once per frame
+	/*
 	void Update () {
 		
 	}
+	*/
 
 	//画面にフィットさせる
 	public void FillScreen()

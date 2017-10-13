@@ -52,21 +52,21 @@ public class Location_sync_Controller : MonoBehaviour {
 				// rayが当たったオブジェクトの名前を取得
 				string objectName = hit.collider.gameObject.name;
 				//Rayに当たったオブジェクトによって、動かすオブジェクとを変更する。
-				if (objectName == "Cube" && second_processing==false) {
+				if (objectName == "Cube" && second_processing == false) {
 					// ワールド座標に変換されたマウス座標を代入
 					ImageCube.gameObject.transform.position = screenToWorldPointPosition;
 					first_processing = true;//一個目の写真を移動していることを知らせるフラグ
-					ImageCubePos=new Vector3(ImageCube.transform.position.x,ImageCube.transform.position.y,-2);
+					ImageCubePos = new Vector3 (ImageCube.transform.position.x, ImageCube.transform.position.y, -2);
 					ImageCube.transform.position = ImageCubePos;
 
 					//丸い写真側のオブジェクトをそうさしていて、もう片方の写真を操作していなかったら処理
-				} else if (objectName == "Image_Cylinder" && first_processing==false) {
+				} else if (objectName == "Image_Cylinder" && first_processing == false) {
 					ImageCube2.gameObject.transform.position = screenToWorldPointPosition;//二つねの写真のポジションをマウスの位置を同期させる
 					second_processing = true;//二つ目の写真を移動していることを知らせる処理
-					ImageCube2Pos=new Vector3(ImageCube2.transform.position.x,ImageCube2.transform.position.y,-2);
+					ImageCube2Pos = new Vector3 (ImageCube2.transform.position.x, ImageCube2.transform.position.y, -2);
 					ImageCube2.transform.position = ImageCube2Pos;//z軸を少しずらしたポジションを新たに適応させる
 
-				}
+				} 
 				Debug.Log (objectName);//Rayに触れているオブジェクト名を取得
 			}
 		} else if (Input.GetMouseButtonUp(0)) {//ボタンを話した時の処理
