@@ -28,8 +28,12 @@ public class StorySelectController : MonoBehaviour {
 		
 	}
 
-	//パネルの子要素にあるため、ボタンの共通化ができないため、一個ずつ処理する。
+	//物語を選択し直すために、物語選択パネルを表示する処理
+	public void Display_Story(){
+		story_select_panel.SetActive (true);
+	}
 
+	//パネルの子要素にあるため、ボタンの共通化ができないため、一個ずつ処理する
 	//猿カニ合戦の物語をセットする処理
 	public void SetSarukaniStory(){
 		Debug.Log("猿カニ合戦のボタンが押されました");
