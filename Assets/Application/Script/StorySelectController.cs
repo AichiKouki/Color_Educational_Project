@@ -34,6 +34,7 @@ public class StorySelectController : MonoBehaviour {
 		for(int i=0;i<8;i++){//ページが8枚の場合
 			pageController.useStory[i]=story1[i];
 			pageController.story_page_number = 8;//猿カニ合戦でのページ数を8枚であることを知らせる
+			pageController.set_story_image.sprite=story1[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
 		}
 	}
 
@@ -42,6 +43,7 @@ public class StorySelectController : MonoBehaviour {
 		for(int i=0;i<1;i++){//ページが8枚の場合
 			pageController.useStory[i]=story2[i];
 			pageController.story_page_number = 1;//笠地蔵の物語のページ数が1枚であることを知らせる
+			pageController.set_story_image.sprite=story2[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
 		}
 	}
 
@@ -50,6 +52,7 @@ public class StorySelectController : MonoBehaviour {
 		for(int i=0;i<1;i++){//ページが8枚の場合
 			pageController.useStory[i]=story3[i];
 			pageController.story_page_number = 1;//おむすびころりんのものがたrちのページ数が1枚であることを知らせる
+			pageController.set_story_image.sprite=story3[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
 		}
 	}
 }
