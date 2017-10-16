@@ -24,8 +24,8 @@ public class DrawLineController : MonoBehaviour
 	private float draw_time;//絵画している時間を格納
 
 	//いっぱい複製したオブジェクトを空のオブジェクトにまとめる
-	public GameObject summarize_linePre;
-	GameObject summarize_ink_NoGravity;
+	public GameObject summarize_linePre;//下に落ちる線の一個一個のオブジェクトをまとめる
+	GameObject summarize_ink_NoGravity;//線の中の一個一個のオブジェクトをまとめるオブジェクト
 
 	//消しゴム機能の処理関連
 	public GameObject eraser;//消しゴムのアイコン
@@ -39,6 +39,20 @@ public class DrawLineController : MonoBehaviour
 	//色の変更処理関連
 	public int changeColorNum=0;//インク自体の配列の添え字の部分
 	private int changeColorEffectNum=0;//線を描いた時のエフェクトの配列の添え字
+
+	//かけない範囲を作る処理関連
+	//線を描く範囲を制限する処理関連
+	//Rayを飛ばす
+	// 位置座標
+	private Vector3 position;
+	// スクリーン座標をワールド座標に変換した位置座標
+	private Vector3 screenToWorldPointPosition2;//消しゴム機能ですでにrayを使っているので、変数名が2になっている
+	// rayが届く範囲
+	public float distance2 = 100f;//消しゴム機能ですでにrayを使っているので、変数名が2になっている
+
+	//制限の範囲にマウスがあるかどうかのフラグ
+	private bool ban=false;
+
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -68,6 +82,32 @@ public class DrawLineController : MonoBehaviour
 		if(Input.GetMouseButton(0))
 		{
 
+			//カラーピッカーなどの書いたはいけない部分ではかいができないようにする
+			//線を描ける範囲を制限するための処理
+			// クリックしたスクリーン座標をrayに変換
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);//カメラからマウスのポジションにRayを飛ばす
+			// Rayの当たったオブジェクトの情報を格納する
+			RaycastHit hit = new RaycastHit ();
+			// Vector3でマウス位置座標を取得する
+			position = Input.mousePosition;
+			// Z軸修正
+			position.z = 10f;
+			// マウス位置座標をスクリーン座標からワールド座標に変換する
+			screenToWorldPointPosition2 = Camera.main.ScreenToWorldPoint (position);
+
+			// オブジェクトにrayが当たった時
+			if (Physics.Raycast (ray, out hit, distance2)) {
+				// rayが当たったオブジェクトの名前を取得
+				string objectName = hit.collider.gameObject.name;//Collider2Dだと反応しないので、2Dゲームの場合は2Dオブジェクトでも3Dのようにこライダーを使う
+				//Debug.Log(objectName);
+				//Rayに当たったオブジェクトによって、動かすオブジェクとを変更する。
+				if (objectName == "ColorPicker") {
+					ban = true;
+					return;
+				}
+			}
+
+
 			Vector3 startPos = touchPos;//一番最初の座標は42行目での処理で、スクリーン座標を取得している
 			Vector3 endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//ボタンを押している間取得し続ける
 			endPos.z=0;//2Dなので、z軸の座標は常に0に設定する。
@@ -75,9 +115,9 @@ public class DrawLineController : MonoBehaviour
 			if((endPos-startPos).magnitude > lineLength){//最後のポジションから最初にクリックされたポジションの差が、指定した長さより長かったら処理
 				GameObject obj = Instantiate(linePrefab[changeColorNum], transform.position, transform.rotation) as GameObject;//線を作る3Dオブジェクトを作成
 				obj.transform.position = (startPos+endPos)/2;							
-				obj.transform.right = (endPos-startPos).normalized;
+				obj.transform.right = (endPos-startPos).normalized;//ベクトルを正規化
 
-				obj.transform.localScale = new Vector3( (endPos-startPos).magnitude, lineWidth , lineWidth );
+				obj.transform.localScale = new Vector3( (endPos-startPos).magnitude, lineWidth , lineWidth );//何かの子要素に作成するので、相対的なサイズ
 
 				summarize_ink_NoGravity.transform.parent = summarize_object.transform;//一個一個のオブジェクトを空のオブジェクトにまとめる。これでバラバラにならない。
 				obj.transform.parent = summarize_ink_NoGravity.transform;//線をまとめたオブジェクトをさらに空のオブジェクトにまとめる

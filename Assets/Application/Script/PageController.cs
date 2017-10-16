@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PageController : MonoBehaviour {
-	//画像変更処理関連
+	//全てのページ
 	Image image;//色を変更するための部分
 	// publicで宣言し、inspectorで設定可能にする
 	SpriteRenderer renderer;
-	public Sprite[] sprite;//使う物語の画像を使う
+	//使う物語をここにセットする
+	public Sprite[] useStory;//Unityエディタ側でsizeの部分であらかじめ数値を指定しないと配列のエラーがでる。
 
 	//色をランダムに指定(実験中はランダムに指定されるようにする。)
 	public Text specified_color_Label;
@@ -18,9 +19,10 @@ public class PageController : MonoBehaviour {
 
 	//ページ関連
 	private int page=0;//色を読み取るたびに、この変数の値を増加させる。ページ数をそのまま表示する。
+	public int story_page_number=0;//物語によってページ数が異なるので、StorySelectControllerで指定する。
 
 	void Start () {
-		image = GetComponent<Image> ();//コンポーネンチ取得
+		image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="red";//最初は赤色に指定
 		specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
 	}
@@ -28,13 +30,12 @@ public class PageController : MonoBehaviour {
 	void FixedUpdate () {
 		//Debug.Log (specified_color);//常に色の状態を確認する。
 	}
-
 	//赤のボタンが押された時の処理
 	public void RedButton(){
 		//指定されている色が赤だったら、次のページを表示する。
-		if(specified_color=="red" && page<8){//現在指定されている色が赤色だったら処理
+		if(specified_color=="red" && page<story_page_number){//現在指定されている色が赤色で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
-			image.sprite = sprite [page];//画像変更。
+			image.sprite = useStory [page];//imageに、物語1をセットしている。
 			Specified_Next_Color();//次の色をランダムに指定
 		}
 	}
@@ -42,27 +43,27 @@ public class PageController : MonoBehaviour {
 	//青が押された時のボタン
 	public void BlueButton(){
 		//指定されている色が青だったら次のページを表示する。
-		if (specified_color == "blue" && page<8) {//現在指定されている色が青色だったら処理
+		if (specified_color == "blue" && page<story_page_number) {//現在指定されている色が青色で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
-			image.sprite = sprite [page];//画像変更。
+			image.sprite = useStory [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
 		}
 	}
 
 	//黄色のボタンが押されたら処理
 	public void YellowButton(){
-		if (specified_color == "yellow" && page<8) {//現在指定されている色が黄色だったら処理
+		if (specified_color == "yellow" && page<story_page_number) {//現在指定されている色が黄色で、物語によって異なる最後のページ数に達して田舎たtら処理
 			page++;//ページ数を進める
-			image.sprite = sprite [page];//画像変更。
+			image.sprite = useStory [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
 		}
 	}
 
 	//白のボタンが押されたら処理
 	public void WhiteButton(){
-		if (specified_color == "white" && page<8) {//現在指定されている色が白だったら、処理
+		if (specified_color == "white" && page<story_page_number) {//現在指定されている色が白で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
-			image.sprite = sprite [page];//画像変更。
+			image.sprite = useStory [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
 		}
 	}

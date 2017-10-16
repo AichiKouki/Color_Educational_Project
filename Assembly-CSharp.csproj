@@ -74,6 +74,7 @@
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Unimgpicker.cs" />
      <Compile Include="Assets\Application\Script\ScreenShot.cs" />
      <Compile Include="Assets\Application\Script\SerialController.cs" />
+     <Compile Include="Assets\Application\Script\StorySelectController.cs" />
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
      <Compile Include="Assets\Uniduino\Scripts\Arduino.cs" />
      <Compile Include="Assets\Uniduino\Scripts\Arduino.Firmata.cs" />
