@@ -18,26 +18,39 @@ public class PageController : MonoBehaviour {
 	private bool finished=false;//指定される色を洗濯するたびにこのフラグが変更される
 
 	//ページ関連
-	private int page=0;//色を読み取るたびに、この変数の値を増加させる。ページ数をそのまま表示する。
+	public int page=0;//色を読み取るたびに、この変数の値を増加させる。ページ数をそのまま表示する。
 	public int story_page_number=0;//物語によってページ数が異なるので、StorySelectControllerで指定する。
 
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="red";//最初は赤色に指定
-		specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
 	}
 		
 	void FixedUpdate () {
 		//Debug.Log (specified_color);//常に色の状態を確認する。
+
 	}
+
+	//StorySelectControllerで物語を選んだら最初の色指定を表示する。
+	public void FirstColorDisplay(string storyName){
+		if (storyName == "sarukani") {
+			specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
+		} else if (storyName == "kasa") {
+			specified_color_Label.text = "「あお」をもってきてね";
+
+		} else if (storyName == "omusubi") {
+			specified_color_Label.text = "「きいろ」を持ってきてね";
+		}
+	}
+
 	//赤のボタンが押された時の処理
 	public void RedButton(){
 		//指定されている色が赤だったら、次のページを表示する。
-		if(specified_color=="red" && page<story_page_number){//現在指定されている色が赤色で、物語によって異なる最後のページ数に達していなかったら処理
+		if (specified_color == "red" && page < story_page_number) {//現在指定されている色が赤色で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
 			set_story_image.sprite = useStory [page];//imageに、物語1をセットしている。
-			Specified_Next_Color();//次の色をランダムに指定
-		}
+			Specified_Next_Color ();//次の色をランダムに指定
+		} 
 	}
 
 	//青が押された時のボタン
@@ -85,5 +98,9 @@ public class PageController : MonoBehaviour {
 			specified_color = "white";
 			specified_color_Label.text = "「しろ」をもってきてね";
 		}
+	}
+
+	//最後のページに行ったかどうかを判定
+	void FinishCheck(){
 	}
 }

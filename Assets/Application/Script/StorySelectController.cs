@@ -5,7 +5,7 @@ using UnityEngine;
 public class StorySelectController : MonoBehaviour {
 
 	[SerializeField]
-	PageController pageController;//ページコントローラーに、使う物語をセットする。
+	PageController pageController;//このスクリプトのImageの部分に画像をセットするために必要
 
 	//今回使う物語を扱う処理
 	[SerializeField]
@@ -37,31 +37,40 @@ public class StorySelectController : MonoBehaviour {
 	//猿カニ合戦の物語をセットする処理
 	public void SetSarukaniStory(){
 		Debug.Log("猿カニ合戦のボタンが押されました");
-		for(int i=0;i<8;i++){//ページが8枚の場合
+		for(int i=0;i<12;i++){//ページが8枚の場合
 			pageController.useStory[i]=story1[i];
-			pageController.story_page_number = 8;//猿カニ合戦でのページ数を8枚であることを知らせる
 			pageController.set_story_image.sprite=story1[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
-			story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
 		}
+		pageController.story_page_number = 12;//猿カニ合戦でのページ数を12枚であることを知らせる
+		pageController.page=0;//途中で物語を変更したら、進んでる分のページ数を0にリセットする。
+		pageController.FirstColorDisplay("sarukani");
+		story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
+
 	}
 
 	//笠地蔵の物語をセットいする処理
 	public void SetKasaStory(){
 		for(int i=0;i<1;i++){//ページが8枚の場合
 			pageController.useStory[i]=story2[i];
-			pageController.story_page_number = 1;//笠地蔵の物語のページ数が1枚であることを知らせる
 			pageController.set_story_image.sprite=story2[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
-			story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
 		}
+		pageController.story_page_number = 1;//笠地蔵の物語のページ数が1枚であることを知らせる
+		pageController.page=0;//途中で物語を変更したら、進んでる分のページ数を0にリセットする。
+		pageController.FirstColorDisplay("kasa");
+		story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
+
 	}
 
 	//おむすびころりんのもが足りをセットする処理
 	public void SetOmusubiStory(){
 		for(int i=0;i<1;i++){//ページが8枚の場合
 			pageController.useStory[i]=story3[i];
-			pageController.story_page_number = 1;//おむすびころりんのものがたrちのページ数が1枚であることを知らせる
 			pageController.set_story_image.sprite=story3[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
-			story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
 		}
+		pageController.story_page_number = 1;//おむすびころりんのものがたrちのページ数が1枚であることを知らせる
+		pageController.page=0;//途中で物語を変更したら、進んでる分のページ数を0にリセットする。
+		pageController.FirstColorDisplay("omusubi");
+		story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
+
 	}
 }
