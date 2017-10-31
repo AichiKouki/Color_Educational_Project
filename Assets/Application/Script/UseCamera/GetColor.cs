@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class GetColor : MonoBehaviour
 {
@@ -8,16 +11,21 @@ public class GetColor : MonoBehaviour
 	void Start()
 	{
 		tex = new Texture2D(1,1, TextureFormat.RGB24, false);
+		StartCoroutine ("OnPostRender");
 	}
 
 	void Update(){
 		Debug.Log (color);
 	}
 
-	void OnPostRender()
-	{
-		Vector2 pos = Input.mousePosition ;
-		tex.ReadPixels(new Rect(pos.x, pos.y, 1, 1), 0, 0);
-		color = tex.GetPixel(0,0);
+	IEnumerator OnPostRender(){
+		while (true) {
+			//レンダリングが完了するまで待つ
+			yield return new WaitForEndOfFrame();
+			Vector2 pos = Input.mousePosition ;
+			tex.ReadPixels(new Rect(pos.x, pos.y, 1, 1), 0, 0);
+			//tex.ReadPixels(new Rect(screenToWorldPointPosition.x, screenToWorldPointPosition.y, 1, 1), 0, 0);
+			color = tex.GetPixel(0,0);
+		}
 	}
 }
