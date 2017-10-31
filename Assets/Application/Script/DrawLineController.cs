@@ -16,7 +16,7 @@ public class DrawLineController : MonoBehaviour
 	public GameObject[] effectPre;//絵画する時に使うエフェクトをここに格納する。
 	GameObject effect;
 
-	//線を全体を格納する空のオブジェクト指定
+	//全ての線を格納する空のオブジェクト指定
 	public GameObject summarize_object;
 
 	//操作説明シーンで、線がかけたかどうか判定処理
@@ -40,19 +40,10 @@ public class DrawLineController : MonoBehaviour
 	public int changeColorNum=0;//インク自体の配列の添え字の部分
 	private int changeColorEffectNum=0;//線を描いた時のエフェクトの配列の添え字
 
-	//かけない範囲を作る処理関連
-	//線を描く範囲を制限する処理関連
-	//Rayを飛ばす
-	// 位置座標
-	private Vector3 position;
-	// スクリーン座標をワールド座標に変換した位置座標
-	private Vector3 screenToWorldPointPosition2;//消しゴム機能ですでにrayを使っているので、変数名が2になっている
-	// rayが届く範囲
-	public float distance2 = 100f;//消しゴム機能ですでにrayを使っているので、変数名が2になっている
-
-	//制限の範囲にマウスがあるかどうかのフラグ
-	private bool ban=false;
-
+	//描いた線を一つ前に戻す処理関連
+	private int summarize_ink_NoGravity_number=1;//線を作る一つ一つのオブジェクトをまとめる空オブジェクトを全て異なる名前にするため(描いた線を一つ前に戻す処理に必要)
+	private int delete_object_number;//描いた回数と線を作る一つ一つのオブジェクトをまとえる空のオブジェクトの名前の数値の部分を比較して一個前の線の状態を表現する処理に必要
+	GameObject recent_object;//最後に描いた線を格納する。
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -75,38 +66,14 @@ public class DrawLineController : MonoBehaviour
 			touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//UIの座標をワールド座標に変換して代入する
 			touchPos.z=0;//2Dなので、奥行きは無視する
 			summarize_ink_NoGravity = (GameObject)Instantiate (summarize_linePre,transform.position,Quaternion.identity);
+			summarize_ink_NoGravity.gameObject.name = "summarize_line" + summarize_ink_NoGravity_number;//線を作る一つ一つのオブジェクトをまとめる空オブジェクトを全て異なる名前にするため(描いた線を一つ前に戻す処理に必要)
 			summarize_ink_NoGravity.transform.parent=gameObject.transform;//インクをまとめるオブジェクトはこのスクリプトがアタッチされてるオブジェクトの子要素にする。
+			summarize_ink_NoGravity_number++;//線を作る一つ一つのオブジェクトをまとめる空のオブジェクトの名前を異なるようにするために数値の部分を加算する。
 		}
 
 		//線を絵画している最中の処理
 		if(Input.GetMouseButton(0))
 		{
-
-			//カラーピッカーなどの書いたはいけない部分ではかいができないようにする
-			//線を描ける範囲を制限するための処理
-			// クリックしたスクリーン座標をrayに変換
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);//カメラからマウスのポジションにRayを飛ばす
-			// Rayの当たったオブジェクトの情報を格納する
-			RaycastHit hit = new RaycastHit ();
-			// Vector3でマウス位置座標を取得する
-			position = Input.mousePosition;
-			// Z軸修正
-			position.z = 10f;
-			// マウス位置座標をスクリーン座標からワールド座標に変換する
-			screenToWorldPointPosition2 = Camera.main.ScreenToWorldPoint (position);
-
-			// オブジェクトにrayが当たった時
-			if (Physics.Raycast (ray, out hit, distance2)) {
-				// rayが当たったオブジェクトの名前を取得
-				string objectName = hit.collider.gameObject.name;//Collider2Dだと反応しないので、2Dゲームの場合は2Dオブジェクトでも3Dのようにこライダーを使う
-				//Debug.Log(objectName);
-				//Rayに当たったオブジェクトによって、動かすオブジェクとを変更する。
-				if (objectName == "ColorPicker") {
-					ban = true;
-					return;
-				}
-			}
-
 
 			Vector3 startPos = touchPos;//一番最初の座標は42行目での処理で、スクリーン座標を取得している
 			Vector3 endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//ボタンを押している間取得し続ける
@@ -176,6 +143,15 @@ public class DrawLineController : MonoBehaviour
 	public void EraserButton(){
 		selected_feature = "eraser";
 		eraser.SetActive (true);//消しゴムを使う機能を選択したら、消しゴムを表示する。
+	}
+
+	//一つ前に戻る処理のボタン
+	public void Back_before_one(){
+		delete_object_number = summarize_ink_NoGravity_number - 1;
+		Debug.Log ("オブジェクトの数値の部分は"+delete_object_number);
+		recent_object = GameObject.Find ("summarize_line" + summarize_ink_NoGravity_number);
+		Destroy (recent_object);
+		summarize_ink_NoGravity_number--;//線のオブジェクトを削除したら名前の数値の部分も減らす
 	}
 
 }

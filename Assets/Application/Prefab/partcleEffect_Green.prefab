@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114472683424528708}
   m_Layer: 0
   m_Name: partcleEffect_Green
-  m_TagString: Untagged
+  m_TagString: drawEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021361981417522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5a65a55f1694e1399574b627c30593, type: 3}
+  m_Script: {fileID: 11500000, guid: 47228dcca53194e40a98401ab627e0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198626345628759686
