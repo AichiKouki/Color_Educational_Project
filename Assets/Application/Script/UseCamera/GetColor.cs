@@ -15,7 +15,7 @@ public class GetColor : MonoBehaviour
 	}
 
 	void Update(){
-		Debug.Log (color);
+		//Debug.Log (color);
 	}
 
 	IEnumerator OnPostRender(){
@@ -23,9 +23,11 @@ public class GetColor : MonoBehaviour
 			//レンダリングが完了するまで待つ
 			yield return new WaitForEndOfFrame();
 			Vector2 pos = Input.mousePosition ;
-			tex.ReadPixels(new Rect(pos.x, pos.y, 1, 1), 0, 0);
+			//tex.ReadPixels(new Rect(pos.x, pos.y, 1, 1), 0, 0);
+			tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//(670,377)がiPhone 6Sの真ん中の座標となる
 			//tex.ReadPixels(new Rect(screenToWorldPointPosition.x, screenToWorldPointPosition.y, 1, 1), 0, 0);
 			color = tex.GetPixel(0,0);
+			Debug.Log (pos);
 		}
 	}
 }

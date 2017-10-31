@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading;
 using System;
-using System.IO.Ports;
+//using System.IO.Ports;
 using UnityEngine;
 using UniRx;//UniRxを使うために、これを追加している
 
 public class SerialController : MonoBehaviour {
-
+	/*
 	public string portName;
 	public int baurate;
 
@@ -58,4 +58,5 @@ public class SerialController : MonoBehaviour {
 		this.isLoop = false;
 		this.serial.Close ();//シリアルポートを閉じる
 	}
+	*/
 }
