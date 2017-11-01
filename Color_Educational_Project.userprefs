@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Application/Script/DrawLineController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Application/Script/UseCamera/GetColor.cs">
     <Files>
-      <File FileName="Assets/Application/Script/DrawLineController.cs" Line="42" Column="1" />
-      <File FileName="Assets/Application/Script/Location_sync_Controller.cs" Line="69" Column="7" />
-      <File FileName="Assets/Application/Script/Coloring_illustration_Controller.cs" Line="30" Column="3" />
-      <File FileName="Assets/Application/Script/FillScreenController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Application/Script/MenuSceneController.cs" Line="31" Column="44" />
+      <File FileName="Assets/Application/Script/UseCamera/GetColor.cs" Line="38" Column="21" />
+      <File FileName="Assets/Application/Script/UseCamera/CameraController.cs" Line="19" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
