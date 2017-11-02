@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 //Texture2D.ReadPixelsで画面のピクセルが取得できるので、その１ドットだけ取得して色を抽出している。
 public class GetColor : MonoBehaviour
 {
@@ -20,17 +21,21 @@ public class GetColor : MonoBehaviour
 	private string color_code="";//カラーコード
 	private string color_name="";//色の名前
 
+	//シーンによって読み取る座標を変更するため
+	string sceneName;
+
 	void Start()
 	{
 		tex = new Texture2D(1,1, TextureFormat.RGB24, false);
 		StartCoroutine ("OnPostRender");
+		sceneName = SceneManager.GetActiveScene ().name;
 	}
 
 	void Update(){
 		//インスペクタからの場合RGBの最高値は255だが、スクリプトの場合最高値が1である。だから、スクリプトから取得する場合255かける必要がある。
 		testImage.color = new Color(color.r*255/255,color.g*255/255,color.b*255/255,255/255);
 		Distinction_Color ();
-		Debug.Log ("R="+color.r*255+"G="+color.g*255+"G="+color.b*255);
+		//Debug.Log ("R="+color.r*255+"G="+color.g*255+"G="+color.b*255);
 	}
 
 	//指定した座標に位置する色情報を取得
@@ -40,10 +45,11 @@ public class GetColor : MonoBehaviour
 			yield return new WaitForEndOfFrame();//これをしないとエラーがでる
 			Vector2 pos = Input.mousePosition ;
 			//tex.ReadPixels(new Rect(pos.x, pos.y, 1, 1), 0, 0);
-			tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//(670,377)がiPhone 6Sの真ん中の座標となる
+			if(sceneName=="Use_SumahoCamera") tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//(670,377)がiPhone 6Sの真ん中の座標となる
+			else if(sceneName=="StoryScene") tex.ReadPixels(new Rect(200, 650, 1, 1), 0, 0);//(670,377)が左上に画面を表示した時の真ん中となる
 			//tex.ReadPixels(new Rect(screenToWorldPointPosition.x, screenToWorldPointPosition.y, 1, 1), 0, 0);
 			color = tex.GetPixel(0,0);//画面のピクセルを取得したのでその1ビットだけ取得して色を抽出した
-			//Debug.Log (pos);
+			Debug.Log (pos);
 		}
 	}
 
