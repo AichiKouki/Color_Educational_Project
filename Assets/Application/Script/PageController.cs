@@ -21,6 +21,12 @@ public class PageController : MonoBehaviour {
 	public int page=0;//色を読み取るたびに、この変数の値を増加させる。ページ数をそのまま表示する。
 	public int story_page_number=0;//物語によってページ数が異なるので、StorySelectControllerで指定する。
 
+	//色を取得した時の処理関連
+	[SerializeField]
+	GetColor getColor;//GetColorスクリプトから読み取っている色を取得
+	private bool colors_reading_start=false;
+	private float time_read_color=0;//色を読み取る時間
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="red";//最初は赤色に指定
@@ -28,7 +34,19 @@ public class PageController : MonoBehaviour {
 		
 	void FixedUpdate () {
 		//Debug.Log (specified_color);//常に色の状態を確認する。
+		if(colors_reading_start==true) ReadColor();
+	}
 
+	//色を読み取る処理。読み取りボタンが押されたら開始
+	public void ReadColor(){
+		colors_reading_start = true;
+		time_read_color += Time.deltaTime;
+		if (time_read_color > 2) {
+			Debug.Log ("読み取り完了");
+			time_read_color=0;
+			colors_reading_start = false;
+		}
+		Debug.Log ("読み取り中");
 	}
 
 	//StorySelectControllerで物語を選んだら最初の色指定を表示する。
