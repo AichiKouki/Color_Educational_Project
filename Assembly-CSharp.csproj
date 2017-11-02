@@ -78,10 +78,19 @@
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\CameraController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\GetColor.cs" />
+     <Compile Include="Assets\Unimgpicker\Samples\PickerController.cs" />
+     <Compile Include="Assets\Unimgpicker\Samples\Rotator.cs" />
+     <Compile Include="Assets\Unimgpicker\Scripts\IPicker.cs" />
+     <Compile Include="Assets\Unimgpicker\Scripts\Picker_editor.cs" />
+     <Compile Include="Assets\Unimgpicker\Scripts\PickerAndroid.cs" />
+     <Compile Include="Assets\Unimgpicker\Scripts\PickeriOS.cs" />
+     <Compile Include="Assets\Unimgpicker\Scripts\PickerUnsupported.cs" />
+     <Compile Include="Assets\Unimgpicker\Scripts\Unimgpicker.cs" />
      <None Include="Assets\Editor\NSPhotoLibraryUsageDescription.txt" />
      <None Include="Assets\Font\readme.txt" />
      <None Include="Assets\Plugins\Android\Unimgpicker\AndroidManifest.xml" />
      <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
+     <None Include="Assets\Unimgpicker\Editor\NSPhotoLibraryUsageDescription.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

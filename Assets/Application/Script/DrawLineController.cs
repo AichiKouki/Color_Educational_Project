@@ -43,7 +43,8 @@ public class DrawLineController : MonoBehaviour
 	//描いた線を一つ前に戻す処理関連
 	private int summarize_ink_NoGravity_number=1;//線を作る一つ一つのオブジェクトをまとめる空オブジェクトを全て異なる名前にするため(描いた線を一つ前に戻す処理に必要)
 	private int delete_object_number;//描いた回数と線を作る一つ一つのオブジェクトをまとえる空のオブジェクトの名前の数値の部分を比較して一個前の線の状態を表現する処理に必要
-	GameObject recent_object;//最後に描いた線を格納する。
+	GameObject recent_object_pre;//最後に描いた線たちをまとめるオブジェクト(親)
+	GameObject recent_object;//最後に書いた線を格納する
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -56,6 +57,9 @@ public class DrawLineController : MonoBehaviour
 			drawLine ();//線を絵画する処理
 		else if (selected_feature == "eraser")
 			Eraser ();//消しゴム機能を担う処理
+		//Debug.Log("線に名前をつけた時の番号は"+summarize_ink_NoGravity_number);//線に名前をつけた時の番号を表示
+		//Debug.Log("削除する線の名前の番号は"+delete_object_number);//削除する線の番号を表示する
+		Debug.Log("summarize_line" + (summarize_ink_NoGravity_number-1));
 	}
 
 	//会がスタートから終了までの処理全般
@@ -149,7 +153,8 @@ public class DrawLineController : MonoBehaviour
 	public void Back_before_one(){
 		delete_object_number = summarize_ink_NoGravity_number - 1;
 		Debug.Log ("オブジェクトの数値の部分は"+delete_object_number);
-		recent_object = GameObject.Find ("summarize_line" + summarize_ink_NoGravity_number);
+		recent_object_pre = GameObject.Find ("summarize_object");//線をまとめるオブジェクトを取得(親)
+		recent_object=recent_object_pre.transform.Find("summarize_line" + (summarize_ink_NoGravity_number-1)).gameObject;//上の線をまとめるオブジェクトの中に線があるので、子要素を取得
 		Destroy (recent_object);
 		summarize_ink_NoGravity_number--;//線のオブジェクトを削除したら名前の数値の部分も減らす
 	}
