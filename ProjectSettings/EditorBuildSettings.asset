@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 88c0fc96d94084dc692866420c9098f0
+  - enabled: 1
+    path: Assets/Application/Scenes/Use_SumahoCamera.unity
+    guid: f35d3bebaff384358917250c83f4c4b0

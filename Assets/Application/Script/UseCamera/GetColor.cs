@@ -30,6 +30,7 @@ public class GetColor : MonoBehaviour
 		//インスペクタからの場合RGBの最高値は255だが、スクリプトの場合最高値が1である。だから、スクリプトから取得する場合255かける必要がある。
 		testImage.color = new Color(color.r*255/255,color.g*255/255,color.b*255/255,255/255);
 		Distinction_Color ();
+		Debug.Log ("R="+color.r*255+"G="+color.g*255+"G="+color.b*255);
 	}
 
 	//指定した座標に位置する色情報を取得
@@ -185,7 +186,7 @@ public class GetColor : MonoBehaviour
 			// 12-1,12-2 B:12.5 ~ 4.6
 			else if(b/r*16 > 4.5 && b/r*16 <= 12.5){
 				color_code = "#ff007f";
-				//color_name = "あかむらさき";
+				//color_name = "あかむらさき";//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 				color_name="もも";
 				//Debug.Log("赤紫");
 				Debug.Log("もも");
