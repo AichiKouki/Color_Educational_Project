@@ -19,7 +19,7 @@ public class GetColor : MonoBehaviour
 	private float g;
 	private float b;
 	private string color_code="";//カラーコード
-	private string color_name="";//色の名前
+	public string color_name="";//色の名前。PageControllerからアクセスされる。
 
 	//シーンによって読み取る座標を変更するため
 	string sceneName;

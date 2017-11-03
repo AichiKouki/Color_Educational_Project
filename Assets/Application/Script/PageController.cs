@@ -29,7 +29,7 @@ public class PageController : MonoBehaviour {
 
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
-		specified_color="red";//最初は赤色に指定
+		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 	}
 		
 	void FixedUpdate () {
@@ -41,10 +41,36 @@ public class PageController : MonoBehaviour {
 	public void ReadColor(){
 		colors_reading_start = true;
 		time_read_color += Time.deltaTime;
-		if (time_read_color > 2) {
+		if (time_read_color > 2) {//2秒間読み取り中と表示するための演出処理
 			Debug.Log ("読み取り完了");
 			time_read_color=0;
-			colors_reading_start = false;
+			colors_reading_start = false;//一度だけ処理するためのもの
+			if (getColor.color_name == "あか")
+				SetColor ("red");
+			else if (getColor.color_name == "黄色")
+				SetColor ("yellow");
+			else if (getColor.color_name == "緑")
+				SetColor ("green");
+			else if (getColor.color_name == "シアン")
+				SetColor ("cyan");
+			else if (getColor.color_name == "青")
+				SetColor ("blue");
+			else if (getColor.color_name == "もも")
+				SetColor ("pink");
+			else if (getColor.color_name == "オレンジ")
+				SetColor ("orange");
+			else if (getColor.color_name == "黄緑")
+				SetColor ("yellow_green");
+			else if (getColor.color_name == "青緑")
+				SetColor ("blue_green");
+			else if (getColor.color_name == "水色")
+				SetColor ("light_blue");
+			else if (getColor.color_name == "紫")
+				SetColor ("purple");
+			else if (getColor.color_name == "赤紫")
+				SetColor ("red_purple");
+			else if (getColor.color_name == "モノトーン")
+				SetColor ("monotone");
 		}
 		Debug.Log ("読み取り中");
 	}
@@ -52,7 +78,7 @@ public class PageController : MonoBehaviour {
 	//StorySelectControllerで物語を選んだら最初の色指定を表示する。
 	public void FirstColorDisplay(string storyName){
 		if (storyName == "sarukani") {
-			specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
+			specified_color_Label.text = "「オレンジ」をもってきてね";//デフォルトの値●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 		} else if (storyName == "kasa") {
 			specified_color_Label.text = "「あお」をもってきてね";
 
@@ -61,8 +87,22 @@ public class PageController : MonoBehaviour {
 		}
 	}
 
+	//12色⇨赤、黄色、緑、シアン、青、もも、オレンジ、黄緑、青緑、水色、紫、赤紫、モノトーン
+	//現在書いている色⇨赤、青、黄色、白
+	//現在たりていない色⇨緑、シアン、もも、オレンジ、黄緑、青緑、水色、紫、赤紫、モノトーン
+
+	//ここの巻数だけで、読み取った色を指定されている色を比較して正しいかったら次のページに進む処理をする。
+	void SetColor(string get_color_name){
+		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
+		if (get_color_name == specified_color) {
+			page++;
+			set_story_image.sprite=useStory[page];
+			Specified_Next_Color ();//次の色をランダムに指定
+		}
+	}
+
 	//赤のボタンが押された時の処理
-	public void RedButton(){
+	public void SelectRed(){
 		//指定されている色が赤だったら、次のページを表示する。
 		if (specified_color == "red" && page < story_page_number) {//現在指定されている色が赤色で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
@@ -72,7 +112,7 @@ public class PageController : MonoBehaviour {
 	}
 
 	//青が押された時のボタン
-	public void BlueButton(){
+	public void SelectBlue(){
 		//指定されている色が青だったら次のページを表示する。
 		if (specified_color == "blue" && page<story_page_number) {//現在指定されている色が青色で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
@@ -82,8 +122,8 @@ public class PageController : MonoBehaviour {
 	}
 
 	//黄色のボタンが押されたら処理
-	public void YellowButton(){
-		if (specified_color == "yellow" && page<story_page_number) {//現在指定されている色が黄色で、物語によって異なる最後のページ数に達して田舎たtら処理
+	public void SelectYellow(){
+		if (specified_color == "yellow" && page<story_page_number) {//現在指定されている色が黄色で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
 			set_story_image.sprite = useStory [page];//画像変更。
 			Specified_Next_Color();//次の色をランダムに指定
@@ -91,7 +131,7 @@ public class PageController : MonoBehaviour {
 	}
 
 	//白のボタンが押されたら処理
-	public void WhiteButton(){
+	public void SelectWhite(){
 		if (specified_color == "white" && page<story_page_number) {//現在指定されている色が白で、物語によって異なる最後のページ数に達していなかったら処理
 			page++;//ページ数を進める
 			set_story_image.sprite = useStory [page];//画像変更。
@@ -103,6 +143,7 @@ public class PageController : MonoBehaviour {
 	void Specified_Next_Color(){
 		//テスト用。ランダムに色を指定する。本番では、実際の物語を使って色を決めるので、ランダムにはしないで、固定にする。
 		ran = Random.Range (0, 4);
+		ran = 4;//デバッグ用
 		if (ran == 0) {
 			specified_color = "red";//指定する色を変更
 			specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
@@ -115,6 +156,9 @@ public class PageController : MonoBehaviour {
 		} else if (ran == 3) {
 			specified_color = "white";
 			specified_color_Label.text = "「しろ」をもってきてね";
+		} else if (ran == 4) {
+			specified_color = "orange";
+			specified_color_Label.text = "「オレンジ」をもってきてね";
 		}
 	}
 

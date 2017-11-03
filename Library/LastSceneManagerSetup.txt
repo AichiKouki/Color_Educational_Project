@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Application/Scenes/Use_SumahoCamera.unity
+- path: Assets/Application/Scenes/StoryScene.unity
   isLoaded: 1
   isActive: 1
