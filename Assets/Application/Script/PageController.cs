@@ -100,44 +100,7 @@ public class PageController : MonoBehaviour {
 			Specified_Next_Color ();//次の色をランダムに指定
 		}
 	}
-
-	//赤のボタンが押された時の処理
-	public void SelectRed(){
-		//指定されている色が赤だったら、次のページを表示する。
-		if (specified_color == "red" && page < story_page_number) {//現在指定されている色が赤色で、物語によって異なる最後のページ数に達していなかったら処理
-			page++;//ページ数を進める
-			set_story_image.sprite = useStory [page];//imageに、物語1をセットしている。
-			Specified_Next_Color ();//次の色をランダムに指定
-		} 
-	}
-
-	//青が押された時のボタン
-	public void SelectBlue(){
-		//指定されている色が青だったら次のページを表示する。
-		if (specified_color == "blue" && page<story_page_number) {//現在指定されている色が青色で、物語によって異なる最後のページ数に達していなかったら処理
-			page++;//ページ数を進める
-			set_story_image.sprite = useStory [page];//画像変更。
-			Specified_Next_Color();//次の色をランダムに指定
-		}
-	}
-
-	//黄色のボタンが押されたら処理
-	public void SelectYellow(){
-		if (specified_color == "yellow" && page<story_page_number) {//現在指定されている色が黄色で、物語によって異なる最後のページ数に達していなかったら処理
-			page++;//ページ数を進める
-			set_story_image.sprite = useStory [page];//画像変更。
-			Specified_Next_Color();//次の色をランダムに指定
-		}
-	}
-
-	//白のボタンが押されたら処理
-	public void SelectWhite(){
-		if (specified_color == "white" && page<story_page_number) {//現在指定されている色が白で、物語によって異なる最後のページ数に達していなかったら処理
-			page++;//ページ数を進める
-			set_story_image.sprite = useStory [page];//画像変更。
-			Specified_Next_Color();//次の色をランダムに指定
-		}
-	}
+		
 
 	//次の色を指定する処理をまとめている。実際にはランダムにはしない。指定された色を読み取れた場合にこの関数が呼ばれる
 	void Specified_Next_Color(){
