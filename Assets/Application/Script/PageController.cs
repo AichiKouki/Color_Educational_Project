@@ -38,6 +38,14 @@ public class PageController : MonoBehaviour {
 	[SerializeField]
 	AudioClip[] se;
 
+	//読み取り中の処理関連
+	[SerializeField]
+	GameObject loading_movie;
+	[SerializeField]
+	GameObject readButton;//読み取り中の時は、読み取り開始ボタンが邪魔になるので
+	[SerializeField]
+	GameObject camera_boot;//読み取り中の時は、カメラ起動ボタンが邪魔になるので
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -53,8 +61,14 @@ public class PageController : MonoBehaviour {
 	public void ReadColor(){
 		colors_reading_start = true;
 		time_read_color += Time.deltaTime;
+		loading_movie.SetActive (true);
+		readButton.SetActive (false);
+		camera_boot.SetActive (false);
 		if (time_read_color > 2) {//2秒間読み取り中と表示するための演出処理
 			Debug.Log ("読み取り完了");
+			loading_movie.SetActive (false);
+			readButton.SetActive (true);
+			camera_boot.SetActive (true);
 			time_read_color=0;
 			colors_reading_start = false;//一度だけ処理するためのもの
 			if (getColor.color_name == "あか")
