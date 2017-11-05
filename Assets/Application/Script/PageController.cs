@@ -33,9 +33,15 @@ public class PageController : MonoBehaviour {
 	[SerializeField]
 	StorySelectController storySelectController;
 
+	//音声関連
+	AudioSource aud;
+	[SerializeField]
+	AudioClip[] se;
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+		aud=GetComponent<AudioSource>();
 	}
 		
 	void FixedUpdate () {
@@ -97,15 +103,19 @@ public class PageController : MonoBehaviour {
 	//現在書いている色⇨赤、青、黄色、白
 	//現在たりていない色⇨緑、シアン、もも、オレンジ、黄緑、青緑、水色、紫、赤紫、モノトーン
 
-	//ここの巻数だけで、読み取った色を指定されている色を比較して正しいかったら次のページに進む処理をする。
+	//ここの関数だけで、読み取った色を指定されている色を比較して正しいかったら次のページに進む処理をする。
 	void SetColor(string get_color_name){
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
-		if (get_color_name == specified_color) {
+		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
 			storySelectController.story1_gameObject [page].SetActive (false);
 			page++;
 			storySelectController.story1_gameObject [page].SetActive (true);
-			set_story_image.sprite=useStory[page];
+			set_story_image.sprite = useStory [page];
 			Specified_Next_Color ();//次の色をランダムに指定
+			aud.PlayOneShot(se[0]);
+			storySelectController.GetColorPanel.SetActive (false);
+		} else {//間違った色を読み取った場合
+			aud.PlayOneShot(se[1]);
 		}
 	}
 		

@@ -10,8 +10,7 @@ public class StorySelectController : MonoBehaviour {
 	//今回使う物語を扱う処理
 	[SerializeField]
 	GameObject story_select_panel;//物語を選択しても、選択パネルが表示されたママでは邪魔であるので、物語を選択したらパネルは非表示にする。
-	[SerializeField]
-	GameObject GetColorPanel;
+	public GameObject GetColorPanel;
 	[SerializeField]
 	Sprite[] story1;//使う物語の画像一つ目
 	[SerializeField]
