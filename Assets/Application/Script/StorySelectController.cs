@@ -18,6 +18,7 @@ public class StorySelectController : MonoBehaviour {
 	Sprite[] story2;//使う物語の画像二つ目
 	[SerializeField]
 	Sprite[] story3;//使う物語の画像三つ目
+	public GameObject[] story1_gameObject;
 
 
 	// Use this for initialization
@@ -47,6 +48,8 @@ public class StorySelectController : MonoBehaviour {
 		pageController.page=0;//途中で物語を変更したら、進んでる分のページ数を0にリセットする。
 		pageController.FirstColorDisplay("sarukani");
 		story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
+
+		story1_gameObject [0].SetActive (true);
 
 	}
 

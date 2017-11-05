@@ -10,6 +10,8 @@ public class PageController : MonoBehaviour {
 	SpriteRenderer renderer;
 	//使う物語をここにセットする
 	public Sprite[] useStory;//Unityエディタ側でsizeの部分であらかじめ数値を指定しないと配列のエラーがでる。
+	//アニメーションのあるキャラクターをまとめたページ
+	public GameObject[] use_story_gameObject;
 
 	//色をランダムに指定(実験中はランダムに指定されるようにする。)
 	public Text specified_color_Label;
@@ -26,6 +28,10 @@ public class PageController : MonoBehaviour {
 	GetColor getColor;//GetColorスクリプトから読み取っている色を取得
 	private bool colors_reading_start=false;
 	private float time_read_color=0;//色を読み取る時間
+
+	//アニメーションつきのキャラをまとめたページを処理するため
+	[SerializeField]
+	StorySelectController storySelectController;
 
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
@@ -95,7 +101,9 @@ public class PageController : MonoBehaviour {
 	void SetColor(string get_color_name){
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {
+			storySelectController.story1_gameObject [page].SetActive (false);
 			page++;
+			storySelectController.story1_gameObject [page].SetActive (true);
 			set_story_image.sprite=useStory[page];
 			Specified_Next_Color ();//次の色をランダムに指定
 		}
