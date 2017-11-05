@@ -46,6 +46,11 @@ public class PageController : MonoBehaviour {
 	[SerializeField]
 	GameObject camera_boot;//読み取り中の時は、カメラ起動ボタンが邪魔になるので
 
+	//1ページ目でカニの色を決定する
+	[SerializeField]
+	SpriteRenderer[] spriteRenderer_crab;
+	private bool determining_color_once = false;
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -71,29 +76,30 @@ public class PageController : MonoBehaviour {
 			camera_boot.SetActive (true);
 			time_read_color=0;
 			colors_reading_start = false;//一度だけ処理するためのもの
+			if (determining_color_once == false) Determining_color_of_crab ();//最初にカニの色を決定する。(一度だけ処理)
 			if (getColor.color_name == "あか")
 				SetColor ("red");
-			else if (getColor.color_name == "黄色")
+			else if (getColor.color_name == "きいろ")
 				SetColor ("yellow");
-			else if (getColor.color_name == "緑")
+			else if (getColor.color_name == "みどり")
 				SetColor ("green");
 			else if (getColor.color_name == "シアン")
 				SetColor ("cyan");
-			else if (getColor.color_name == "青")
+			else if (getColor.color_name == "あお")
 				SetColor ("blue");
 			else if (getColor.color_name == "もも")
 				SetColor ("pink");
 			else if (getColor.color_name == "オレンジ")
 				SetColor ("orange");
-			else if (getColor.color_name == "黄緑")
+			else if (getColor.color_name == "きみどり")
 				SetColor ("yellow_green");
-			else if (getColor.color_name == "青緑")
+			else if (getColor.color_name == "あおみどり")
 				SetColor ("blue_green");
-			else if (getColor.color_name == "水色")
+			else if (getColor.color_name == "みずいろ")
 				SetColor ("light_blue");
-			else if (getColor.color_name == "紫")
+			else if (getColor.color_name == "むらさき")
 				SetColor ("purple");
-			else if (getColor.color_name == "赤紫")
+			else if (getColor.color_name == "あかむらさき")
 				SetColor ("red_purple");
 			else if (getColor.color_name == "モノトーン")
 				SetColor ("monotone");
@@ -130,6 +136,7 @@ public class PageController : MonoBehaviour {
 			storySelectController.GetColorPanel.SetActive (false);
 		} else {//間違った色を読み取った場合
 			aud.PlayOneShot(se[1]);
+			Debug.Log ("間違った");
 		}
 	}
 		
@@ -154,6 +161,14 @@ public class PageController : MonoBehaviour {
 		} else if (ran == 4) {
 			specified_color = "orange";
 			specified_color_Label.text = "「オレンジ」をもってきてね";
+		}
+	}
+
+	//1ページ目でカニの色を決定する。(処理は一度だけ)
+	void Determining_color_of_crab(){
+		determining_color_once = true;
+		for(int i=0;i<spriteRenderer_crab.Length;i++){//使うカニの数だけ繰り返す
+			spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);
 		}
 	}
 
