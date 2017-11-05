@@ -119,9 +119,10 @@ GameObject:
   - component: {fileID: 74975180}
   - component: {fileID: 74975179}
   - component: {fileID: 74975182}
+  - component: {fileID: 74975183}
   m_Layer: 0
   m_Name: crab_walk2
-  m_TagString: Untagged
+  m_TagString: crab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,12 +205,28 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 74975178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e23f75f66fec4ad18d485462eca6f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  move1: 1
   animator: {fileID: 74975179}
+--- !u!114 &74975183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74975178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 1
+  move1_saru: 1
+  animator_crab: {fileID: 74975179}
+  animator_saru: {fileID: 1076338136}
 --- !u!1 &288382881
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,9 +267,11 @@ GameObject:
   - component: {fileID: 1076338133}
   - component: {fileID: 1076338132}
   - component: {fileID: 1076338134}
+  - component: {fileID: 1076338136}
+  - component: {fileID: 1076338135}
   m_Layer: 0
   m_Name: saru6
-  m_TagString: Untagged
+  m_TagString: saru
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,11 +337,44 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076338131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ccdc2e3a47af48919a6f210b088d379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  move1: 1
+--- !u!114 &1076338135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1076338131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 1
+  move1_saru: 1
+  animator_crab: {fileID: 74975179}
+  animator_saru: {fileID: 1076338136}
+--- !u!95 &1076338136
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1076338131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2087661562
 GameObject:
   m_ObjectHideFlags: 0

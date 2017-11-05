@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Application\Script\AlbumSceneController.cs" />
      <Compile Include="Assets\Application\Script\ChangeColorController.cs" />
+     <Compile Include="Assets\Application\Script\CharacterMove\CharacterMoveController.cs" />
      <Compile Include="Assets\Application\Script\CharacterMove\CrabController.cs" />
      <Compile Include="Assets\Application\Script\CharacterMove\SaruController.cs" />
      <Compile Include="Assets\Application\Script\Coloring_illustration_Controller.cs" />
