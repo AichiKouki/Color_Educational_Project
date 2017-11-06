@@ -46,6 +46,10 @@ public class DrawLineController : MonoBehaviour
 	GameObject recent_object_pre;//最後に描いた線たちをまとめるオブジェクト(親)
 	GameObject recent_object;//最後に書いた線を格納する
 
+	//線を全て削除する処理に必要なもの
+	[SerializeField]
+	Transform summarize_object_parent;
+
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
 		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。
@@ -157,6 +161,14 @@ public class DrawLineController : MonoBehaviour
 		recent_object=recent_object_pre.transform.Find("summarize_line" + (summarize_ink_NoGravity_number-1)).gameObject;//上の線をまとめるオブジェクトの中に線があるので、子要素を取得
 		Destroy (recent_object);
 		summarize_ink_NoGravity_number--;//線のオブジェクトを削除したら名前の数値の部分も減らす
+	}
+
+	//シーン再読み込みではなく、線をまとめるオブジェクトの子要素を全て削除して、線を全て削除する方法をとる
+	public void Line_all_deletion(){
+		foreach ( Transform n in summarize_object_parent.transform )
+		{
+			GameObject.Destroy(n.gameObject);
+		}
 	}
 
 }
