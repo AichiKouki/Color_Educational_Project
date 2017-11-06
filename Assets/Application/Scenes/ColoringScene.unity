@@ -216,7 +216,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 94b82e80b68084df3a5746caabb61b8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f6e6bbbb1b5e43c19cb244d781de469, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -243,9 +243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1387631985}
   sprite:
-  - {fileID: 21300000, guid: c121bd42044164ce9be9ea2e7054751e, type: 3}
-  - {fileID: 21300000, guid: 3473a51e34aef41fe968af99ef6f4175, type: 3}
-  - {fileID: 21300000, guid: 94b82e80b68084df3a5746caabb61b8e, type: 3}
+  - {fileID: 21300000, guid: d358b0cd6e049493e94173ebcc42dbe6, type: 3}
+  - {fileID: 21300000, guid: 5d54b5501e60545a2b744324bf4f04b1, type: 3}
+  - {fileID: 21300000, guid: 1f6e6bbbb1b5e43c19cb244d781de469, type: 3}
   illustPanel: {fileID: 1145418090}
 --- !u!1 &28176795
 GameObject:
@@ -1976,7 +1976,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c121bd42044164ce9be9ea2e7054751e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d358b0cd6e049493e94173ebcc42dbe6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2003,9 +2003,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1387631985}
   sprite:
-  - {fileID: 21300000, guid: c121bd42044164ce9be9ea2e7054751e, type: 3}
-  - {fileID: 21300000, guid: 3473a51e34aef41fe968af99ef6f4175, type: 3}
-  - {fileID: 21300000, guid: 94b82e80b68084df3a5746caabb61b8e, type: 3}
+  - {fileID: 21300000, guid: d358b0cd6e049493e94173ebcc42dbe6, type: 3}
+  - {fileID: 21300000, guid: 5d54b5501e60545a2b744324bf4f04b1, type: 3}
+  - {fileID: 21300000, guid: 1f6e6bbbb1b5e43c19cb244d781de469, type: 3}
   illustPanel: {fileID: 1145418090}
 --- !u!1 &1145418090
 GameObject:
@@ -4129,7 +4129,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3473a51e34aef41fe968af99ef6f4175, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d54b5501e60545a2b744324bf4f04b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4156,7 +4156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1387631985}
   sprite:
-  - {fileID: 21300000, guid: c121bd42044164ce9be9ea2e7054751e, type: 3}
-  - {fileID: 21300000, guid: 3473a51e34aef41fe968af99ef6f4175, type: 3}
-  - {fileID: 21300000, guid: 94b82e80b68084df3a5746caabb61b8e, type: 3}
+  - {fileID: 21300000, guid: d358b0cd6e049493e94173ebcc42dbe6, type: 3}
+  - {fileID: 21300000, guid: 5d54b5501e60545a2b744324bf4f04b1, type: 3}
+  - {fileID: 21300000, guid: 1f6e6bbbb1b5e43c19cb244d781de469, type: 3}
   illustPanel: {fileID: 1145418090}
