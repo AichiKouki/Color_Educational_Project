@@ -16,7 +16,7 @@ public class CharacterColorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		spriteRenderer.color = new Color ();
+		//spriteRenderer.color = new Color ();
 	}
 
 }

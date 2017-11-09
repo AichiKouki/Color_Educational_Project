@@ -29,7 +29,7 @@ public class TitleSceneController : MonoBehaviour {
 	void FixedUpdate () {
 		Screen_tap_and_game_start ();//画面をタップしたかどうかを調べる処理
 		Fade_in_Fade_out_Label ();//画面をタップしてくださいラベルを点滅させる処理
-		FadeOut ();//画面をタップしたら、画面全体フェードアウトさせ、セレクトシーンに背にさせる処理
+		if (is_fade_out == true) FadeOut ();//画面をタップしたら、画面全体フェードアウトさせ、セレクトシーンに背にさせる処理
 	}
 
 	//スクリーンをタップしてゲームスタート
@@ -55,14 +55,12 @@ public class TitleSceneController : MonoBehaviour {
 
 	//全体をフェードアウトして次のシーンに遷移する処理
 	void FadeOut(){
-		if (is_fade_out == true) {
 			fadeOutTime += Time.deltaTime;
 			fadeOutImage.color = new Color (0 / 255, 0 / 255, 0 / 255, blackValue2 / 255);
 			if (blackValue2 < 255) blackValue2 += 5.0f;
 			if (fadeOutTime > 2) {//2秒以上たってから、シーン遷移処理
 				SceneManager.LoadScene ("MenuScene");
 			}
-		}
 	}
 
 	//ランキングボタンが押されたら、ランキングを表示

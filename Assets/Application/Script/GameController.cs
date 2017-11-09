@@ -20,11 +20,6 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
-
-	//リトライボタンが押されたらシーンを再読み込みする処理
-	public void RetryButton(){
-		SceneManager.LoadScene (sceneName);//現在のシーンを再読み込みして、やり直しを実現する。
-	}
 		
 	//塗り絵のイラストを選択するパネルを表示する
 	public void coloring_illustButton(){

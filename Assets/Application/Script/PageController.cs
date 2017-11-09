@@ -36,11 +36,11 @@ public class PageController : MonoBehaviour {
 	//音声関連
 	AudioSource aud;
 	[SerializeField]
-	AudioClip[] se;
+	AudioClip[] se;//正解したときや間違ったときの効果音を再生する。
 
 	//読み取り中の処理関連
 	[SerializeField]
-	GameObject loading_movie;
+	GameObject loading_movie;//読み込み中動画を表示するvideoplayerが入る
 	[SerializeField]
 	GameObject readButton;//読み取り中の時は、読み取り開始ボタンが邪魔になるので
 	[SerializeField]
@@ -48,8 +48,8 @@ public class PageController : MonoBehaviour {
 
 	//1ページ目でカニの色を決定する
 	[SerializeField]
-	SpriteRenderer[] spriteRenderer_crab;
-	private bool determining_color_once = false;
+	SpriteRenderer[] spriteRenderer_crab;//StorySceneに出てくるカニのオブジェクト全てをここに入れる
+	private bool determining_color_once = false;//最初に読み取った色をカニの色に設定するので、その処理は一度しかしないので、このフラグがある。
 
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
@@ -64,19 +64,21 @@ public class PageController : MonoBehaviour {
 
 	//色を読み取る処理。読み取りボタンが押されたら開始
 	public void ReadColor(){
-		colors_reading_start = true;
-		time_read_color += Time.deltaTime;
-		loading_movie.SetActive (true);
-		readButton.SetActive (false);
-		camera_boot.SetActive (false);
+		colors_reading_start = true;//Update関数で、ループ処理を開始するためのフラグ
+		time_read_color += Time.deltaTime;//色を読み取る時間を計算する。
+		loading_movie.SetActive (true);//読み取り中動画を表示する。
+		readButton.SetActive (false);//読み込み開始ボタンは邪魔なので、読み取り中は非表示にする。
+		camera_boot.SetActive (false);//読み込み中は、カメラ起動ボタンは邪魔なので、非表示にする。
 		if (time_read_color > 2) {//2秒間読み取り中と表示するための演出処理
 			Debug.Log ("読み取り完了");
-			loading_movie.SetActive (false);
-			readButton.SetActive (true);
-			camera_boot.SetActive (true);
-			time_read_color=0;
+			loading_movie.SetActive (false);//読み取りが終了したら、読み取り中動画は非表示にする。
+			readButton.SetActive (true);//読み取りが終了したら、読み取り開始ボタンを表示する。
+			camera_boot.SetActive (true);//読み取りが終了したら、カメラ起動ボタンをまた表示する。
+			time_read_color=0;//色読み取り時間をリセットする。
 			colors_reading_start = false;//一度だけ処理するためのもの
 			if (determining_color_once == false) Determining_color_of_crab ();//最初にカニの色を決定する。(一度だけ処理)
+
+			//ここから、取得した色を引数にして正しい色香を確かめる関数を呼び出す
 			if (getColor.color_name == "あか")
 				SetColor ("red");
 			else if (getColor.color_name == "きいろ")
@@ -127,15 +129,15 @@ public class PageController : MonoBehaviour {
 	void SetColor(string get_color_name){
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
-			storySelectController.story1_gameObject [page].SetActive (false);
-			page++;
-			storySelectController.story1_gameObject [page].SetActive (true);
-			set_story_image.sprite = useStory [page];
+			storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
+			page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
+			storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
+			set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
 			Specified_Next_Color ();//次の色をランダムに指定
-			aud.PlayOneShot(se[0]);
-			storySelectController.GetColorPanel.SetActive (false);
+			aud.PlayOneShot(se[0]);//正解したので、正解の効果音を再生する。
+			storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
 		} else {//間違った色を読み取った場合
-			aud.PlayOneShot(se[1]);
+			aud.PlayOneShot(se[1]);//間違った色を読みとったので、間違った効果音を再生する。
 			Debug.Log ("間違った");
 		}
 	}
@@ -168,7 +170,7 @@ public class PageController : MonoBehaviour {
 	void Determining_color_of_crab(){
 		determining_color_once = true;
 		for(int i=0;i<spriteRenderer_crab.Length;i++){//使うカニの数だけ繰り返す
-			spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);
+			spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		}
 	}
 

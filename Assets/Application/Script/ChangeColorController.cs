@@ -7,14 +7,19 @@ public class ChangeColorController : MonoBehaviour {
 	//使う色を、実際に線を描く処理を担当するスクリプトに渡すために必要
 	public DrawLineController drawLineController;
 
+	//レインボー機能実装処理関連
+	private float rainbow_time;//色を切り替える時間
+	private bool is_rainbow=false;//レインボー機能を使うかどうかのフラグ
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		//レインボーペンを使うフラグがtrueなら、インクがレインボーになる機能を使う。
+		if (is_rainbow == true) Rainbow_Pen ();
 	}
 
 	//線の色を変更する処理
@@ -43,5 +48,32 @@ public class ChangeColorController : MonoBehaviour {
 		} else if (name == "ChangePinkButton") {//ピンク
 			drawLineController.changeColorNum = 7;
 		}
+
+		is_rainbow = false;//何かしらの色の種類が洗濯されたということは、れいんぼーにする必要がないので、フラグをfalseにする。
+	}
+
+	//レインボーペンを作成(時間ごとに色を変化させるのが仕組み)
+	public void Rainbow_Pen(){
+		is_rainbow = true;//ここの関数をボタンの呼び出し関数にするので、1度呼ばれれば、ここの関数がループされる。
+		rainbow_time += Time.deltaTime;
+		if (rainbow_time > 0 && rainbow_time < 1)
+			drawLineController.changeColorNum = 0;
+		else if (rainbow_time > 1 && rainbow_time < 2)
+			drawLineController.changeColorNum = 1;
+		else if (rainbow_time > 2 && rainbow_time < 3)
+			drawLineController.changeColorNum = 2;
+		else if (rainbow_time > 3 && rainbow_time < 4)
+			drawLineController.changeColorNum = 3;
+		else if (rainbow_time > 4 && rainbow_time < 5)
+			drawLineController.changeColorNum = 4;
+		else if (rainbow_time > 5 && rainbow_time < 6)
+			drawLineController.changeColorNum = 5;
+		else if (rainbow_time > 6 && rainbow_time < 7)
+			drawLineController.changeColorNum = 6;
+		else if (rainbow_time > 7 && rainbow_time < 8) {
+			drawLineController.changeColorNum = 7;
+			rainbow_time = 0;//最後の色の種類まで回ってきたら、レインボー時間をリセットする。
+		}
+		
 	}
 }

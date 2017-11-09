@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class DrawLineController : MonoBehaviour
 {
 
-	public GameObject[] linePrefab;
-	public float lineLength = 0.2f;
-	public float lineWidth = 0.1f;
+	public GameObject[] linePrefab;//黒とか赤とか青のインクオブジェクトを入れる。
+	public float lineLength = 0.2f;//最低限この距離を書かないと絵画されない
+	public float lineWidth = 0.1f;//線の太さ
 
 	private Vector3 touchPos;//マウスを使っている間のポジションを格納
 
@@ -165,7 +165,7 @@ public class DrawLineController : MonoBehaviour
 
 	//シーン再読み込みではなく、線をまとめるオブジェクトの子要素を全て削除して、線を全て削除する方法をとる
 	public void Line_all_deletion(){
-		foreach ( Transform n in summarize_object_parent.transform )
+		foreach ( Transform n in summarize_object_parent.transform )//線をまとめるオブジェクトを指定して、その空のオブジェクトの子要素を全て取得して、それらを削除して全削除を実現し
 		{
 			GameObject.Destroy(n.gameObject);
 		}

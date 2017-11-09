@@ -15,7 +15,7 @@ public class GetColor : MonoBehaviour
 	//色判定処理関連
 	[SerializeField]
 	Text color_label;//色の名前を表示するためのUI
-	private float r;
+	private float r;//UnityエディタではRGBの最高値は255だが、スクリプト上では最高値は1なので、*255したものを扱うので、あらかじめ計算したものを扱うので、その結果を変数に入れておきたいので、宣言した。
 	private float g;
 	private float b;
 	private string color_code="";//カラーコード
@@ -27,14 +27,14 @@ public class GetColor : MonoBehaviour
 	void Start()
 	{
 		tex = new Texture2D(1,1, TextureFormat.RGB24, false);
-		StartCoroutine ("OnPostRender");
-		sceneName = SceneManager.GetActiveScene ().name;
+		StartCoroutine ("OnPostRender");//シーンが開始されたタイミングで、指定した画面の座標の色を取得する処理を開始する。
+		sceneName = SceneManager.GetActiveScene ().name;//シーン名を取得
 	}
 
 	void Update(){
 		//インスペクタからの場合RGBの最高値は255だが、スクリプトの場合最高値が1である。だから、スクリプトから取得する場合255かける必要がある。
 		testImage.color = new Color(color.r*255/255,color.g*255/255,color.b*255/255,255/255);
-		Distinction_Color ();
+		Distinction_Color ();//７えされた色が何色なのかをひらがなで表示するための処理
 		//Debug.Log ("R="+color.r*255+"G="+color.g*255+"G="+color.b*255);
 	}
 
@@ -43,11 +43,11 @@ public class GetColor : MonoBehaviour
 		while (true) {
 			//レンダリングが完了するまで待つ
 			yield return new WaitForEndOfFrame();//これをしないとエラーがでる
-			Vector2 pos = Input.mousePosition ;
+			Vector2 pos = Input.mousePosition ;//クリックされた位置の色を取得する処理を一番最初はやっていたので、今回は使わない。
 			//tex.ReadPixels(new Rect(pos.x, pos.y, 1, 1), 0, 0);
 			//if(sceneName=="Use_SumahoCamera") tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//(670,377)がiPhone 6Sの真ん中の座標となる
 			//else if(sceneName=="StoryScene") tex.ReadPixels(new Rect(200, 650, 1, 1), 0, 0);//(670,377)が左上に画面を表示した時の真ん中となる
-			tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);
+			tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//画面をいっぱい使って色を読み取らせたいので、画面の真ん中の位置の座標を指定する。
 			//tex.ReadPixels(new Rect(screenToWorldPointPosition.x, screenToWorldPointPosition.y, 1, 1), 0, 0);
 			color = tex.GetPixel(0,0);//画面のピクセルを取得したのでその1ビットだけ取得して色を抽出した
 			//Debug.Log (pos);
@@ -59,7 +59,7 @@ public class GetColor : MonoBehaviour
 		r = color.r * 255;
 		g = color.g * 255;
 		b = color.b * 255;
-		color_label.text = color_name;
+		color_label.text = color_name;//常に色の名前を更新する。
 		if(g==b && r>g){
 			color_code = "#ff0000";
 			color_name = "あか";
@@ -193,7 +193,7 @@ public class GetColor : MonoBehaviour
 			// 12-1,12-2 B:12.5 ~ 4.6
 			else if(b/r*16 > 4.5 && b/r*16 <= 12.5){
 				color_code = "#ff007f";
-				//color_name = "あかむらさき";//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				//color_name = "あかむらさき";//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●本当はこの色。しかし、桃の精度が悪かったので、
 				color_name="もも";
 				//Debug.Log("赤紫");
 				//Debug.Log("もも");

@@ -29,3 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Application/Scenes/Use_SumahoCamera.unity
     guid: f35d3bebaff384358917250c83f4c4b0
+  - enabled: 1
+    path: Assets/Application/Scenes/ColoringScene.unity
+    guid: 6cfa8d734983d46698ebe1d845319277
+  - enabled: 1
+    path: Assets/Application/Scenes/Sarukani_Opening.unity
+    guid: 705c766304d14493a88231ea2f28ad96

@@ -9,9 +9,9 @@ public class ScreenShot : MonoBehaviour {
 	public Camera ArCam;//カメラのプレファブ
 
 	//スクリーンショットした時に、スクショしたことをユーザーに知らせるために、ラベルをフェードインしてフェードアウトする処理
-	public Text screenShotLabel;
+	public Text screenShotLabel;//スクリーンショットをしたことを表示するラベル
 	private float screenShot_done_indicate_time;//スクリーンショットをしたことを知らせる時間
-	private bool is_screenShot=false;
+	private bool is_screenShot=false;//スクリーンショットをしたかどうかのフラグ
 
 	void FixedUpdate(){
 		if (is_screenShot==true) {//スクショしている主な部分でフラグを変更している

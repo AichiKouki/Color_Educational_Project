@@ -17,7 +17,7 @@ public class StorySelectController : MonoBehaviour {
 	Sprite[] story2;//使う物語の画像二つ目
 	[SerializeField]
 	Sprite[] story3;//使う物語の画像三つ目
-	public GameObject[] story1_gameObject;
+	public GameObject[] story1_gameObject;//静止画像や動画ではなく、別シーンでキャラオブジェクトをアニメーションさせたりしたものを一つにまとめたオブジェクトをページごとに入る。
 
 
 	// Use this for initialization
@@ -45,10 +45,10 @@ public class StorySelectController : MonoBehaviour {
 		}
 		pageController.story_page_number = 12;//猿カニ合戦でのページ数を12枚であることを知らせる
 		pageController.page=0;//途中で物語を変更したら、進んでる分のページ数を0にリセットする。
-		pageController.FirstColorDisplay("sarukani");
+		pageController.FirstColorDisplay("sarukani");//使用する物語によって1ページ目の指定される色は違うので、ここで指定する。
 		story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
 
-		story1_gameObject [0].SetActive (true);
+		story1_gameObject [0].SetActive (true);//アニメーションさせたオブジェクトをまとめたページの1ページ目を表示する。
 
 	}
 
