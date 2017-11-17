@@ -11,7 +11,8 @@ public class OpeningController : MonoBehaviour {
 	private float fadeIn_fadeOut_value=255;
 	// Use this for initialization
 	void Start () {
-		
+		//staitcな変数だから、スクリプトの変数を取得しなくてもいい
+		StorySelectController.startOpening = true;//staticな変数を変更して、オープニング映像を再生したことを伝える
 	}
 	
 	// Update is called once per frame

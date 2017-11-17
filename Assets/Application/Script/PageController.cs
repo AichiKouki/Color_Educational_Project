@@ -78,7 +78,7 @@ public class PageController : MonoBehaviour {
 			colors_reading_start = false;//一度だけ処理するためのもの
 			if (determining_color_once == false) Determining_color_of_crab ();//最初にカニの色を決定する。(一度だけ処理)
 
-			//ここから、取得した色を引数にして正しい色香を確かめる関数を呼び出す
+			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか")
 				SetColor ("red");
 			else if (getColor.color_name == "きいろ")
@@ -174,7 +174,12 @@ public class PageController : MonoBehaviour {
 		}
 	}
 
-	//最後のページに行ったかどうかを判定
+	//デバッグボタン処理(本番ではカメラを使って物語を進めるので)
+	public void DebugButton(){
+		SetColor ("orange");//デバッグ用に全ページオレンジに設定しているので、
+	}
+
+	//最後のページになった時の処理
 	void FinishCheck(){
 	}
 }

@@ -34,7 +34,7 @@ public class TitleSceneController : MonoBehaviour {
 
 	//スクリーンをタップしてゲームスタート
 	void Screen_tap_and_game_start(){
-		if (Input.GetMouseButtonUp (0) && onceTap==false) {
+		if (Input.GetMouseButtonUp (0) && onceTap==false) {//クリックしたら、& 
 			onceTap = true;
 			aud.Play ();
 			is_fade_out = true;

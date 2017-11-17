@@ -19,10 +19,12 @@ public class StorySelectController : MonoBehaviour {
 	Sprite[] story3;//使う物語の画像三つ目
 	public GameObject[] story1_gameObject;//静止画像や動画ではなく、別シーンでキャラオブジェクトをアニメーションさせたりしたものを一つにまとめたオブジェクトをページごとに入る。
 
+	//物語を選んだら動画を再生して物語洗濯パネルを非表示にする処理関連
+	public static bool startOpening=false;//オープニングが始まっていなかったら物語選択パネルを表示して、もう再生してたら物語選択パネルは表示しない処理
 
 	// Use this for initialization
 	void Start () {
-		
+		Debug.Log (startOpening);
 	}
 	
 	// Update is called once per frame
