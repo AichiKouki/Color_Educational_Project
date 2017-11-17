@@ -51,10 +51,15 @@ public class PageController : MonoBehaviour {
 	SpriteRenderer[] spriteRenderer_crab;//StorySceneに出てくるカニのオブジェクト全てをここに入れる
 	private bool determining_color_once = false;//最初に読み取った色をカニの色に設定するので、その処理は一度しかしないので、このフラグがある。
 
+	//最後のページになった時の処理
+	public int configured_page_number=0;//StorySelectControllerで、配列の数(自分で設定したページ数によってページ数が変わるようにしているので、その値を取得する)
+	private bool story_last_until_read=false;
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 		aud=GetComponent<AudioSource>();
+		Debug.Log("最終的なページは"+configured_page_number);//最終的なページ数を表示する。
 	}
 		
 	void FixedUpdate () {
@@ -129,17 +134,21 @@ public class PageController : MonoBehaviour {
 	void SetColor(string get_color_name){
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
-			storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
-			page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
-			storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
-			set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
-			Specified_Next_Color ();//次の色をランダムに指定
-			aud.PlayOneShot(se[0]);//正解したので、正解の効果音を再生する。
-			storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
+			if (page < configured_page_number) {//最終的な指定した数のページよりまだ進んでいなかったら、進む処理
+				storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
+				page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
+				if(page<configured_page_number)storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
+				if(page<configured_page_number)set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
+				Specified_Next_Color ();//次の色をランダムに指定
+				aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
+				storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
+				if(page==configured_page_number) Last_page_termination();//最後のページが終わったら最後の処理をする関数を呼び出す
+			}
 		} else {//間違った色を読み取った場合
 			aud.PlayOneShot(se[1]);//間違った色を読みとったので、間違った効果音を再生する。
 			Debug.Log ("間違った");
 		}
+		Debug.Log ("pageの値は"+page);//進んだページ数を表示
 	}
 		
 
@@ -168,7 +177,7 @@ public class PageController : MonoBehaviour {
 
 	//1ページ目でカニの色を決定する。(処理は一度だけ)
 	void Determining_color_of_crab(){
-		determining_color_once = true;
+		determining_color_once = true;//カニの色を決定する処理は一度しか行わないので、そのためのフラグを変更する。
 		for(int i=0;i<spriteRenderer_crab.Length;i++){//使うカニの数だけ繰り返す
 			spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		}
@@ -180,6 +189,9 @@ public class PageController : MonoBehaviour {
 	}
 
 	//最後のページになった時の処理
-	void FinishCheck(){
+	void Last_page_termination(){
+		Debug.Log ("全ページ数を読み終わった");
+		story_last_until_read = true;
+		camera_boot.SetActive (false);//全てのページを読み終わったので、カメラを使うボタンを非表示にする。
 	}
 }
