@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class StorySelectController : MonoBehaviour {
 
 	[SerializeField]
@@ -21,20 +21,31 @@ public class StorySelectController : MonoBehaviour {
 
 	//物語を選んだら動画を再生して物語洗濯パネルを非表示にする処理関連
 	public static bool startOpening=false;//オープニングが始まっていなかったら物語選択パネルを表示して、もう再生してたら物語選択パネルは表示しない処理
+	private bool opening_played_after_story_scene_process=false;//オープニングを再生してからのStorySceneを開いた場合の処理がStart関数では失敗したのでUpdateで一度だけ処理するために
 
 	// Use this for initialization
 	void Start () {
 		Debug.Log (startOpening);
+		//オープニングが再生されていたら、動くページを表示する。
+		//if (startOpening == true) SetSarukaniStory ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (startOpening == true && opening_played_after_story_scene_process == false) {
+			opening_played_after_story_scene_process = true;
+			SetSarukaniStory ();
+		}
 	}
 
 	//物語を選択し直すために、物語選択パネルを表示する処理
 	public void Display_GetColorPanel(){
 		GetColorPanel.SetActive (true);
+	}
+
+	//物語が選択されたら、オープニング映像を再生するシーンに遷移する処理
+	public void StartOpening(){
+		SceneManager.LoadScene ("Sarukani_Opening");
 	}
 
 	//パネルの子要素にあるため、ボタンの共通化ができないため、一個ずつ処理する
