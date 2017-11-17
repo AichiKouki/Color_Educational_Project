@@ -441,7 +441,7 @@ MonoBehaviour:
   - {fileID: 407620520}
   - {fileID: 407620520}
   - {fileID: 407620520}
-  - {fileID: 407620520}
+  - {fileID: 887054612}
 --- !u!4 &437865087
 Transform:
   m_ObjectHideFlags: 0
@@ -627,6 +627,7 @@ MonoBehaviour:
   spriteRenderer_crab:
   - {fileID: 442801371}
   - {fileID: 407620521}
+  configured_page_number: 0
 --- !u!114 &831000020
 MonoBehaviour:
   m_ObjectHideFlags: 0
