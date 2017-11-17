@@ -52,7 +52,7 @@ public class StorySelectController : MonoBehaviour {
 	//猿カニ合戦の物語をセットする処理
 	public void SetSarukaniStory(){
 		Debug.Log("猿カニ合戦のボタンが押されました");
-		for(int i=0;i<12;i++){//ページが8枚の場合
+		for(int i=0;i<story1_gameObject.Length;i++){//ページが8枚の場合
 			pageController.useStory[i]=story1[i];
 			pageController.set_story_image.sprite=story1[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
 		}
