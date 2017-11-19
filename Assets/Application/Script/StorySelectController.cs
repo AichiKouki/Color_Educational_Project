@@ -10,7 +10,7 @@ public class StorySelectController : MonoBehaviour {
 	//今回使う物語を扱う処理
 	[SerializeField]
 	GameObject story_select_panel;//物語を選択しても、選択パネルが表示されたママでは邪魔であるので、物語を選択したらパネルは非表示にする。
-	public GameObject GetColorPanel;
+	public GameObject GetColorPanel;//カメラ起動パネル
 	[SerializeField]
 	Sprite[] story1;//使う物語の画像一つ目
 	[SerializeField]
@@ -33,7 +33,8 @@ public class StorySelectController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (startOpening == true && opening_played_after_story_scene_process == false) {
+		//オープニング映像を再生した状態で、一度しか処理しないための変数がまだfalseだったら処理
+		if (startOpening == true && opening_played_after_story_scene_process == false) {//Start関数だとタイミングがまだ早くてエラーが出るので、ここで処理している。
 			opening_played_after_story_scene_process = true;
 			SetSarukaniStory ();
 		}

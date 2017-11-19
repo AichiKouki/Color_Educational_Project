@@ -67,7 +67,7 @@ public class Location_sync_Controller : MonoBehaviour {
 					ImageCube2.transform.position = ImageCube2Pos;//z軸を少しずらしたポジションを新たに適応させる
 
 				} 
-				Debug.Log (objectName);//Rayに触れているオブジェクト名を取得
+				//Debug.Log (objectName);//Rayに触れているオブジェクト名を取得
 			}
 		} else if (Input.GetMouseButtonUp(0)) {//ボタンを話した時の処理
 			//処理中華どうかのリセット

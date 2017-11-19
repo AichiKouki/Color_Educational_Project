@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Profiling;//処理を軽くするに
 //画面に線を絵画する処理
 public class DrawLineController : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class DrawLineController : MonoBehaviour
 
 	//会がスタートから終了までの処理全般
 	void drawLine(){
-
+		Profiler.BeginSample ("線を絵画する処理のループ処理");//BeginSampleとEndSampleの間の処理をサンプリングすることができる
 		if(Input.GetMouseButtonDown(0))//マウスが押したら(一度だけ)
 		{
 			touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//UIの座標をワールド座標に変換して代入する
@@ -115,6 +116,8 @@ public class DrawLineController : MonoBehaviour
 				painting_termination = true;//ここで、線を絵画したことを知らせる
 			}
 		}
+		Profiler.EndSample ();//ここまでの負荷をみる
+
 	}//drawLine
 
 	//消しゴム機能を実装

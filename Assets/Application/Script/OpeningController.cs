@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class OpeningController : MonoBehaviour {
 
 	[SerializeField]
-	Image fadeIn_fadeOut_image;
-	private float fadeIn_fadeOut_time=0;
-	private float fadeIn_fadeOut_value=255;
+	Image fadeIn_fadeOut_image;//フェードインとフェードアウトをするための黒い画像
+	private float fadeIn_fadeOut_time=0;//フェードインとかフェードアウトする時間
+	private float fadeIn_fadeOut_value=255;//黒の画像の黒の透明度
 	// Use this for initialization
 	void Start () {
 		//staitcな変数だから、スクリプトの変数を取得しなくてもいい

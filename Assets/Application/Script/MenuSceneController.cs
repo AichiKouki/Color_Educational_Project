@@ -5,14 +5,18 @@ using UnityEngine.SceneManagement;
 public class MenuSceneController : MonoBehaviour {
 
 	// Use this for initialization
+	/*
 	void Start () {
 		
 	}
+	*/
 	
 	// Update is called once per frame
+	/*
 	void Update () {
 		
 	}
+	*/
 
 	//全てのボタンのスクリプト呼び出しを共通化
 	public void ClickButton(){

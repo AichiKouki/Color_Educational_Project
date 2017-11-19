@@ -26,7 +26,7 @@ public class PageController : MonoBehaviour {
 	//色を取得した時の処理関連
 	[SerializeField]
 	GetColor getColor;//GetColorスクリプトから読み取っている色を取得
-	private bool colors_reading_start=false;
+	private bool colors_reading_start=false;//色を読み取り始めたら処理。色の読み取りが終わったらfalseになる。
 	private float time_read_color=0;//色を読み取る時間
 
 	//アニメーションつきのキャラをまとめたページを処理するため
