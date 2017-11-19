@@ -81,37 +81,57 @@ public class PageController : MonoBehaviour {
 			camera_boot.SetActive (true);//読み取りが終了したら、カメラ起動ボタンをまた表示する。
 			time_read_color=0;//色読み取り時間をリセットする。
 			colors_reading_start = false;//一度だけ処理するためのもの
-			if (determining_color_once == false) Determining_color_of_crab ();//最初にカニの色を決定する。(一度だけ処理)
 
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
-			if (getColor.color_name == "あか")
+			if (getColor.color_name == "あか") {
 				SetColor ("red");
-			else if (getColor.color_name == "きいろ")
+				if (determining_color_once == false)
+					Determining_color_of_crab (255f, 0f, 0f);//最初にカニの色を決定する。(一度だけ処理)
+			} else if (getColor.color_name == "きいろ") {
 				SetColor ("yellow");
-			else if (getColor.color_name == "みどり")
+				if (determining_color_once == false)
+					Determining_color_of_crab (255f, 255f, 0f);//最初にカニの色を決定する。(一度だけ処理)
+			} else if (getColor.color_name == "みどり") {
 				SetColor ("green");
-			else if (getColor.color_name == "シアン")
+				if (determining_color_once == false)
+					Determining_color_of_crab (0f, 200f, 0f);//最初にカニの色を決定する。(一度だけ処理)
+			} else if (getColor.color_name == "シアン") {
 				SetColor ("cyan");
-			else if (getColor.color_name == "あお")
+				if (determining_color_once == false)
+					Determining_color_of_crab (143f, 251f, 253f);//最初にカニの色を決定する。(一度だけ処理)
+			} else if (getColor.color_name == "あお") {
 				SetColor ("blue");
-			else if (getColor.color_name == "もも")
+				if (determining_color_once == false)
+					Determining_color_of_crab (60f, 100f, 255f);//最初にカニの色を決定する。(一度だけ処理)
+			} else if (getColor.color_name == "もも") {
 				SetColor ("pink");
-			else if (getColor.color_name == "オレンジ")
+				if (determining_color_once == false)
+					Determining_color_of_crab (220f, 115f, 160f);//最初にカニの色を決定する。(一度だけ処理)
+			} else if (getColor.color_name == "オレンジ") {
 				SetColor ("orange");
-			else if (getColor.color_name == "きみどり")
+				if (determining_color_once == false)
+					Determining_color_of_crab (242f, 167f, 59f);//最初にカニの色を決定する。(一度だけ処理)
+			}else if (getColor.color_name == "きみどり"){
 				SetColor ("yellow_green");
-			else if (getColor.color_name == "あおみどり")
+			if (determining_color_once == false) Determining_color_of_crab (0f,255f,0f);//最初にカニの色を決定する。(一度だけ処理)
+			}else if (getColor.color_name == "あおみどり"){
 				SetColor ("blue_green");
-			else if (getColor.color_name == "みずいろ")
+			if (determining_color_once == false) Determining_color_of_crab (72f,161f,151f);//最初にカニの色を決定する。(一度だけ処理)
+			}else if (getColor.color_name == "みずいろ"){
 				SetColor ("light_blue");
-			else if (getColor.color_name == "むらさき")
+			if (determining_color_once == false) Determining_color_of_crab (142f,252f,251f);//最初にカニの色を決定する。(一度だけ処理)
+			}else if (getColor.color_name == "むらさき"){
 				SetColor ("purple");
-			else if (getColor.color_name == "あかむらさき")
+			if (determining_color_once == false) Determining_color_of_crab (140f,35f,197f);//最初にカニの色を決定する。(一度だけ処理)
+			}else if (getColor.color_name == "あかむらさき"){
 				SetColor ("red_purple");
-			else if (getColor.color_name == "モノトーン")
+			if (determining_color_once == false) Determining_color_of_crab (118f,41f,80f);//最初にカニの色を決定する。(一度だけ処理)
+			}else if (getColor.color_name == "モノトーン"){
 				SetColor ("monotone");
+			if (determining_color_once == false) Determining_color_of_crab (255f,255f,255f);//最初にカニの色を決定する。(一度だけ処理)
+			}
 		}
-		Debug.Log ("読み取り中");
+		//Debug.Log ("読み取り中");
 	}
 
 	//StorySelectControllerで物語を選んだら最初の色指定を表示する。
@@ -176,10 +196,12 @@ public class PageController : MonoBehaviour {
 	}
 
 	//1ページ目でカニの色を決定する。(処理は一度だけ)
-	void Determining_color_of_crab(){
-		determining_color_once = true;//カニの色を決定する処理は一度しか行わないので、そのためのフラグを変更する。
+	void Determining_color_of_crab(float r,float g,float b){
+		Debug.Log ("r="+r+"g="+g+"b="+b);
+		//determining_color_once = true;//カニの色を決定する処理は一度しか行わないので、そのためのフラグを変更する。
 		for(int i=0;i<spriteRenderer_crab.Length;i++){//使うカニの数だけ繰り返す
-			spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
+			//spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
+			spriteRenderer_crab[i].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		}
 	}
 
