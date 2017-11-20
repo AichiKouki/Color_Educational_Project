@@ -55,6 +55,14 @@ public class PageController : MonoBehaviour {
 	public int configured_page_number=0;//StorySelectControllerで、配列の数(自分で設定したページ数によってページ数が変わるようにしているので、その値を取得する)
 	private bool story_last_until_read=false;
 
+	//次のページを表示する時に、ページ自体はSetActiveされているが、画面全体はフェードアウトとフェードインする。
+	[SerializeField]
+	Image fadeIn_fadeOut_image;//フェードインとフェードアウトをするための黒い画像
+	private bool page_fadeIn_fadeOut=false;//Update関数で関数を呼び出すので、フラグを使って、処理するときとしないときを区別する。
+	private float fadeIn_fadeOut_time=0;//フェードインとかフェードアウトする時間
+	private float fadeIn_fadeOut_value=0;//黒の画像の黒の透明度
+
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -64,7 +72,8 @@ public class PageController : MonoBehaviour {
 		
 	void FixedUpdate () {
 		//Debug.Log (specified_color);//常に色の状態を確認する。
-		if(colors_reading_start==true) ReadColor();
+		if(colors_reading_start==true) ReadColor();//色を読み取る処理
+		if (page_fadeIn_fadeOut == true) next_page_display_when_fade_in_with_fade_out ();//次のページをフェードインで表示する処理
 	}
 
 	//色を読み取る処理。読み取りボタンが押されたら開始
@@ -85,50 +94,43 @@ public class PageController : MonoBehaviour {
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか") {
 				SetColor ("red");
-				if (determining_color_once == false)
-					Determining_color_of_crab (255f, 0f, 0f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (255f, 0f, 0f);//色を読み取るたびに、カニの色を変更する。
 			} else if (getColor.color_name == "きいろ") {
 				SetColor ("yellow");
-				if (determining_color_once == false)
-					Determining_color_of_crab (255f, 255f, 0f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (255f, 255f, 0f);
 			} else if (getColor.color_name == "みどり") {
 				SetColor ("green");
-				if (determining_color_once == false)
-					Determining_color_of_crab (0f, 200f, 0f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (0f, 200f, 0f);
 			} else if (getColor.color_name == "シアン") {
 				SetColor ("cyan");
-				if (determining_color_once == false)
-					Determining_color_of_crab (143f, 251f, 253f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (143f, 251f, 253f);
 			} else if (getColor.color_name == "あお") {
 				SetColor ("blue");
-				if (determining_color_once == false)
-					Determining_color_of_crab (60f, 100f, 255f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (60f, 100f, 255f);
 			} else if (getColor.color_name == "もも") {
 				SetColor ("pink");
-				if (determining_color_once == false)
-					Determining_color_of_crab (220f, 115f, 160f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (220f, 115f, 160f);
 			} else if (getColor.color_name == "オレンジ") {
 				SetColor ("orange");
-				if (determining_color_once == false)
-					Determining_color_of_crab (242f, 167f, 59f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (242f, 167f, 59f);
 			}else if (getColor.color_name == "きみどり"){
 				SetColor ("yellow_green");
-			if (determining_color_once == false) Determining_color_of_crab (0f,255f,0f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (0f,255f,0f);
 			}else if (getColor.color_name == "あおみどり"){
 				SetColor ("blue_green");
-			if (determining_color_once == false) Determining_color_of_crab (72f,161f,151f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (72f,161f,151f);
 			}else if (getColor.color_name == "みずいろ"){
 				SetColor ("light_blue");
-			if (determining_color_once == false) Determining_color_of_crab (142f,252f,251f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (142f,252f,251f);
 			}else if (getColor.color_name == "むらさき"){
 				SetColor ("purple");
-			if (determining_color_once == false) Determining_color_of_crab (140f,35f,197f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (140f,35f,197f);
 			}else if (getColor.color_name == "あかむらさき"){
 				SetColor ("red_purple");
-			if (determining_color_once == false) Determining_color_of_crab (118f,41f,80f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (118f,41f,80f);
 			}else if (getColor.color_name == "モノトーン"){
 				SetColor ("monotone");
-			if (determining_color_once == false) Determining_color_of_crab (255f,255f,255f);//最初にカニの色を決定する。(一度だけ処理)
+				Determining_color_of_crab (255f,255f,255f);
 			}
 		}
 		//Debug.Log ("読み取り中");
@@ -155,6 +157,7 @@ public class PageController : MonoBehaviour {
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
 			StartCoroutine("Character_color_change_after_next_page_go");//数秒経ってから処理をしたいから、コルーチンを使っている
+			page_fadeIn_fadeOut=true;//次のページをSetActiveで表示する前に、がめん全体をフェードアウトしてフェードインする処理を行うためのフラグ
 		} else {//間違った色を読み取った場合
 			aud.PlayOneShot(se[1]);//間違った色を読みとったので、間違った効果音を再生する。
 			Debug.Log ("間違った");
@@ -178,6 +181,23 @@ public class PageController : MonoBehaviour {
 		}
 	}
 
+	//次のページを表示する時に、ページ自体はSetActiveされているが、画面全体はフェードアウトとフェードインする。
+	void next_page_display_when_fade_in_with_fade_out(){
+		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
+		fadeIn_fadeOut_time += Time.deltaTime;
+		if (fadeIn_fadeOut_time < 2) {//フェードアウト
+			if(fadeIn_fadeOut_value<255)fadeIn_fadeOut_value += 5f;
+			Debug.Log ("フェードアウト開始");
+		} else if (fadeIn_fadeOut_time > 4) {//フェードイン
+			if(fadeIn_fadeOut_value>0)fadeIn_fadeOut_value -= 5f;
+			Debug.Log ("フェードイン開始");
+		} 
+
+		if (fadeIn_fadeOut_time > 6) {//フェードインとフェードアウトのために使う変数をリセットする処理
+			page_fadeIn_fadeOut = false;
+			fadeIn_fadeOut_time = 0;
+		}
+	}
 		
 
 	//次の色を指定する処理をまとめている。実際にはランダムにはしない。指定された色を読み取れた場合にこの関数が呼ばれる
@@ -205,8 +225,6 @@ public class PageController : MonoBehaviour {
 
 	//1ページ目でカニの色を決定する。(処理は一度だけ)
 	void Determining_color_of_crab(float r,float g,float b){
-		Debug.Log ("r="+r+"g="+g+"b="+b);
-		//determining_color_once = true;//カニの色を決定する処理は一度しか行わないので、そのためのフラグを変更する。
 		for(int i=0;i<spriteRenderer_crab.Length;i++){//使うカニの数だけ繰り返す
 			//spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 			spriteRenderer_crab[i].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
