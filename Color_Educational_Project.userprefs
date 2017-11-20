@@ -2,21 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Application/Script/PageController.cs">
     <Files>
-      <File FileName="Assets/Application/Script/MenuSceneController.cs" Line="25" Column="39" />
-      <File FileName="Assets/Application/Script/UseCamera/CameraController.cs" Line="17" Column="85" />
-      <File FileName="Assets/Application/Script/StorySelectController.cs" Line="51" Column="80" />
-      <File FileName="Assets/Application/Script/UseCamera/GetColor.cs" Line="203" Column="28" />
-      <File FileName="Assets/Application/Script/PageController.cs" Line="179" Column="49" />
+      <File FileName="Assets/Application/Script/OpeningController.cs" Line="20" Column="25" />
+      <File FileName="Assets/Application/Script/StorySelectController.cs" Line="50" Column="47" />
+      <File FileName="Assets/Application/Script/PageController.cs" Line="171" Column="118" />
+      <File FileName="Assets/Application/Script/UseCamera/GetColor.cs" Line="44" Column="21" />
       <File FileName="Assets/Application/Script/Character/CharacterColorController.cs" Line="19" Column="5" />
       <File FileName="Assets/Application/Script/GameController.cs" Line="26" Column="42" />
-      <File FileName="Assets/Application/Script/Character/CharacterMoveController.cs" Line="55" Column="67" />
-      <File FileName="Assets/Application/Script/Coloring_illustration_Controller.cs" Line="13" Column="2" />
-      <File FileName="Assets/Application/Script/Location_sync_Controller.cs" Line="78" Column="94" />
-      <File FileName="Assets/Application/Script/TitleSceneController.cs" Line="60" Column="47" />
-      <File FileName="Assets/Application/Script/OpeningController.cs" Line="26" Column="1" />
-      <File FileName="Assets/Application/Script/ScreenShot.cs" Line="53" Column="38" />
-      <File FileName="Assets/Application/Script/DrawLineController.cs" Line="57" Column="2" />
-      <File FileName="Assets/Application/Script/ChangeColorController.cs" Line="40" Column="42" />
+      <File FileName="Assets/Application/Script/DrawLineController.cs" Line="73" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -547,7 +547,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 29b70b00e56794af1a3416a628f10d7e, type: 3}
   story1_gameObject:
   - {fileID: 887054612}
-  - {fileID: 1480828038}
+  - {fileID: 407620520}
   - {fileID: 407620520}
   - {fileID: 407620520}
   - {fileID: 407620520}
@@ -2769,11 +2769,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1403716395}
---- !u!1 &1480828038 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1283726177345516, guid: 18c8db65c93124b6eba0d1e5e6130076,
-    type: 2}
-  m_PrefabInternal: {fileID: 1068907165}
 --- !u!4 &1480828039 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4701408312551120, guid: 18c8db65c93124b6eba0d1e5e6130076,

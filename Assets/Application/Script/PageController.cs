@@ -145,7 +145,7 @@ public class PageController : MonoBehaviour {
 			specified_color_Label.text = "「きいろ」を持ってきてね";
 		}
 	}
-
+		
 	//12色⇨赤、黄色、緑、シアン、青、もも、オレンジ、黄緑、青緑、水色、紫、赤紫、モノトーン
 	//現在書いている色⇨赤、青、黄色、白
 	//現在たりていない色⇨緑、シアン、もも、オレンジ、黄緑、青緑、水色、紫、赤紫、モノトーン
@@ -154,22 +154,30 @@ public class PageController : MonoBehaviour {
 	void SetColor(string get_color_name){
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
-			if (page < configured_page_number) {//最終的な指定した数のページよりまだ進んでいなかったら、進む処理
-				storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
-				page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
-				if(page<configured_page_number)storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
-				if(page<configured_page_number)set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
-				Specified_Next_Color ();//次の色をランダムに指定
-				aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
-				storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
-				if(page==configured_page_number) Last_page_termination();//最後のページが終わったら最後の処理をする関数を呼び出す
-			}
+			StartCoroutine("Character_color_change_after_next_page_go");//数秒経ってから処理をしたいから、コルーチンを使っている
 		} else {//間違った色を読み取った場合
 			aud.PlayOneShot(se[1]);//間違った色を読みとったので、間違った効果音を再生する。
 			Debug.Log ("間違った");
 		}
+		storySelectController.GetColorPanel.SetActive (false);//読み取る色を間違った時に、キャラクターに変な色がつくのを見ることができても面白いと思って、正解不正解問わず非表示にする
 		Debug.Log ("pageの値は"+page);//進んだページ数を表示
 	}
+
+	//正しい色を読み取れた場合は、色が反映されたページを表示してから数秒たってから次のページを表示する。
+	IEnumerator Character_color_change_after_next_page_go(){
+		yield return new WaitForSeconds (3);//3秒経ったら処理する。
+		if (page < configured_page_number) {//最終的な指定した数のページよりまだ進んでいなかったら、進む処理
+			storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
+			page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
+			if(page<configured_page_number)storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
+			if(page<configured_page_number)set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
+			Specified_Next_Color ();//次の色をランダムに指定
+			aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
+			//storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
+			if(page==configured_page_number) Last_page_termination();//最後のページが終わったら最後の処理をする関数を呼び出す
+		}
+	}
+
 		
 
 	//次の色を指定する処理をまとめている。実際にはランダムにはしない。指定された色を読み取れた場合にこの関数が呼ばれる
