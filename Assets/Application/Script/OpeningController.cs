@@ -22,11 +22,11 @@ public class OpeningController : MonoBehaviour {
 
 	//フェードインから入り、フェードアウトしてシーン遷移する
 	void FadeIn_and_FadeOut(){
-		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
+		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);//
 		fadeIn_fadeOut_time += Time.deltaTime;
-		if (fadeIn_fadeOut_time < 4) {
+		if (fadeIn_fadeOut_time < 4) {//4秒の間フェードイン開始
 			if(fadeIn_fadeOut_value>0)fadeIn_fadeOut_value -= 1.5f;
-		} else if (fadeIn_fadeOut_time > 6) {
+		} else if (fadeIn_fadeOut_time > 6) {//6秒経ったらフェードアウト開始
 			if(fadeIn_fadeOut_value<255)fadeIn_fadeOut_value += 1.5f;
 		} 
 

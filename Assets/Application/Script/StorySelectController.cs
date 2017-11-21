@@ -36,7 +36,7 @@ public class StorySelectController : MonoBehaviour {
 	void Update () {
 		//オープニング映像を再生した状態で、一度しか処理しないための変数がまだfalseだったら処理
 		if (startOpening == true && opening_played_after_story_scene_process == false) {//Start関数だとタイミングがまだ早くてエラーが出るので、ここで処理している。
-			opening_played_after_story_scene_process = true;
+			opening_played_after_story_scene_process = true;//一度だけ処理がしたいので、trueにする。
 			SetSarukaniStory ();
 		}
 	}
@@ -84,7 +84,7 @@ public class StorySelectController : MonoBehaviour {
 	//おむすびころりんのもが足りをセットする処理
 	public void SetOmusubiStory(){
 		for(int i=0;i<1;i++){//ページが8枚の場合
-			pageController.useStory[i]=story3[i];
+			pageController.useStory[i]=story3[i];//stoyr3の画像を本番の画像「にアテバメル
 			pageController.set_story_image.sprite=story3[0];//ストーリーを決定したら、表示されるストーリーの一ページ目の画像をセットする。
 		}
 		pageController.story_page_number = 1;//おむすびころりんのものがたrちのページ数が1枚であることを知らせる

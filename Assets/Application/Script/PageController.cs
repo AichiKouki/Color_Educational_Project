@@ -156,6 +156,7 @@ public class PageController : MonoBehaviour {
 	void SetColor(string get_color_name){
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
+			aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
 			StartCoroutine("Character_color_change_after_next_page_go");//数秒経ってから処理をしたいから、コルーチンを使っている
 			page_fadeIn_fadeOut=true;//次のページをSetActiveで表示する前に、がめん全体をフェードアウトしてフェードインする処理を行うためのフラグ
 		} else {//間違った色を読み取った場合
@@ -175,7 +176,6 @@ public class PageController : MonoBehaviour {
 			if(page<configured_page_number)storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
 			if(page<configured_page_number)set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
 			Specified_Next_Color ();//次の色をランダムに指定
-			aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
 			//storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
 			if(page==configured_page_number) Last_page_termination();//最後のページが終わったら最後の処理をする関数を呼び出す
 		}
@@ -186,11 +186,9 @@ public class PageController : MonoBehaviour {
 		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
 		fadeIn_fadeOut_time += Time.deltaTime;
 		if (fadeIn_fadeOut_time < 2) {//フェードアウト
-			if(fadeIn_fadeOut_value<255)fadeIn_fadeOut_value += 5f;
-			Debug.Log ("フェードアウト開始");
+			if(fadeIn_fadeOut_value<255)fadeIn_fadeOut_value += 3f;
 		} else if (fadeIn_fadeOut_time > 4) {//フェードイン
 			if(fadeIn_fadeOut_value>0)fadeIn_fadeOut_value -= 5f;
-			Debug.Log ("フェードイン開始");
 		} 
 
 		if (fadeIn_fadeOut_time > 6) {//フェードインとフェードアウトのために使う変数をリセットする処理
