@@ -17,12 +17,12 @@ public class OpeningController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		FadeIn_and_FadeOut ();
+		FadeIn_and_FadeOut ();//オープニング再生のシーンが開かれた瞬間に、フェードインとフェードアウトを開始する。
 	}
 
 	//フェードインから入り、フェードアウトしてシーン遷移する
 	void FadeIn_and_FadeOut(){
-		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);//
+		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
 		fadeIn_fadeOut_time += Time.deltaTime;
 		if (fadeIn_fadeOut_time < 4) {//4秒の間フェードイン開始
 			if(fadeIn_fadeOut_value>0)fadeIn_fadeOut_value -= 1.5f;

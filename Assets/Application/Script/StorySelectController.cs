@@ -37,7 +37,7 @@ public class StorySelectController : MonoBehaviour {
 		//オープニング映像を再生した状態で、一度しか処理しないための変数がまだfalseだったら処理
 		if (startOpening == true && opening_played_after_story_scene_process == false) {//Start関数だとタイミングがまだ早くてエラーが出るので、ここで処理している。
 			opening_played_after_story_scene_process = true;//一度だけ処理がしたいので、trueにする。
-			SetSarukaniStory ();
+			SetSarukaniStory ();//猿カニのページオブジェクトをセットする。
 		}
 	}
 

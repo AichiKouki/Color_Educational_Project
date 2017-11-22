@@ -48,7 +48,7 @@ public class PageController : MonoBehaviour {
 
 	//1ページ目でカニの色を決定する
 	[SerializeField]
-	SpriteRenderer[] spriteRenderer_crab;//StorySceneに出てくるカニのオブジェクト全てをここに入れる
+	SpriteRenderer[] spriteRenderer_object;//StorySceneの中の色を変更するオブジェクト全てをここに入れる
 	private bool determining_color_once = false;//最初に読み取った色をカニの色に設定するので、その処理は一度しかしないので、このフラグがある。
 
 	//最後のページになった時の処理
@@ -94,43 +94,43 @@ public class PageController : MonoBehaviour {
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか") {
 				SetColor ("red");
-				Determining_color_of_crab (255f, 0f, 0f);//色を読み取るたびに、カニの色を変更する。
+				Determining_color_of_object (255f, 0f, 0f);//色を読み取るたびに、カニの色を変更する。
 			} else if (getColor.color_name == "きいろ") {
 				SetColor ("yellow");
-				Determining_color_of_crab (255f, 255f, 0f);
+				Determining_color_of_object (255f, 255f, 0f);
 			} else if (getColor.color_name == "みどり") {
 				SetColor ("green");
-				Determining_color_of_crab (0f, 200f, 0f);
+				Determining_color_of_object (0f, 200f, 0f);
 			} else if (getColor.color_name == "シアン") {
 				SetColor ("cyan");
-				Determining_color_of_crab (143f, 251f, 253f);
+				Determining_color_of_object (143f, 251f, 253f);
 			} else if (getColor.color_name == "あお") {
 				SetColor ("blue");
-				Determining_color_of_crab (60f, 100f, 255f);
+				Determining_color_of_object (60f, 100f, 255f);
 			} else if (getColor.color_name == "もも") {
 				SetColor ("pink");
-				Determining_color_of_crab (220f, 115f, 160f);
+				Determining_color_of_object (220f, 115f, 160f);
 			} else if (getColor.color_name == "オレンジ") {
 				SetColor ("orange");
-				Determining_color_of_crab (242f, 167f, 59f);
+				Determining_color_of_object (242f, 167f, 59f);
 			}else if (getColor.color_name == "きみどり"){
 				SetColor ("yellow_green");
-				Determining_color_of_crab (0f,255f,0f);
+				Determining_color_of_object (0f,255f,0f);
 			}else if (getColor.color_name == "あおみどり"){
 				SetColor ("blue_green");
-				Determining_color_of_crab (72f,161f,151f);
+				Determining_color_of_object (72f,161f,151f);
 			}else if (getColor.color_name == "みずいろ"){
 				SetColor ("light_blue");
-				Determining_color_of_crab (142f,252f,251f);
+				Determining_color_of_object (142f,252f,251f);
 			}else if (getColor.color_name == "むらさき"){
 				SetColor ("purple");
-				Determining_color_of_crab (140f,35f,197f);
+				Determining_color_of_object (140f,35f,197f);
 			}else if (getColor.color_name == "あかむらさき"){
 				SetColor ("red_purple");
-				Determining_color_of_crab (118f,41f,80f);
+				Determining_color_of_object (118f,41f,80f);
 			}else if (getColor.color_name == "モノトーン"){
 				SetColor ("monotone");
-				Determining_color_of_crab (255f,255f,255f);
+				Determining_color_of_object (255f,255f,255f);
 			}
 		}
 		//Debug.Log ("読み取り中");
@@ -191,8 +191,9 @@ public class PageController : MonoBehaviour {
 			if(fadeIn_fadeOut_value>0)fadeIn_fadeOut_value -= 5f;
 		} 
 
+		//フェードアウトとフェードインの処理に必要な変数をリセットする。
 		if (fadeIn_fadeOut_time > 6) {//フェードインとフェードアウトのために使う変数をリセットする処理
-			page_fadeIn_fadeOut = false;
+			page_fadeIn_fadeOut = false;//フェードアウトとフェードインをするかどうかのフラグをfalseにした。(Updateの中に関数呼び出しがあるから。)
 			fadeIn_fadeOut_time = 0;
 		}
 	}
@@ -207,25 +208,25 @@ public class PageController : MonoBehaviour {
 			specified_color = "red";//指定する色を変更
 			specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
 		} else if (ran == 1) {
-			specified_color = "blue";
+			specified_color = "blue";//指定する色を変更
 			specified_color_Label.text = "「あお」をもってきてね";
 		} else if (ran == 2) {
-			specified_color = "yellow";
+			specified_color = "yellow";//指定する色を変更
 			specified_color_Label.text = "「きいろ」をもってきてね";
 		} else if (ran == 3) {
-			specified_color = "white";
+			specified_color = "white";//指定する色を変更
 			specified_color_Label.text = "「しろ」をもってきてね";
 		} else if (ran == 4) {
-			specified_color = "orange";
+			specified_color = "orange";//指定する色を変更
 			specified_color_Label.text = "「オレンジ」をもってきてね";
 		}
 	}
 
 	//1ページ目でカニの色を決定する。(処理は一度だけ)
-	void Determining_color_of_crab(float r,float g,float b){
-		for(int i=0;i<spriteRenderer_crab.Length;i++){//使うカニの数だけ繰り返す
+	void Determining_color_of_object(float r,float g,float b){
+		for(int i=0;i<spriteRenderer_object.Length;i++){//使うカニの数だけ繰り返す
 			//spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
-			spriteRenderer_crab[i].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
+			spriteRenderer_object[i].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		}
 	}
 
@@ -237,7 +238,7 @@ public class PageController : MonoBehaviour {
 	//最後のページになった時の処理
 	void Last_page_termination(){
 		Debug.Log ("全ページ数を読み終わった");
-		story_last_until_read = true;
+		story_last_until_read = true;//最後のページを読み終わったことを示すフラグをtrueにした。
 		camera_boot.SetActive (false);//全てのページを読み終わったので、カメラを使うボタンを非表示にする。
 	}
 }
