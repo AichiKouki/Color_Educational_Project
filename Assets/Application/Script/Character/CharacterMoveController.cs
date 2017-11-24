@@ -25,7 +25,7 @@ public class CharacterMoveController : MonoBehaviour {
 	SpriteRenderer spriteRenderer;
 	private float fadeIn_value=0;//フェードインでのオブジェクトの透明度を扱う、
 	private float time_starting_fadeIn;//フェードインを開始するまでの時間。
-	private bool is_fadeIn=true;
+	private bool is_fadeIn=true;//フェードインをするかどうかのフラグ
 
 	// Use this for initialization
 	void Start () {
@@ -37,10 +37,10 @@ public class CharacterMoveController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//キャラクターによって動く時間とかを変更している。
-		if (gameObject.tag == "crab") {
+		if (gameObject.tag == "crab") {//スクリプトをアタッチしてるオブジェクトがカニだったら、
 			if (move1_crab == true)
 				Move1_Crab ();
-		} else if (gameObject.tag == "saru") {
+		} else if (gameObject.tag == "saru") {//スクリプトがアタッチされてるオブジェクトのタグがsaruだったら処理
 			if (move1_saru == true)
 				Move1_Saru ();
 		}
@@ -52,9 +52,9 @@ public class CharacterMoveController : MonoBehaviour {
 	//カニの動きパターン1
 	void Move1_Crab(){
 		move_time_crab += Time.deltaTime;
-		if (move_time_crab < 4) {
+		if (move_time_crab < 4) {//4秒までは横に移動する
 			transform.Translate (-1 * Time.deltaTime, 0, 0);
-		} else if(once_process==false){
+		} else if(once_process==false){//4秒より時間がすぎたら、移動をやめてIdleアニメーションにする。
 			once_process = true;
 			animator_crab.SetTrigger ("Idle");
 			move1_crab = false;
@@ -64,8 +64,8 @@ public class CharacterMoveController : MonoBehaviour {
 
 	//カニの動きパターン2(AddForceでカニを少しジャンプさせる)
 	IEnumerator Move2_Crab(){
-		yield return new WaitForSeconds (2);
-		rigid2D.AddForce (Vector2.up*300f);
+		yield return new WaitForSeconds (2);//ページを変更する際は、ふぇーどいんとフェードアウトをしているので、その関係で、数秒たってからジャンプする処理をする。
+		rigid2D.AddForce (Vector2.up*300f);//少し上におす
 	}
 
 	//猿の動きパターン1

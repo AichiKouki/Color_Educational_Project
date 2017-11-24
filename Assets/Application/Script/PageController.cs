@@ -62,6 +62,13 @@ public class PageController : MonoBehaviour {
 	private float fadeIn_fadeOut_time=0;//フェードインとかフェードアウトする時間
 	private float fadeIn_fadeOut_value=0;//黒の画像の黒の透明度
 
+	//間違った色を読み込んでしまった時、音声だけでなく、文字列として可視化する。
+	[SerializeField]
+	Text visualization_mistake_label;
+	[SerializeField]
+	GameObject visualization_mistake;//間違ったことを知らせる。
+	private string obtained_color;
+
 
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
@@ -154,6 +161,7 @@ public class PageController : MonoBehaviour {
 
 	//ここの関数だけで、読み取った色を指定されている色を比較して正しいかったら次のページに進む処理をする。
 	void SetColor(string get_color_name){
+		obtained_color = get_color_name;//間違った色を読み取った時の可視化演出のために使う。
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
 			aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
@@ -162,6 +170,7 @@ public class PageController : MonoBehaviour {
 		} else {//間違った色を読み取った場合
 			aud.PlayOneShot(se[1]);//間違った色を読みとったので、間違った効果音を再生する。
 			Debug.Log ("間違った");
+			StartCoroutine ("Mistake_visualization_staging");//間違いを可視化するための演出コルーチンを開始する。
 		}
 		storySelectController.GetColorPanel.SetActive (false);//読み取る色を間違った時に、キャラクターに変な色がつくのを見ることができても面白いと思って、正解不正解問わず非表示にする
 		Debug.Log ("pageの値は"+page);//進んだページ数を表示
@@ -179,6 +188,14 @@ public class PageController : MonoBehaviour {
 			//storySelectController.GetColorPanel.SetActive (false);//正解したので、色を読みよるパネルは非表示にする。
 			if(page==configured_page_number) Last_page_termination();//最後のページが終わったら最後の処理をする関数を呼び出す
 		}
+	}
+
+	//間違った色を読み取った時の間違い可視化えんしゅrつ。
+	IEnumerator Mistake_visualization_staging(){
+		visualization_mistake.SetActive (true);
+		visualization_mistake_label.text = "読み取った色は"+obtained_color+"だよ\n正解は"+specified_color+"だよ！";
+		yield return new WaitForSeconds (3);
+		visualization_mistake.SetActive (false);
 	}
 
 	//次のページを表示する時に、ページ自体はSetActiveされているが、画面全体はフェードアウトとフェードインする。
