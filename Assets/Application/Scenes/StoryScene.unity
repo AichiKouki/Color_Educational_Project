@@ -239,16 +239,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &80842248 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1194576622305872, guid: e263e33dea2fa463693fafd739e63f78,
-    type: 2}
-  m_PrefabInternal: {fileID: 276325474}
---- !u!4 &80842249 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4196495005585196, guid: e263e33dea2fa463693fafd739e63f78,
-    type: 2}
-  m_PrefabInternal: {fileID: 276325474}
 --- !u!1001 &176878327
 Prefab:
   m_ObjectHideFlags: 0
@@ -340,9 +330,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1315841219536226, guid: e263e33dea2fa463693fafd739e63f78, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e263e33dea2fa463693fafd739e63f78, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &276325475 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4907605985989846, guid: e263e33dea2fa463693fafd739e63f78,
+    type: 2}
+  m_PrefabInternal: {fileID: 276325474}
 --- !u!1 &286975095
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,11 +591,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4794575170108742, guid: de3210cc415a640d69643d2e09211be7,
     type: 2}
   m_PrefabInternal: {fileID: 407620518}
---- !u!212 &407620521 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 212267955805011486, guid: de3210cc415a640d69643d2e09211be7,
-    type: 2}
-  m_PrefabInternal: {fileID: 407620518}
 --- !u!1 &437865085
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +646,7 @@ MonoBehaviour:
   - {fileID: 244807828}
   - {fileID: 655162398}
   - {fileID: 2113779278}
-  - {fileID: 80842248}
+  - {fileID: 0}
   - {fileID: 1796284697}
   - {fileID: 1478332697}
   - {fileID: 1442620961}
@@ -1010,9 +1004,8 @@ MonoBehaviour:
   loading_movie: {fileID: 1056423375}
   readButton: {fileID: 895301123}
   camera_boot: {fileID: 1490574947}
-  spriteRenderer_crab:
+  spriteRenderer_object:
   - {fileID: 442801371}
-  - {fileID: 407620521}
   configured_page_number: 0
   fadeIn_fadeOut_image: {fileID: 1900738031}
 --- !u!114 &831000020
@@ -1220,6 +1213,10 @@ Prefab:
     - target: {fileID: 4959639163847214, guid: dcae030d4e80e464894b4e30eb956581, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882325932138768, guid: dcae030d4e80e464894b4e30eb956581, type: 2}
+      propertyPath: m_Name
+      value: crab_walk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcae030d4e80e464894b4e30eb956581, type: 2}
@@ -3386,7 +3383,7 @@ Transform:
   - {fileID: 244807829}
   - {fileID: 655162399}
   - {fileID: 2113779279}
-  - {fileID: 80842249}
+  - {fileID: 276325475}
   - {fileID: 1796284698}
   - {fileID: 1478332698}
   - {fileID: 1442620962}

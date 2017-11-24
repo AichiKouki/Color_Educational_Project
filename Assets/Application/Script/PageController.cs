@@ -169,7 +169,7 @@ public class PageController : MonoBehaviour {
 
 	//正しい色を読み取れた場合は、色が反映されたページを表示してから数秒たってから次のページを表示する。
 	IEnumerator Character_color_change_after_next_page_go(){
-		yield return new WaitForSeconds (3);//3秒経ったら処理する。
+		yield return new WaitForSeconds (4);//3秒経ったら処理する。
 		if (page < configured_page_number) {//最終的な指定した数のページよりまだ進んでいなかったら、進む処理
 			storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
 			page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
@@ -183,16 +183,18 @@ public class PageController : MonoBehaviour {
 
 	//次のページを表示する時に、ページ自体はSetActiveされているが、画面全体はフェードアウトとフェードインする。
 	void next_page_display_when_fade_in_with_fade_out(){
-		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
 		fadeIn_fadeOut_time += Time.deltaTime;
-		if (fadeIn_fadeOut_time < 2) {//フェードアウト
-			if(fadeIn_fadeOut_value<255)fadeIn_fadeOut_value += 3f;
-		} else if (fadeIn_fadeOut_time > 4) {//フェードイン
-			if(fadeIn_fadeOut_value>0)fadeIn_fadeOut_value -= 5f;
-		} 
+		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
+		if (fadeIn_fadeOut_time>2 && fadeIn_fadeOut_time <= 4) {//フェードアウト
+			if (fadeIn_fadeOut_value < 255)
+				fadeIn_fadeOut_value += 3f;	
+		} else if (fadeIn_fadeOut_time>4 && fadeIn_fadeOut_time <= 6) {//フェードイン
+			if (fadeIn_fadeOut_value > 0)
+				fadeIn_fadeOut_value -= 5f;
+		}
 
 		//フェードアウトとフェードインの処理に必要な変数をリセットする。
-		if (fadeIn_fadeOut_time > 6) {//フェードインとフェードアウトのために使う変数をリセットする処理
+		if (fadeIn_fadeOut_time > 8) {//フェードインとフェードアウトのために使う変数をリセットする処理
 			page_fadeIn_fadeOut = false;//フェードアウトとフェードインをするかどうかのフラグをfalseにした。(Updateの中に関数呼び出しがあるから。)
 			fadeIn_fadeOut_time = 0;
 		}

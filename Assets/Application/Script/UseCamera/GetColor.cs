@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 public class GetColor : MonoBehaviour
 {
 	public Color color;
-	private Texture2D tex = null;
+	private Texture2D tex = null;//任意の１の色を取得する処理に使う変数
 
 	[SerializeField]
-	Image testImage;
-
+	Image testImage;//リアルタイムで取得している色を表示している。
 	//色判定処理関連
 	[SerializeField]
 	Text color_label;//色の名前を表示するためのUI
@@ -26,7 +25,7 @@ public class GetColor : MonoBehaviour
 
 	void Start()
 	{
-		tex = new Texture2D(1,1, TextureFormat.RGB24, false);
+		tex = new Texture2D(1,1, TextureFormat.RGB24, false);//任意の位置の色を取得する際に必要な処理
 		StartCoroutine ("OnPostRender");//シーンが開始されたタイミングで、指定した画面の座標の色を取得する処理を開始する。
 		sceneName = SceneManager.GetActiveScene ().name;//シーン名を取得
 	}
@@ -110,7 +109,7 @@ public class GetColor : MonoBehaviour
 			}
 		}else if(g>r && r>b){
 			// 3-2 R:16 ~ 12.6
-			if(r/g*16 > 12.5 && r/g*16 <= 16){				
+			if(r/g*16 > 12.5 && r/g*16 <= 16){
 				color_code = "#ffff00";
 				color_name = "きいろ";
 				//Debug.Log("黄色");
@@ -209,5 +208,6 @@ public class GetColor : MonoBehaviour
 			color_name = "モノトーン";
 			//Debug.Log("モノトーン");
 		}
+		//Debug.Log("GetColorスクリプトで取得できるRGBの値は"+r+"、"+g+"、"+b);
 	}
 }

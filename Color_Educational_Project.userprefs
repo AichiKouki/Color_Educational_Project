@@ -1,18 +1,9 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Application/Script/PageController.cs">
-    <Files>
-      <File FileName="Assets/Application/Script/OpeningController.cs" Line="20" Column="25" />
-      <File FileName="Assets/Application/Script/StorySelectController.cs" Line="50" Column="47" />
-      <File FileName="Assets/Application/Script/PageController.cs" Line="171" Column="118" />
-      <File FileName="Assets/Application/Script/UseCamera/GetColor.cs" Line="44" Column="21" />
-      <File FileName="Assets/Application/Script/Character/CharacterColorController.cs" Line="19" Column="5" />
-      <File FileName="Assets/Application/Script/GameController.cs" Line="26" Column="42" />
-      <File FileName="Assets/Application/Script/DrawLineController.cs" Line="73" Column="38" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{68FDA82F-02D5-B128-A4E1-CA447C611E6C}|単体テスト">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
