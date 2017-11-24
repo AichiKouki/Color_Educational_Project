@@ -21,11 +21,10 @@ GameObject:
   - component: {fileID: 4933219347746324}
   - component: {fileID: 212217689926029890}
   - component: {fileID: 114501385499583092}
-  - component: {fileID: 95160662898024318}
   - component: {fileID: 114093428603490534}
   m_Layer: 0
-  m_Name: saru6
-  m_TagString: saru
+  m_Name: saru_dark
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1176466171719518
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4410587741197602}
   - component: {fileID: 212543877375896492}
+  - component: {fileID: 114736909008858102}
   m_Layer: 0
   m_Name: tree_NoBackground
   m_TagString: Untagged
@@ -132,23 +132,6 @@ Transform:
   m_Father: {fileID: 4290426114931606}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95160662898024318
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1052029838799932}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114093428603490534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +146,7 @@ MonoBehaviour:
   move1_crab: 1
   move1_saru: 1
   animator_crab: {fileID: 0}
-  animator_saru: {fileID: 95160662898024318}
+  animator_saru: {fileID: 0}
 --- !u!114 &114501385499583092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,6 +159,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move1: 1
+--- !u!114 &114736909008858102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890151329280560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 1
+  move1_saru: 1
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
 --- !u!212 &212217689926029890
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -209,7 +207,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 69ef788258c0b4a76ad7aa5c69975f00, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -251,7 +249,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 80da620b22b064ff8a3142c5e37aae17, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
