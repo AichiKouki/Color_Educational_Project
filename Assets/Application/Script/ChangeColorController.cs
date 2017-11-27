@@ -68,7 +68,7 @@ public class ChangeColorController : MonoBehaviour {
 	}
 
 	//ボタンの共通化をしたかったが、ボタン全てにこのスクリプトをアタッチするとそのボタンの個数文同じ処理がされてしまうので、意図しない挙動になるのでやめた
-	/*
+
 	//線の色を変更する処理
 	//全てのボタンのスクリプト呼び出しを共通化
 	public void ClickButton(){
@@ -79,35 +79,35 @@ public class ChangeColorController : MonoBehaviour {
 	void ChangeColor(string name){
 		if (name == "ChangeBlackButton") {//ボタンの名前がChangeBlackButtonだったら処理
 			drawLineController.changeColorNum = 0;//色のオブジェクトの配列の添え字の部分の値を変更
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangeBlueButton") {//青
 			drawLineController.changeColorNum = 1;//色のオブジェクトの配列の添え字の部分の値を変更
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangeGreenButton") {//緑
 			drawLineController.changeColorNum = 2;//色のオブジェクトの配列の添え字の部分の値を変更
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangeRedButton") {
 			drawLineController.changeColorNum = 3;//色のオブジェクトの配列の添え字の部分の値を変更
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangeYellowButton") {//あか
 			drawLineController.changeColorNum = 4;//色のオブジェクトの配列の添え字の部分の値を変更
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangeBrownButton") {//茶色
 			drawLineController.changeColorNum = 5;//色のオブジェクトの配列の添え字の部分の値を変更
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangePurpleButton") {//紫
 			drawLineController.changeColorNum = 6;
-			//start_rainbow=false;
+			start_rainbow=false;
 		} else if (name == "ChangePinkButton") {//ピンク
 			drawLineController.changeColorNum = 7;
-			//start_rainbow=false;//レインボー以外の色ならレインボーの処理をするフラグをfalseにする。
+			start_rainbow=false;//レインボー以外の色ならレインボーの処理をするフラグをfalseにする。
 		} else if (name == "Rainbow_Button") {
-			//start_rainbow = true;//レインボーボタンが押されたらレインボー処理をするフラグをtrueにする。
+			start_rainbow = true;//レインボーボタンが押されたらレインボー処理をするフラグをtrueにする。
 			Debug.Log("レインボーボタンが押されました。");
 		}
 	}
 
-	*/
+
 		
 	//レインボーペンを作成(時間ごとに色を変化させるのが仕組み)
 	public void Rainbow_Pen(){
