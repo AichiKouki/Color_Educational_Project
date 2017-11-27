@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 198953092}
   - component: {fileID: 198953091}
   - component: {fileID: 198953090}
-  - component: {fileID: 198953093}
   m_Layer: 5
   m_Name: ChangeGreenButton
   m_TagString: Untagged
@@ -496,8 +495,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 198953093}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeGreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -542,18 +541,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 198953088}
---- !u!114 &198953093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198953088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!1 &199606714
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +552,6 @@ GameObject:
   - component: {fileID: 199606719}
   - component: {fileID: 199606718}
   - component: {fileID: 199606717}
-  - component: {fileID: 199606716}
   m_Layer: 5
   m_Name: ChangePinkButton
   m_TagString: Untagged
@@ -591,18 +577,6 @@ RectTransform:
   m_AnchoredPosition: {x: 554, y: -138}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &199606716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 199606714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!114 &199606717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,8 +616,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 199606716}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangePink
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -930,7 +904,6 @@ GameObject:
   - component: {fileID: 345032551}
   - component: {fileID: 345032550}
   - component: {fileID: 345032549}
-  - component: {fileID: 345032552}
   m_Layer: 5
   m_Name: ChangeRedButton
   m_TagString: Untagged
@@ -995,8 +968,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 345032552}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeRed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1041,18 +1014,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345032547}
---- !u!114 &345032552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 345032547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!1 &428775268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,9 +1308,9 @@ RectTransform:
   - {fileID: 1984480925}
   - {fileID: 2023012461}
   - {fileID: 199606715}
+  - {fileID: 2065123195}
   - {fileID: 1609736648}
   - {fileID: 908477913}
-  - {fileID: 2065123195}
   - {fileID: 428775269}
   - {fileID: 870109681}
   m_Father: {fileID: 0}
@@ -1513,6 +1474,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &518651105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 518651107}
+  - component: {fileID: 518651106}
+  m_Layer: 0
+  m_Name: ChangeColorController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &518651106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518651105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawLineController: {fileID: 1456148993}
+  start_rainbow: 0
+--- !u!4 &518651107
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518651105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1118, y: 375, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644950220
 GameObject:
@@ -2059,7 +2062,6 @@ GameObject:
   - component: {fileID: 879614244}
   - component: {fileID: 879614243}
   - component: {fileID: 879614242}
-  - component: {fileID: 879614245}
   m_Layer: 5
   m_Name: ChangeBlackButton
   m_TagString: Untagged
@@ -2124,8 +2126,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879614245}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeBlack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2170,18 +2172,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 879614240}
---- !u!114 &879614245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 879614240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!1 &908477910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2245,7 +2235,7 @@ RectTransform:
   - {fileID: 838166800}
   - {fileID: 165095830}
   m_Father: {fileID: 501153013}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2263,7 +2253,6 @@ GameObject:
   - component: {fileID: 1213908254}
   - component: {fileID: 1213908253}
   - component: {fileID: 1213908252}
-  - component: {fileID: 1213908255}
   m_Layer: 5
   m_Name: ChangeYellowButton
   m_TagString: Untagged
@@ -2328,8 +2317,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1213908255}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeYellow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2374,18 +2363,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1213908250}
---- !u!114 &1213908255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1213908250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!1 &1305231540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2495,6 @@ GameObject:
   - component: {fileID: 1380561890}
   - component: {fileID: 1380561889}
   - component: {fileID: 1380561888}
-  - component: {fileID: 1380561891}
   m_Layer: 5
   m_Name: ChangeBlueButton
   m_TagString: Untagged
@@ -2583,8 +2559,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380561891}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeBlue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2629,18 +2605,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1380561886}
---- !u!114 &1380561891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1380561886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!1 &1428905901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,7 +2985,7 @@ Prefab:
     - target: {fileID: 224559380439076862, guid: 82d00c959061846f6b660ce64ae506c9,
         type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 224559380439076862, guid: 82d00c959061846f6b660ce64ae506c9,
         type: 2}
@@ -3759,7 +3723,6 @@ GameObject:
   - component: {fileID: 1984480929}
   - component: {fileID: 1984480928}
   - component: {fileID: 1984480927}
-  - component: {fileID: 1984480926}
   m_Layer: 5
   m_Name: ChangeBrownButton
   m_TagString: Untagged
@@ -3785,18 +3748,6 @@ RectTransform:
   m_AnchoredPosition: {x: 233, y: -138}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1984480926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1984480924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!114 &1984480927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3836,8 +3787,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1984480926}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeBrown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3893,7 +3844,6 @@ GameObject:
   - component: {fileID: 2023012465}
   - component: {fileID: 2023012464}
   - component: {fileID: 2023012463}
-  - component: {fileID: 2023012462}
   m_Layer: 5
   m_Name: ChangePurpleButton
   m_TagString: Untagged
@@ -3919,18 +3869,6 @@ RectTransform:
   m_AnchoredPosition: {x: 382, y: -138}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2023012462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2023012460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!114 &2023012463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3970,8 +3908,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2023012462}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangePurple
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4027,7 +3965,6 @@ GameObject:
   - component: {fileID: 2065123198}
   - component: {fileID: 2065123197}
   - component: {fileID: 2065123196}
-  - component: {fileID: 2065123199}
   m_Layer: 5
   m_Name: Rainbow_Button
   m_TagString: Untagged
@@ -4047,7 +3984,7 @@ RectTransform:
   m_Children:
   - {fileID: 61936641}
   m_Father: {fileID: 501153013}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4093,8 +4030,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2065123199}
-        m_MethodName: ClickButton
+      - m_Target: {fileID: 518651106}
+        m_MethodName: ChangeRainbow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4139,18 +4076,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2065123194}
---- !u!114 &2065123199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2065123194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d4706fe3f24e61a9c308c95a40519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawLineController: {fileID: 1456148993}
 --- !u!1 &2087526875
 GameObject:
   m_ObjectHideFlags: 0
