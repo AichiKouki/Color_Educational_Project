@@ -51,9 +51,6 @@ public class DrawLineController : MonoBehaviour
 	[SerializeField]
 	Transform summarize_object_parent;
 
-	//読み取った色で絵画する機能の実装
-	[SerializeField]
-	PageController pageController;
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -68,7 +65,7 @@ public class DrawLineController : MonoBehaviour
 			Eraser ();//消しゴム機能を担う処理
 		//Debug.Log("線に名前をつけた時の番号は"+summarize_ink_NoGravity_number);//線に名前をつけた時の番号を表示
 		//Debug.Log("削除する線の名前の番号は"+delete_object_number);//削除する線の番号を表示する
-		Debug.Log("summarize_line" + (summarize_ink_NoGravity_number-1));
+		//Debug.Log("summarize_line" + (summarize_ink_NoGravity_number-1));
 	}
 
 	//会がスタートから終了までの処理全般
@@ -176,10 +173,5 @@ public class DrawLineController : MonoBehaviour
 		{
 			GameObject.Destroy(n.gameObject);
 		}
-	}
-
-	//カメラから読み取った色で絵画する機能の実装
-	public void Use_PageController(){
-		pageController.ReadColor ();
 	}
 }

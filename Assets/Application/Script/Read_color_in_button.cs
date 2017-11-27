@@ -44,6 +44,7 @@ public class Read_color_in_button : MonoBehaviour {
 			loading_movie.SetActive (false);//読み取りが終了したら、読み取り中動画は非表示にする。
 			readButton.SetActive (true);//読み取りが終了したら、読み取り開始ボタンを表示する。
 			camera_boot.SetActive (true);//読み取りが終了したら、カメラ起動ボタンをまた表示する。
+			GetColorPanel.SetActive (false);//色を読み取るだけなので、読み取るたびに読み取りパネルを非表示にする。
 			time_read_color=0;//色読み取り時間をリセットする。
 			colors_reading_start = false;//一度だけ処理するためのもの
 
