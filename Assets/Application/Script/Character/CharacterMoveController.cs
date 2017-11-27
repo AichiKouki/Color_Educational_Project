@@ -30,7 +30,7 @@ public class CharacterMoveController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigid2D = GetComponent<Rigidbody2D> ();
-		if (gameObject.tag == "crab_rigid") StartCoroutine ("Move2_Crab");
+		if (gameObject.tag == "crab_rigid") StartCoroutine ("Move2_Crab");//タグがcrab_rigidの場合はジャンプする処理を開始する。
 		spriteRenderer = GetComponent<SpriteRenderer> ();//フェードインで表示させるために使う。
 	}
 
@@ -55,10 +55,10 @@ public class CharacterMoveController : MonoBehaviour {
 		if (move_time_crab < 4) {//4秒までは横に移動する
 			transform.Translate (-1 * Time.deltaTime, 0, 0);
 		} else if(once_process==false){//4秒より時間がすぎたら、移動をやめてIdleアニメーションにする。
-			once_process = true;
-			animator_crab.SetTrigger ("Idle");
-			move1_crab = false;
-			move_time_crab = 0;
+			once_process = true;//一度だけ処理するためのフラグ
+			animator_crab.SetTrigger ("Idle");//Idleアニメーションに変更
+			move1_crab = false;//移動をやめるためのフラグ変更
+			move_time_crab = 0;//移動する時間をリセットする。
 		}
 	}
 

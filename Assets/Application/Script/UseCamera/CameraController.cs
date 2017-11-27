@@ -16,8 +16,8 @@ public class CameraController : MonoBehaviour  {
 	{
 		webCameraTexture = new WebCamTexture (750,1334,30);//幅、高さ、FPSを引数に入れている(iPhone6Sの値)
 		//image.material.mainTexture = webCameraTexture;//mainTextureでやってしまうと、他のImageにも同じ映像が表示されてしまう
-		camera_videos_Image.texture=webCameraTexture;
-		webCameraTexture.Play ();
+		camera_videos_Image.texture=webCameraTexture;//RawImageのテクスチャに、Webカメラで取得したテクスチャを当てはめる
+		webCameraTexture.Play ();//Webカメラをスタートさせる
 	}
 
 	// Update is called once per frame

@@ -654,7 +654,7 @@ MonoBehaviour:
   - {fileID: 244807828}
   - {fileID: 655162398}
   - {fileID: 2113779278}
-  - {fileID: 0}
+  - {fileID: 619565800}
   - {fileID: 1796284697}
   - {fileID: 1478332697}
   - {fileID: 1442620961}
@@ -672,11 +672,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &442801371 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 212685091030619778, guid: dcae030d4e80e464894b4e30eb956581,
-    type: 2}
-  m_PrefabInternal: {fileID: 887054610}
 --- !u!1 &505214867 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1112401307272724, guid: 2bff61f5c0a404f998844309eb85cfa9,
@@ -767,6 +762,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 597842792}
+--- !u!1 &619565800 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1315841219536226, guid: e263e33dea2fa463693fafd739e63f78,
+    type: 2}
+  m_PrefabInternal: {fileID: 276325474}
 --- !u!1 &655162398 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1170902232654028, guid: 7e683ca93f2214fce8ba7080fc6b6a90,
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   readButton: {fileID: 895301123}
   camera_boot: {fileID: 1490574947}
   spriteRenderer_object:
-  - {fileID: 442801371}
+  - {fileID: 887054613}
   - {fileID: 1645850998}
   configured_page_number: 0
   fadeIn_fadeOut_image: {fileID: 1900738031}
@@ -1244,6 +1244,11 @@ Transform:
 --- !u!1 &887054612 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1438586201713404, guid: dcae030d4e80e464894b4e30eb956581,
+    type: 2}
+  m_PrefabInternal: {fileID: 887054610}
+--- !u!212 &887054613 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212410134641522574, guid: dcae030d4e80e464894b4e30eb956581,
     type: 2}
   m_PrefabInternal: {fileID: 887054610}
 --- !u!1 &895301123

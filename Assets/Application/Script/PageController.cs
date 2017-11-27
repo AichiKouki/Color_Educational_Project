@@ -36,7 +36,7 @@ public class PageController : MonoBehaviour {
 	//音声関連
 	AudioSource aud;
 	[SerializeField]
-	AudioClip[] se;//正解したときや間違ったときの効果音を再生する。
+	AudioClip[] se;//正解したときや間違ったときや物語読み上げの声などの効果音を再生する。
 
 	//読み取り中の処理関連
 	[SerializeField]
@@ -67,7 +67,7 @@ public class PageController : MonoBehaviour {
 	Text visualization_mistake_label;
 	[SerializeField]
 	GameObject visualization_mistake;//間違ったことを知らせる。
-	private string obtained_color;
+	private string obtained_color;//別のメソッドの引数でもともと扱っていたので、別の用途で取得した色を扱うので、そのための変数を宣言した。
 
 
 	void Start () {
@@ -190,11 +190,11 @@ public class PageController : MonoBehaviour {
 		}
 	}
 
-	//間違った色を読み取った時の間違い可視化えんしゅrつ。
+	//間違った色を読み取った時の間違い可視化の演出
 	IEnumerator Mistake_visualization_staging(){
-		visualization_mistake.SetActive (true);
-		visualization_mistake_label.text = "読み取った色は"+obtained_color+"だよ\n正解は"+specified_color+"だよ！";
-		yield return new WaitForSeconds (3);
+		visualization_mistake.SetActive (true);//読み取った色と正解の色を表示するラベルと、その背景ImageをまとめたGameObjectを表示する。
+		visualization_mistake_label.text = "読み取った色は"+obtained_color+"だよ\n正解は"+specified_color+"だよ！";//読み取った色を正解の色を文字列として表示。
+		yield return new WaitForSeconds (3);//3秒表示したら、次は非表示にする。
 		visualization_mistake.SetActive (false);
 	}
 
@@ -203,15 +203,13 @@ public class PageController : MonoBehaviour {
 		fadeIn_fadeOut_time += Time.deltaTime;
 		fadeIn_fadeOut_image.color = new Color (0/255,0/255,0/255,fadeIn_fadeOut_value/255);
 		if (fadeIn_fadeOut_time>2 && fadeIn_fadeOut_time <= 4) {//フェードアウト
-			if (fadeIn_fadeOut_value < 255)
-				fadeIn_fadeOut_value += 3f;	
+			if (fadeIn_fadeOut_value < 255) fadeIn_fadeOut_value += 3f;	
 		} else if (fadeIn_fadeOut_time>4 && fadeIn_fadeOut_time <= 6) {//フェードイン
-			if (fadeIn_fadeOut_value > 0)
-				fadeIn_fadeOut_value -= 5f;
+			if (fadeIn_fadeOut_value > 0) fadeIn_fadeOut_value -= 5f;
 		}
 
 		//フェードアウトとフェードインの処理に必要な変数をリセットする。
-		if (fadeIn_fadeOut_time > 8) {//フェードインとフェードアウトのために使う変数をリセットする処理
+		if (fadeIn_fadeOut_time > 6) {//フェードインとフェードアウトのために使う変数をリセットする処理
 			page_fadeIn_fadeOut = false;//フェードアウトとフェードインをするかどうかのフラグをfalseにした。(Updateの中に関数呼び出しがあるから。)
 			fadeIn_fadeOut_time = 0;
 		}
@@ -259,5 +257,6 @@ public class PageController : MonoBehaviour {
 		Debug.Log ("全ページ数を読み終わった");
 		story_last_until_read = true;//最後のページを読み終わったことを示すフラグをtrueにした。
 		camera_boot.SetActive (false);//全てのページを読み終わったので、カメラを使うボタンを非表示にする。
+		storySelectController.GetColorPanel.SetActive(false);
 	}
 }

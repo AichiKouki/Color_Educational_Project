@@ -90,14 +90,14 @@ public class DrawLineController : MonoBehaviour
 
 			if((endPos-startPos).magnitude > lineLength){//最後のポジションから最初にクリックされたポジションの差が、指定した長さより長かったら処理
 				GameObject obj = Instantiate(linePrefab[changeColorNum], transform.position, transform.rotation) as GameObject;//線を作る3Dオブジェクトを作成
-				obj.transform.position = (startPos+endPos)/2;							
+				obj.transform.position = (startPos+endPos)/2;
 				obj.transform.right = (endPos-startPos).normalized;//ベクトルを正規化
 
 				obj.transform.localScale = new Vector3( (endPos-startPos).magnitude, lineWidth , lineWidth );//何かの子要素に作成するので、相対的なサイズ
 
 				summarize_ink_NoGravity.transform.parent = summarize_object.transform;//一個一個のオブジェクトを空のオブジェクトにまとめる。これでバラバラにならない。
 				obj.transform.parent = summarize_ink_NoGravity.transform;//線をまとめたオブジェクトをさらに空のオブジェクトにまとめる
-	
+
 				touchPos = endPos;//マウスのポジションを、マウスが押されている間、更新し続ける
 
 				//線を引く際のエフェクト生成
@@ -133,7 +133,7 @@ public class DrawLineController : MonoBehaviour
 			//消しゴムの画像とマウスのポジションを同期させる(消しゴムはただ表示しているだけでこの画像に衝突判定はない)
 			eraser.transform.position = Input.mousePosition;
 			// オブジェクトにrayが当たった時に処理
-			if (Physics.Raycast(ray, out hit, distance)){ 
+			if (Physics.Raycast(ray, out hit, distance)){
 			//if(Physics.SphereCast(ray, 5.0f, out hit, 10.0f)) {//球型のRayを作成する
 				// rayが当たったオブジェクトの名前を取得
 				string objectName = hit.collider.gameObject.name;//Rayに衝突したオブジェクト名を格納する

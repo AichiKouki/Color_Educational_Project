@@ -2,8 +2,10 @@
 using System;//Convertを使うからインポートする
 using System.Collections;
 
+//カラーぴっかーを表示して、自由に色を選択可能にする。
 public class ColorPicker : MonoBehaviour {
 	public Texture2D colorPicker;
+	//カラーピッカーのサイズを指定
 	public int ImageWidth = 100;
 	public int ImageHeight = 100;
 

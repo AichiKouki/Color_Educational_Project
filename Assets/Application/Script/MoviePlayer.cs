@@ -36,7 +36,7 @@ public class MoviePlayer : MonoBehaviour {
 		if (mPlayer.texture != null && !check) {
 			Debug.Log ("Set");
 			//rImage.texture = mPlayer.texture;
-			check = true;
+			check = true;//一度だけしか処理しないためのフラグ変更
 		}
 		//　マウスの左クリックで再生と停止を切り替える
 		/*
