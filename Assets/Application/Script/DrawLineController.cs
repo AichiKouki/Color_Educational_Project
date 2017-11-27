@@ -51,6 +51,10 @@ public class DrawLineController : MonoBehaviour
 	[SerializeField]
 	Transform summarize_object_parent;
 
+	//読み取った色で絵画する機能の実装
+	[SerializeField]
+	PageController pageController;
+
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
 		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。
@@ -174,4 +178,8 @@ public class DrawLineController : MonoBehaviour
 		}
 	}
 
+	//カメラから読み取った色で絵画する機能の実装
+	public void Use_PageController(){
+		pageController.ReadColor ();
+	}
 }

@@ -78,6 +78,7 @@
      <Compile Include="Assets\Application\Script\photo_acquisition_script\PickerUnsupported.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Rotator.cs" />
      <Compile Include="Assets\Application\Script\photo_acquisition_script\Unimgpicker.cs" />
+     <Compile Include="Assets\Application\Script\Read_color_in_button.cs" />
      <Compile Include="Assets\Application\Script\ScreenShot.cs" />
      <Compile Include="Assets\Application\Script\SerialController.cs" />
      <Compile Include="Assets\Application\Script\StorySelectController.cs" />
