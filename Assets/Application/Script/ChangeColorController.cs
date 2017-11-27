@@ -47,14 +47,16 @@ public class ChangeColorController : MonoBehaviour {
 			drawLineController.changeColorNum = 6;
 		} else if (name == "ChangePinkButton") {//ピンク
 			drawLineController.changeColorNum = 7;
+		} else if (name == "Rainbow_Button") {
+			Debug.Log ("レインボーボタンが押された");
+			is_rainbow = true;
 		}
-
-		is_rainbow = false;//何かしらの色の種類が洗濯されたということは、れいんぼーにする必要がないので、フラグをfalseにする。
+			
+		is_rainbow = false;//何かしらの色の種類が選択されたということは、レインボーにする必要がないので、フラグをfalseにする。
 	}
 
 	//レインボーペンを作成(時間ごとに色を変化させるのが仕組み)
 	public void Rainbow_Pen(){
-		is_rainbow = true;//ここの関数をボタンの呼び出し関数にするので、1度呼ばれれば、ここの関数がループされる。
 		rainbow_time += Time.deltaTime;
 		if (rainbow_time > 0 && rainbow_time < 1)
 			drawLineController.changeColorNum = 0;

@@ -3026,12 +3026,12 @@ Prefab:
     - target: {fileID: 224559380439076862, guid: 82d00c959061846f6b660ce64ae506c9,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -935
+      value: -798
       objectReference: {fileID: 0}
     - target: {fileID: 224559380439076862, guid: 82d00c959061846f6b660ce64ae506c9,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 586
+      value: 357
       objectReference: {fileID: 0}
     - target: {fileID: 224559380439076862, guid: 82d00c959061846f6b660ce64ae506c9,
         type: 2}
@@ -3082,6 +3082,11 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_FontSize
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139100636978988, guid: 82d00c959061846f6b660ce64ae506c9,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 82d00c959061846f6b660ce64ae506c9, type: 2}
@@ -4089,7 +4094,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2065123199}
-        m_MethodName: Rainbow_Pen
+        m_MethodName: ClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
