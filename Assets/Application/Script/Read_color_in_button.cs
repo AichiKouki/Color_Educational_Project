@@ -25,7 +25,9 @@ public class Read_color_in_button : MonoBehaviour {
 	//今後このスクリプトを流用していくなら、ここの部分はいらない。今回だけになる
 	//取得した色をペンの色に設定する
 	[SerializeField]
-	DrawLineController drawLineController;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+	DrawLineController drawLineController;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+	[SerializeField]
+	ChangeColorController changeColorController;//レインボー機能を止めるため
 
 	// Use this for initialization
 	void Start () {
@@ -53,45 +55,59 @@ public class Read_color_in_button : MonoBehaviour {
 			time_read_color=0;//色読み取り時間をリセットする。
 			colors_reading_start = false;//一度だけ処理するためのもの
 
+			changeColorController.start_rainbow = false;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか") {
 				Debug.Log ("あか");
-				drawLineController.changeColorNum = 3;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 3;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="あか";
 			} else if (getColor.color_name == "きいろ") {
 				Debug.Log ("きいろ");
-				drawLineController.changeColorNum = 4;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 4;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="きいろ";
 			} else if (getColor.color_name == "みどり") {
 				Debug.Log ("みどり");
-				drawLineController.changeColorNum = 2;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 2;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="みどり";
 			} else if (getColor.color_name == "シアン") {
 				Debug.Log ("シアン");
-				drawLineController.changeColorNum = 1;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 1;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="シアン";
 			} else if (getColor.color_name == "あお") {
 				Debug.Log ("あお");
-				drawLineController.changeColorNum = 1;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 1;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="あお";
 			} else if (getColor.color_name == "もも") {
 				Debug.Log ("もも");
-				drawLineController.changeColorNum = 2;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 7;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="もも";
 			} else if (getColor.color_name == "オレンジ") {
 				Debug.Log ("オレンジ");
-				drawLineController.changeColorNum = 10;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 10;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="オレンジ";
 			}else if (getColor.color_name == "きみどり"){
 				Debug.Log ("きみどり");
-				drawLineController.changeColorNum = 11;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 11;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="きみどり";
 			}else if (getColor.color_name == "あおみどり"){
 				Debug.Log ("あおみどり");
-				drawLineController.changeColorNum = 9;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 9;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="あおみどり";
 			}else if (getColor.color_name == "みずいろ"){
 				Debug.Log ("みずいろ");
-				drawLineController.changeColorNum = 8;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 8;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="みずいろ";
 			}else if (getColor.color_name == "むらさき"){
 				Debug.Log ("むらさき");
-				drawLineController.changeColorNum = 6;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 6;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="むらさき";
 			}else if (getColor.color_name == "あかむらさき"){
 				Debug.Log ("あかむらさき");
 			}else if (getColor.color_name == "モノトーン"){
 				Debug.Log ("モノトーン");
-				drawLineController.changeColorNum = 0;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+				drawLineController.changeColorNum = 0;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+				drawLineController.current_color.text="モノトーン";
 			}
 		}
 		//Debug.Log ("読み取り中");

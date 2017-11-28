@@ -55,6 +55,9 @@ public class DrawLineController : MonoBehaviour
 	[HideInInspector]
 	public string penColor;
 
+	//現在の色を表すラベル
+	public Text current_color;
+
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
 		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。
