@@ -4260,6 +4260,11 @@ MonoBehaviour:
   camera_boot: {fileID: 428775268}
   drawLineController: {fileID: 1456148993}
   changeColorController: {fileID: 518651106}
+  UI1: {fileID: 791320617}
+  UI2: {fileID: 1936736239}
+  UI3: {fileID: 1305231540}
+  UI4: {fileID: 1886843063}
+  UI5: {fileID: 1476752834}
 --- !u!4 &2141012237
 Transform:
   m_ObjectHideFlags: 0

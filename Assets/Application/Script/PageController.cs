@@ -193,7 +193,7 @@ public class PageController : MonoBehaviour {
 	//間違った色を読み取った時の間違い可視化の演出
 	IEnumerator Mistake_visualization_staging(){
 		visualization_mistake.SetActive (true);//読み取った色と正解の色を表示するラベルと、その背景ImageをまとめたGameObjectを表示する。
-		visualization_mistake_label.text = "読み取った色は"+obtained_color+"だよ\n正解は"+specified_color+"だよ！";//読み取った色を正解の色を文字列として表示。
+		visualization_mistake_label.text = "よみとった色は"+getColor.color_name+"だよ";//読み取った色を正解の色を文字列として表示。
 		yield return new WaitForSeconds (3);//3秒表示したら、次は非表示にする。
 		visualization_mistake.SetActive (false);
 	}
@@ -219,23 +219,22 @@ public class PageController : MonoBehaviour {
 	//次の色を指定する処理をまとめている。実際にはランダムにはしない。指定された色を読み取れた場合にこの関数が呼ばれる
 	void Specified_Next_Color(){
 		//テスト用。ランダムに色を指定する。本番では、実際の物語を使って色を決めるので、ランダムにはしないで、固定にする。
-		ran = Random.Range (0, 4);
-		ran = 4;//デバッグ用
-		if (ran == 0) {
-			specified_color = "red";//指定する色を変更
-			specified_color_Label.text = "「あか」をもってきてね";//UIの文字を変更
-		} else if (ran == 1) {
-			specified_color = "blue";//指定する色を変更
-			specified_color_Label.text = "「あお」をもってきてね";
-		} else if (ran == 2) {
+		//もも、黄色、オレンジ、水色を読み取るとシアンとなる、黄緑
+		if (page==1 || page==6 || page==11) {
+			specified_color = "pink";//指定する色を変更
+			specified_color_Label.text = "「もも」をもってきてね";//UIの文字を変更
+		} else if (page==2 || page==7 || page==12) {
 			specified_color = "yellow";//指定する色を変更
 			specified_color_Label.text = "「きいろ」をもってきてね";
-		} else if (ran == 3) {
-			specified_color = "white";//指定する色を変更
-			specified_color_Label.text = "「しろ」をもってきてね";
-		} else if (ran == 4) {
+		} else if (page==3 || page==8) {
 			specified_color = "orange";//指定する色を変更
 			specified_color_Label.text = "「オレンジ」をもってきてね";
+		} else if (page==4 || page==9) {
+			specified_color = "light_blue";//指定する色を変更
+			specified_color_Label.text = "「水色」をもってきてね";
+		} else if (page==5 || page==10) {
+			specified_color = "yellow_green";//指定する色を変更
+			specified_color_Label.text = "「きみどり」をもってきてね";
 		}
 	}
 

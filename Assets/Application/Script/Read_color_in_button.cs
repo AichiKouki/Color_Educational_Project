@@ -27,7 +27,17 @@ public class Read_color_in_button : MonoBehaviour {
 	[SerializeField]
 	DrawLineController drawLineController;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 	[SerializeField]
-	ChangeColorController changeColorController;//レインボー機能を止めるため
+	ChangeColorController changeColorController;//レインボー機能を止めるため//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+	[SerializeField]
+	GameObject UI1;
+	[SerializeField]
+	GameObject UI2;
+	[SerializeField]
+	GameObject UI3;
+	[SerializeField]
+	GameObject UI4;
+	[SerializeField]
+	GameObject UI5;
 
 	// Use this for initialization
 	void Start () {
@@ -46,6 +56,12 @@ public class Read_color_in_button : MonoBehaviour {
 		loading_movie.SetActive (true);//読み取り中動画を表示する。
 		readButton.SetActive (false);//読み込み開始ボタンは邪魔なので、読み取り中は非表示にする。
 		camera_boot.SetActive (false);//読み込み中は、カメラ起動ボタンは邪魔なので、非表示にする。
+		UI1.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI2.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI3.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI4.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI5.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+
 		if (time_read_color > 2) {//2秒間読み取り中と表示するための演出処理
 			Debug.Log ("読み取り完了");
 			loading_movie.SetActive (false);//読み取りが終了したら、読み取り中動画は非表示にする。
@@ -56,6 +72,13 @@ public class Read_color_in_button : MonoBehaviour {
 			colors_reading_start = false;//一度だけ処理するためのもの
 
 			changeColorController.start_rainbow = false;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+
+			UI1.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+			UI2.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+			UI3.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+			UI4.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+			UI5.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+
 
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか") {

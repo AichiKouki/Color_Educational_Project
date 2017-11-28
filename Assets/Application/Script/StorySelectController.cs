@@ -29,7 +29,7 @@ public class StorySelectController : MonoBehaviour {
 		pageController.configured_page_number = story1_gameObject.Length;//最後のページになったら任意の処理をしたいので、最終的なページ数をPageControllerの変数に代入する
 		//オープニングが再生されていたら、動くページを表示する。
 		//if (startOpening == true) SetSarukaniStory ();
-		startOpening=true;//デバッグ用。最終的にはここの文は削除する。
+		//startOpening=true;//デバッグ用。最終的にはここの文は削除する。
 	}
 	
 	// Update is called once per frame
