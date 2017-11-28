@@ -51,6 +51,9 @@ public class DrawLineController : MonoBehaviour
 	[SerializeField]
 	Transform summarize_object_parent;
 
+	//カメラから取得した色をペンの色にする処理
+	[HideInInspector]
+	public string penColor;
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -174,4 +177,6 @@ public class DrawLineController : MonoBehaviour
 			GameObject.Destroy(n.gameObject);
 		}
 	}
+
+
 }

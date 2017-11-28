@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 199762598078539474}
   - component: {fileID: 114472683424528708}
   m_Layer: 0
-  m_Name: partcleEffect_Blue
+  m_Name: partcleEffect_YellowGreen
   m_TagString: drawEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.29411763, g: 0.64949304, b: 1, a: 1}
+      maxColor: {r: 0.58119184, g: 0.99264705, b: 0.5474156, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

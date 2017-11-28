@@ -13,12 +13,10 @@ public class ChangeColorController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Debug.Log (start_rainbow);
 		//レインボーペンを使うフラグがtrueなら、インクがレインボーになる機能を使う。
 		if (start_rainbow == true) Rainbow_Pen ();
 	}
@@ -86,10 +84,10 @@ public class ChangeColorController : MonoBehaviour {
 		} else if (name == "ChangeGreenButton") {//緑
 			drawLineController.changeColorNum = 2;//色のオブジェクトの配列の添え字の部分の値を変更
 			start_rainbow=false;
-		} else if (name == "ChangeRedButton") {
+		} else if (name == "ChangeRedButton") {//あか
 			drawLineController.changeColorNum = 3;//色のオブジェクトの配列の添え字の部分の値を変更
 			start_rainbow=false;
-		} else if (name == "ChangeYellowButton") {//あか
+		} else if (name == "ChangeYellowButton") {//黄色
 			drawLineController.changeColorNum = 4;//色のオブジェクトの配列の添え字の部分の値を変更
 			start_rainbow=false;
 		} else if (name == "ChangeBrownButton") {//茶色
