@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Application/Scenes/DrawingScene.unity
+- path: Assets/Application/Scenes/GetColorScene.unity
   isLoaded: 1
   isActive: 1

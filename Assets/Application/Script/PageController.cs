@@ -248,7 +248,7 @@ public class PageController : MonoBehaviour {
 
 	//デバッグボタン処理(本番ではカメラを使って物語を進めるので)
 	public void DebugButton(){
-		SetColor ("orange");//デバッグ用に全ページオレンジに設定しているので、
+		SetColor (specified_color);//デバッグ用に全ページオレンジに設定しているので、
 	}
 
 	//最後のページになった時の処理
