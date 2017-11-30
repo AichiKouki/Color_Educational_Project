@@ -73,7 +73,6 @@ public class PageController : MonoBehaviour {
 	[SerializeField]
 	Image specified_color_background_image;
 
-
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -84,7 +83,7 @@ public class PageController : MonoBehaviour {
 	void FixedUpdate () {
 		//Debug.Log (specified_color);//常に色の状態を確認する。
 		if(colors_reading_start==true) ReadColor();//色を読み取る処理
-		if (page_fadeIn_fadeOut == true) next_page_display_when_fade_in_with_fade_out ();//次のページをフェードインで表示する処理
+		if (page_fadeIn_fadeOut == true) next_page_display_when_fade_in_with_fade_out ();//次のページをフェードインで表示する処理		
 	}
 
 	//色を読み取る処理。読み取りボタンが押されたら開始

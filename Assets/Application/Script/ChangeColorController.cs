@@ -19,6 +19,7 @@ public class ChangeColorController : MonoBehaviour {
 	void FixedUpdate () {
 		//レインボーペンを使うフラグがtrueなら、インクがレインボーになる機能を使う。
 		if (start_rainbow == true) Rainbow_Pen ();
+
 	}
 
 	public void ChangeBlack(){
