@@ -151,7 +151,7 @@ public class PageController : MonoBehaviour {
 	public void FirstColorDisplay(string storyName){
 		if (storyName == "sarukani") {
 			specified_color_Label.text = "「オレンジ」をもってきてね";//デフォルトの値●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
-			specified_color_background_image.color=new Color(242f/255,167f/255,59f/255,255/255);//242f, 167f, 59f
+			specified_color_background_image.color=new Color(242f/255,167f/255,59f/255,255/255);//物語を選択するボタンを押した瞬間に、物語と指定される色を設定すっるので、ここで色指定の背景の色を変更する。
 		} else if (storyName == "kasa") {
 			specified_color_Label.text = "「あお」をもってきてね";
 
