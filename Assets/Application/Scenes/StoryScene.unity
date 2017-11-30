@@ -1019,6 +1019,7 @@ MonoBehaviour:
   fadeIn_fadeOut_image: {fileID: 1900738031}
   visualization_mistake_label: {fileID: 1095037581}
   visualization_mistake: {fileID: 2069111839}
+  specified_color_background_image: {fileID: 1006019571}
 --- !u!114 &831000020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.066176474, g: 1, b: 0.9613589, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

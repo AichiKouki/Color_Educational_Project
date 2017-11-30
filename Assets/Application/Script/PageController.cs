@@ -64,10 +64,14 @@ public class PageController : MonoBehaviour {
 
 	//間違った色を読み込んでしまった時、音声だけでなく、文字列として可視化する。
 	[SerializeField]
-	Text visualization_mistake_label;
+	Text visualization_mistake_label;//何を読み取ったかを表示するラベル
 	[SerializeField]
 	GameObject visualization_mistake;//間違ったことを知らせる。
 	private string obtained_color;//別のメソッドの引数でもともと扱っていたので、別の用途で取得した色を扱うので、そのための変数を宣言した。
+
+	//読み取ってもらう色を指定する部分の背景の部分もその色に変更する
+	[SerializeField]
+	Image specified_color_background_image;
 
 
 	void Start () {
@@ -147,6 +151,7 @@ public class PageController : MonoBehaviour {
 	public void FirstColorDisplay(string storyName){
 		if (storyName == "sarukani") {
 			specified_color_Label.text = "「オレンジ」をもってきてね";//デフォルトの値●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+			specified_color_background_image.color=new Color(242f/255,167f/255,59f/255,255/255);//242f, 167f, 59f
 		} else if (storyName == "kasa") {
 			specified_color_Label.text = "「あお」をもってきてね";
 
@@ -223,18 +228,23 @@ public class PageController : MonoBehaviour {
 		if (page==1 || page==6 || page==11) {
 			specified_color = "pink";//指定する色を変更
 			specified_color_Label.text = "「もも」をもってきてね";//UIの文字を変更
+			specified_color_background_image.color=new Color(220f/255,115f/255,160f/255,255/255);//220f, 115f, 160f
 		} else if (page==2 || page==7 || page==12) {
 			specified_color = "yellow";//指定する色を変更
 			specified_color_Label.text = "「きいろ」をもってきてね";
+			specified_color_background_image.color=new Color(255f/255,255f/255,0/255,255/255);//255f, 255f, 0f
 		} else if (page==3 || page==8) {
 			specified_color = "orange";//指定する色を変更
 			specified_color_Label.text = "「オレンジ」をもってきてね";
+			specified_color_background_image.color=new Color(242f/255,167f/255,59f/255,255/255);//242f, 167f, 59f
 		} else if (page==4 || page==9) {
 			specified_color = "light_blue";//指定する色を変更
 			specified_color_Label.text = "「水色」をもってきてね";
+			specified_color_background_image.color=new Color(142f/255,252f/255,251f/255,255/255);//142f,252f,251f
 		} else if (page==5 || page==10) {
 			specified_color = "yellow_green";//指定する色を変更
 			specified_color_Label.text = "「きみどり」をもってきてね";
+			specified_color_background_image.color=new Color(0f/255,255f/255,0f/255,255/255);//0f,255f,0f
 		}
 	}
 
