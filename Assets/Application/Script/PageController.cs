@@ -72,12 +72,19 @@ public class PageController : MonoBehaviour {
 	//読み取ってもらう色を指定する部分の背景の部分もその色に変更する
 	[SerializeField]
 	Image specified_color_background_image;
-
+	
+	//RGB_informationクラスを使うための配列(float)を準備する。
+	private float[] RGB_data;
+	
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 		aud=GetComponent<AudioSource>();
 		Debug.Log("最終的なページは"+configured_page_number);//最終的なページ数を表示する。
+		
+		//RGB_informationクラスを使って、指定した色のRGBを取得している
+		//RGB_data=RGB_Information.Get_RGB ("オレンジ");
+		//Debug.Log (RGB_data[0]);//RGB_dataのRGB情報を取得してみる。
 	}
 		
 	void FixedUpdate () {
@@ -215,7 +222,7 @@ public class PageController : MonoBehaviour {
 		//フェードアウトとフェードインの処理に必要な変数をリセットする。
 		if (fadeIn_fadeOut_time > 6) {//フェードインとフェードアウトのために使う変数をリセットする処理
 			page_fadeIn_fadeOut = false;//フェードアウトとフェードインをするかどうかのフラグをfalseにした。(Updateの中に関数呼び出しがあるから。)
-			fadeIn_fadeOut_time = 0;
+			fadeIn_fadeOut_time = 0;//フェードアウトが終わったら、フェードアウトするまでの時間をリセットする。
 		}
 	}
 		
