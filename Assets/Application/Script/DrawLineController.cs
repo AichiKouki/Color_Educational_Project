@@ -57,6 +57,9 @@ public class DrawLineController : MonoBehaviour
 
 	//現在の色を表すラベル
 	public Text current_color;
+	
+	//会がした線を表示したり非表示にしたりする昨日のための変数
+	private bool done_line_to_invisible=false;
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
@@ -180,6 +183,13 @@ public class DrawLineController : MonoBehaviour
 			GameObject.Destroy(n.gameObject);
 		}
 	}
+	
+	//カメラで読み取ってる間も線を表示するようにしたので、読み取る際に線がだんだん邪魔になるので、線を非表示にしたり表示したりするボタンの実装
+	public void Hidden_line(){
+		if(done_line_to_invisible==false) summarize_object.SetActive(false);
+		else if(done_line_to_invisible==true) summarize_object.SetActive(true); 
+		done_line_to_invisible=!done_line_to_invisible;//関数が呼ばれるたびに非表示にしたかどうかのフラグを逆にする。
 
+	}
 
 }

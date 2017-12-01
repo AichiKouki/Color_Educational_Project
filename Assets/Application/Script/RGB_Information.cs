@@ -46,7 +46,7 @@ public class RGB_Information {
 			float[] RGB_data = new float[]{ 255f,255f,255f};//とりあえず黒に設定。
 			return RGB_data;
 		}else {//これをしないと、returnを返さない通り道があるのでここの部分を忘れない。(RGB_Information.Get_RGB(string)': not all code paths return a value)
-			float[] RGB_data = new float[]{ 0f, 0f, 0f };
+			float[] RGB_data = new float[]{ 0f, 0f, 0f };//今回用意していない色を指定された場合は、0のみのデータを渡す処理をする。
 			return RGB_data;
 		}
 
