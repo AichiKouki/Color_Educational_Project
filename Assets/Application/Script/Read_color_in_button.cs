@@ -79,6 +79,9 @@ public class Read_color_in_button : MonoBehaviour {
 			UI4.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 			UI5.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 
+			//GetColorPanelの中の線を隠すボタンを押した状態で色を読み取ると、線が隠れたままを改善
+			drawLineController.summarize_object.SetActive(true);
+			drawLineController.done_line_to_invisible = true;
 
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか") {

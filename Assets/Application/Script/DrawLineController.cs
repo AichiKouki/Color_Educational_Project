@@ -58,8 +58,9 @@ public class DrawLineController : MonoBehaviour
 	//現在の色を表すラベル
 	public Text current_color;
 	
-	//会がした線を表示したり非表示にしたりする昨日のための変数
-	private bool done_line_to_invisible=false;
+	//会がした線を表示したり非表示にしたりする機能のための変数
+	[HideInInspector]
+	public bool done_line_to_invisible=false;
 
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
