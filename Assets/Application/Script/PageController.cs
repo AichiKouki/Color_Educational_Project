@@ -231,7 +231,7 @@ public class PageController : MonoBehaviour {
 	void Specified_Next_Color(){
 		//テスト用。ランダムに色を指定する。本番では、実際の物語を使って色を決めるので、ランダムにはしないで、固定にする。
 		//もも、黄色、オレンジ、水色を読み取るとシアンとなる、黄緑
-		if (page==1 || page==6 || page==11) {
+		if (page==5 || page==3 || page==11) {
 			specified_color = "pink";//指定する色を変更
 			specified_color_Label.text = "「もも」をもってきてね";//UIの文字を変更
 			specified_color_background_image.color=new Color(220f/255,115f/255,160f/255,255/255);//220f, 115f, 160f
@@ -239,7 +239,7 @@ public class PageController : MonoBehaviour {
 			specified_color = "yellow";//指定する色を変更
 			specified_color_Label.text = "「きいろ」をもってきてね";
 			specified_color_background_image.color=new Color(255f/255,255f/255,0/255,255/255);//255f, 255f, 0f
-		} else if (page==3 || page==8) {
+		} else if (page==6 || page==8) {
 			specified_color = "orange";//指定する色を変更
 			specified_color_Label.text = "「オレンジ」をもってきてね";
 			specified_color_background_image.color=new Color(242f/255,167f/255,59f/255,255/255);//242f, 167f, 59f
@@ -247,7 +247,7 @@ public class PageController : MonoBehaviour {
 			specified_color = "light_blue";//指定する色を変更
 			specified_color_Label.text = "「水色」をもってきてね";
 			specified_color_background_image.color=new Color(142f/255,252f/255,251f/255,255/255);//142f,252f,251f
-		} else if (page==5 || page==10) {
+		} else if (page==1 || page==10) {
 			specified_color = "yellow_green";//指定する色を変更
 			specified_color_Label.text = "「きみどり」をもってきてね";
 			specified_color_background_image.color=new Color(0f/255,255f/255,0f/255,255/255);//0f,255f,0f
