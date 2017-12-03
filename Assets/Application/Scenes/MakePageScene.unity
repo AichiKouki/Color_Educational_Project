@@ -242,6 +242,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1170902232654028, guid: 7e683ca93f2214fce8ba7080fc6b6a90, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e683ca93f2214fce8ba7080fc6b6a90, type: 2}
   m_IsPrefabParent: 0
@@ -814,6 +818,10 @@ Prefab:
       propertyPath: animator_saru
       value: 
       objectReference: {fileID: 121111100}
+    - target: {fileID: 1283726177345516, guid: 18c8db65c93124b6eba0d1e5e6130076, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18c8db65c93124b6eba0d1e5e6130076, type: 2}
   m_IsPrefabParent: 0
@@ -993,10 +1001,6 @@ Prefab:
     - target: {fileID: 4538643774569702, guid: 29bcc537c62624922906f74307c2c1eb, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1639963179409582, guid: 29bcc537c62624922906f74307c2c1eb, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29bcc537c62624922906f74307c2c1eb, type: 2}

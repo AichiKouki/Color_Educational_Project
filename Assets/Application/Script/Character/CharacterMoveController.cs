@@ -31,6 +31,9 @@ public class CharacterMoveController : MonoBehaviour {
 	void Start () {
 		rigid2D = GetComponent<Rigidbody2D> ();
 		if (gameObject.tag == "crab_rigid") StartCoroutine ("Move2_Crab");//タグがcrab_rigidの場合はジャンプする処理を開始する。
+		//ブルブル震えるような動き
+		if (gameObject.name == "crab_vibrate" || gameObject.name=="saru_dark") StartCoroutine ("Vibrate");
+
 		spriteRenderer = GetComponent<SpriteRenderer> ();//フェードインで表示させるために使う。
 	}
 
@@ -44,9 +47,9 @@ public class CharacterMoveController : MonoBehaviour {
 			if (move1_saru == true)
 				Move1_Saru ();
 		}
-
+			
 		//芽であればフェードインで登場させる
-		if ((gameObject.name == "Sprout" || gameObject.name=="tree_NoBackground" || gameObject.name=="saru_dark") && is_fadeIn==true) Appearance_at_FadeIn ();
+		if ((gameObject.name=="tree_NoBackground" || gameObject.name=="saru_dark") && is_fadeIn==true) Appearance_at_FadeIn ();
 	}
 
 	//カニの動きパターン1
@@ -66,6 +69,20 @@ public class CharacterMoveController : MonoBehaviour {
 	IEnumerator Move2_Crab(){
 		yield return new WaitForSeconds (2);//ページを変更する際は、ふぇーどいんとフェードアウトをしているので、その関係で、数秒たってからジャンプする処理をする。
 		rigid2D.AddForce (Vector2.up*300f);//少し上におす
+	}
+
+	//定期的にブルブル震えているような動き
+	IEnumerator Vibrate(){
+		while (true) {
+			for (int i = 1; i < 5; i++) {
+				if (!(i % 2 == 0))
+					transform.Translate (0, 0.5f, 0);
+				else
+					transform.Translate (0,-0.5f,0);
+				yield return new WaitForSeconds (0.1f);
+			}
+			yield return new WaitForSeconds (1);
+		}
 	}
 
 	//猿の動きパターン1

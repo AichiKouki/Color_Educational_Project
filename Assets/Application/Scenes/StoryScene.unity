@@ -1101,8 +1101,9 @@ MonoBehaviour:
   camera_boot: {fileID: 1490574947}
   spriteRenderer_object:
   - {fileID: 887054613}
-  - {fileID: 1645850998}
   - {fileID: 829422743}
+  - {fileID: 1817297856}
+  - {fileID: 1645850998}
   configured_page_number: 0
   fadeIn_fadeOut_image: {fileID: 1900738031}
   visualization_mistake_label: {fileID: 1095037581}
@@ -4182,6 +4183,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29bcc537c62624922906f74307c2c1eb, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &1817297856 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212639864885398528, guid: 29bcc537c62624922906f74307c2c1eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1817297855}
 --- !u!1 &1846249596
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,10 +4433,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narration:
-  - {fileID: 8300000, guid: 9f032f79e8583489082287ea02f3d19a, type: 3}
   - {fileID: 8300000, guid: 4724879f7119543cb8fbcebb40a4dd8e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 8300000, guid: 7f908924b0d8c4beba4d067347c34251, type: 3}
-  - {fileID: 8300000, guid: 0524f892db6d24175878f815d36b0292, type: 3}
   - {fileID: 8300000, guid: dca3b709f107e4bd688179c8245c7598, type: 3}
   - {fileID: 8300000, guid: d17d0171c13b34fd7bf9b553966eae08, type: 3}
   - {fileID: 8300000, guid: 72d34dcdf9c6145d9bd56fd312a64ce0, type: 3}

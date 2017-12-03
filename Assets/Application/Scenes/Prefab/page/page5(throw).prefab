@@ -52,8 +52,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4569288003982174}
   - component: {fileID: 212084582146124638}
+  - component: {fileID: 114865282751287974}
   m_Layer: 0
-  m_Name: crab4
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,8 +104,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4811693884321460}
   - component: {fileID: 212698118720870870}
+  - component: {fileID: 114105489274654442}
   m_Layer: 0
-  m_Name: crab2
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,8 +136,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4756432608532024}
   - component: {fileID: 212109576118836180}
+  - component: {fileID: 114664625104978398}
   m_Layer: 0
-  m_Name: crab3
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,8 +153,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4614812942015438}
   - component: {fileID: 212712196528072642}
+  - component: {fileID: 114440449442348156}
   m_Layer: 0
-  m_Name: crab1
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,6 +333,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114105489274654442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577469352064946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
 --- !u!114 &114206489361532772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,6 +375,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move1: 1
+--- !u!114 &114440449442348156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887812008114538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
+--- !u!114 &114664625104978398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753876973486590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
+--- !u!114 &114865282751287974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274566536833968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
 --- !u!212 &212084582146124638
 SpriteRenderer:
   m_ObjectHideFlags: 1

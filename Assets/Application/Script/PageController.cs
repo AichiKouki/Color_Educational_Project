@@ -261,10 +261,13 @@ public class PageController : MonoBehaviour {
 
 	//1ページ目でカニの色を決定する。(処理は一度だけ)
 	void Determining_color_of_object(float r,float g,float b){
+		/*
 		for(int i=0;i<spriteRenderer_object.Length;i++){//使うカニの数だけ繰り返す
 			//spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 			spriteRenderer_object[i].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		}
+		*/
+		spriteRenderer_object[page].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 	}
 
 	//デバッグボタン処理(本番ではカメラを使って物語を進めるので)
