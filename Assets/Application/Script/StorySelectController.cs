@@ -93,4 +93,6 @@ public class StorySelectController : MonoBehaviour {
 		story_select_panel.SetActive(false);//物語を選択したら物語選択パネルは非表示にする。
 
 	}
+
+
 }

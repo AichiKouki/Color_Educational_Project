@@ -66,6 +66,7 @@
      <Compile Include="Assets\Application\Script\Location_sync_Controller.cs" />
      <Compile Include="Assets\Application\Script\MenuSceneController.cs" />
      <Compile Include="Assets\Application\Script\MoviePlayer.cs" />
+     <Compile Include="Assets\Application\Script\NarrationController.cs" />
      <Compile Include="Assets\Application\Script\OpeningController.cs" />
      <Compile Include="Assets\Application\Script\PageController.cs" />
      <Compile Include="Assets\Application\Script\ParticleDestroyer.cs" />

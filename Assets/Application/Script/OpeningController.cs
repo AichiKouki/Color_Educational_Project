@@ -13,6 +13,7 @@ public class OpeningController : MonoBehaviour {
 	void Start () {
 		//staitcな変数だから、スクリプトの変数を取得しなくてもいい
 		StorySelectController.startOpening = true;//staticな変数を変更して、オープニング映像を再生したことを伝える
+		NarrationController.played_opening=true;
 	}
 	
 	// Update is called once per frame

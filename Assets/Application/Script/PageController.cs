@@ -36,7 +36,7 @@ public class PageController : MonoBehaviour {
 	//音声関連
 	AudioSource aud;
 	[SerializeField]
-	AudioClip[] se;//正解したときや間違ったときや物語読み上げの声などの効果音を再生する。
+	AudioClip[] correctness_decision;//正解したときや間違ったときや物語読み上げの声などの効果音を再生する。
 
 	//読み取り中の処理関連
 	[SerializeField]
@@ -75,13 +75,17 @@ public class PageController : MonoBehaviour {
 	
 	//RGB_informationクラスを使うための配列(float)を準備する。
 	private float[] RGB_data;
-	
+
+	//BGMとか効果音との音量を調整したいから、ナレーション専用のクラスを使う。
+	[SerializeField]
+	NarrationController narrationController;
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 		aud=GetComponent<AudioSource>();
 		Debug.Log("最終的なページは"+configured_page_number);//最終的なページ数を表示する。
-		
+
 		//RGB_informationクラスを使って、指定した色のRGBを取得している
 		//RGB_data=RGB_Information.Get_RGB ("オレンジ");
 		//Debug.Log (RGB_data[0]);//RGB_dataのRGB情報を取得してみる。
@@ -175,11 +179,11 @@ public class PageController : MonoBehaviour {
 		obtained_color = get_color_name;//間違った色を読み取った時の可視化演出のために使う。
 		Debug.Log ("GetColorスクリプトから取得してきた色は"+get_color_name);
 		if (get_color_name == specified_color) {//指定されている色と同じ色を読み取れたら処理
-			aud.PlayOneShot (se [0]);//正解したので、正解の効果音を再生する。
+			aud.PlayOneShot (correctness_decision [0]);//正解したので、正解の効果音を再生する。
 			StartCoroutine("Character_color_change_after_next_page_go");//数秒経ってから処理をしたいから、コルーチンを使っている
 			page_fadeIn_fadeOut=true;//次のページをSetActiveで表示する前に、がめん全体をフェードアウトしてフェードインする処理を行うためのフラグ
 		} else {//間違った色を読み取った場合
-			aud.PlayOneShot(se[1]);//間違った色を読みとったので、間違った効果音を再生する。
+			aud.PlayOneShot(correctness_decision[1]);//間違った色を読みとったので、間違った効果音を再生する。
 			Debug.Log ("間違った");
 			StartCoroutine ("Mistake_visualization_staging");//間違いを可視化するための演出コルーチンを開始する。
 		}
@@ -193,6 +197,7 @@ public class PageController : MonoBehaviour {
 		if (page < configured_page_number) {//最終的な指定した数のページよりまだ進んでいなかったら、進む処理
 			storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
 			page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
+			narrationController.Narration_reproducing(page);
 			if(page<configured_page_number)storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
 			if(page<configured_page_number)set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
 			Specified_Next_Color ();//次の色をランダムに指定
@@ -273,5 +278,7 @@ public class PageController : MonoBehaviour {
 		story_last_until_read = true;//最後のページを読み終わったことを示すフラグをtrueにした。
 		camera_boot.SetActive (false);//全てのページを読み終わったので、カメラを使うボタンを非表示にする。
 		storySelectController.GetColorPanel.SetActive(false);
+		specified_color_Label.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
+		specified_color_background_image.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
 	}
 }
