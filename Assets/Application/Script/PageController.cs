@@ -267,12 +267,24 @@ public class PageController : MonoBehaviour {
 
 	//色を読み取るたびに、色が変わる対象のキャラの色に反映させる。
 	void Determining_color_of_object(float r,float g,float b){
-		if (!(page == 9)) {
-			spriteRenderer_object [page].color = new Color (r / 255, g / 255, b / 255, 255 / 255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
-		} else {//page9の時は、色を変えるのではなく直接表示、非表示にするので、このページだけはこの処理
+
+		if (page == 9) {//例外その1
 			fire_red.SetActive (false);//元の赤い炎は非表示にする
 			Fire_green.SetActive (true);//正解した黄緑色の炎は表示する。
+			return;//以下の処理をしないため
 		}
+
+		if (page == 11) {//例外その2
+			for(int i=11;i<18;i++){
+				spriteRenderer_object [i].color = new Color (r / 255, g / 255, b / 255, 255 / 255);
+			}
+			return;//以下のp処理をしないため
+		}
+
+		//通常の色反映処理(page0から順番に)
+		spriteRenderer_object [page].color = new Color (r / 255, g / 255, b / 255, 255 / 255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
+
+		
 		/*
 		 //色が変わる対象のキャラ全てに色が反映される。
 		for(int i=0;i<spriteRenderer_object.Length;i++){//使うカニの数だけ繰り返す
