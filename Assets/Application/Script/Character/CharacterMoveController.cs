@@ -27,6 +27,13 @@ public class CharacterMoveController : MonoBehaviour {
 	private float time_starting_fadeIn;//フェードインを開始するまでの時間。
 	private bool is_fadeIn=true;//フェードインをするかどうかのフラグ
 
+	//雲が空にぷかぷか動く処理のための変数をせんげnする
+	Vector2 startPosition;
+	[SerializeField]
+	float amplitude;//①移動量パラメータ
+	[SerializeField]
+	public float speed;//②移動速度パラメータ
+
 	// Use this for initialization
 	void Start () {
 		rigid2D = GetComponent<Rigidbody2D> ();
@@ -48,8 +55,11 @@ public class CharacterMoveController : MonoBehaviour {
 				Move1_Saru ();
 		}
 			
-		//芽であればフェードインで登場させる
+		//フェードインで登場させる
 		if ((gameObject.name=="tree_NoBackground" || gameObject.name=="saru_dark") && is_fadeIn==true) Appearance_at_FadeIn ();
+
+		//雲をぷかぷか浮かんでいるような動きをする処理
+		if(gameObject.name=="cloud") Float_in_the_sky();//オブジェクトの名前がcloudだったら処理
 	}
 
 	//カニの動きパターン1
@@ -105,5 +115,15 @@ public class CharacterMoveController : MonoBehaviour {
 		} else if (time_starting_fadeIn > 5) {//4秒後にはフェードインを終了するための処理をしている。
 			is_fadeIn = false;//フェードインをするかのフラグをオフにする
 		}
+	}
+
+	//雲の動き(ぷかぷか動く)
+	void Float_in_the_sky(){
+		//変位を計算
+		//GameObjectを一定の間隔で移動させる方法として三角関数をサイン、コサインを使う
+		float y = amplitude * Mathf.Sin(Time.time * speed);//④移動量の計算
+
+		transform.position = new Vector2 (transform.position.x,y+1);
+
 	}
 }
