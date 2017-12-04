@@ -86,7 +86,7 @@ public class CharacterMoveController : MonoBehaviour {
 		while (true) {//ブルブルを永遠に繰り返す。
 			for (int i = 1; i < 5; i++) {
 				if (!(i % 2 == 0))
-					transform.Translate (0, 0.5f, 0);
+					transform.Translate (0, 0.5f, 0);//カニの動きを少しずつ移動している
 				else
 					transform.Translate (0,-0.5f,0);
 				yield return new WaitForSeconds (0.1f);//0.1秒感覚で震える。
@@ -122,8 +122,6 @@ public class CharacterMoveController : MonoBehaviour {
 		//変位を計算
 		//GameObjectを一定の間隔で移動させる方法として三角関数をサイン、コサインを使う
 		float y = amplitude * Mathf.Sin(Time.time * speed);//④移動量の計算
-
-		transform.position = new Vector2 (transform.position.x,y+1);
-
+		transform.position = new Vector2 (transform.position.x,y+1);//上の処理で処理したyの値を位置に反映させている
 	}
 }

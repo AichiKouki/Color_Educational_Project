@@ -359,9 +359,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1717500367698638, guid: 176f9ed0692404863be6e1363e724f98, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 176f9ed0692404863be6e1363e724f98, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &176878328 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212596174570390580, guid: 176f9ed0692404863be6e1363e724f98,
+    type: 2}
+  m_PrefabInternal: {fileID: 176878327}
 --- !u!1 &244807828 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1648150408848094, guid: 9a9c0e7e4bd90466a8379b727ec29f0e,
@@ -1110,6 +1119,8 @@ MonoBehaviour:
   - {fileID: 1817297856}
   - {fileID: 823235105}
   - {fileID: 1645850998}
+  - {fileID: 928993694}
+  - {fileID: 176878328}
   configured_page_number: 0
   fadeIn_fadeOut_image: {fileID: 1900738031}
   visualization_mistake_label: {fileID: 1095037581}
@@ -1759,6 +1770,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e683ca93f2214fce8ba7080fc6b6a90, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &928993694 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212997829685914398, guid: 7e683ca93f2214fce8ba7080fc6b6a90,
+    type: 2}
+  m_PrefabInternal: {fileID: 928993693}
 --- !u!1 &966690950
 GameObject:
   m_ObjectHideFlags: 0

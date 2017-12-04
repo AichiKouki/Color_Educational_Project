@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1221760577475978
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +267,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!114 &114491173177975732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +284,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!114 &114835979610570664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,6 +301,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!212 &212071446600975410
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -348,6 +348,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!114 &114206489361532772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,6 +365,8 @@ MonoBehaviour:
   move1_saru: 1
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 95247207525486048}
+  amplitude: 0
+  speed: 0
 --- !u!114 &114384380685327646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,6 +394,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!114 &114664625104978398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -405,6 +411,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!114 &114865282751287974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,6 +428,8 @@ MonoBehaviour:
   move1_saru: 0
   animator_crab: {fileID: 0}
   animator_saru: {fileID: 0}
+  amplitude: 0
+  speed: 0
 --- !u!212 &212084582146124638
 SpriteRenderer:
   m_ObjectHideFlags: 1
