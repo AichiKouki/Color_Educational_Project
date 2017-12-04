@@ -1005,6 +1005,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 980fb069ebcab41b09ec556e26cac3c6, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &823235105 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212028434010912916, guid: 980fb069ebcab41b09ec556e26cac3c6,
+    type: 2}
+  m_PrefabInternal: {fileID: 823235104}
 --- !u!212 &829422743 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 212404451029269032, guid: 18c8db65c93124b6eba0d1e5e6130076,
@@ -1103,6 +1108,7 @@ MonoBehaviour:
   - {fileID: 887054613}
   - {fileID: 829422743}
   - {fileID: 1817297856}
+  - {fileID: 823235105}
   - {fileID: 1645850998}
   configured_page_number: 0
   fadeIn_fadeOut_image: {fileID: 1900738031}

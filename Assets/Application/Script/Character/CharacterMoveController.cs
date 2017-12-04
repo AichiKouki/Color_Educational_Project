@@ -32,7 +32,7 @@ public class CharacterMoveController : MonoBehaviour {
 		rigid2D = GetComponent<Rigidbody2D> ();
 		if (gameObject.tag == "crab_rigid") StartCoroutine ("Move2_Crab");//タグがcrab_rigidの場合はジャンプする処理を開始する。
 		//ブルブル震えるような動き
-		if (gameObject.name == "crab_vibrate" || gameObject.name=="saru_dark") StartCoroutine ("Vibrate");
+		if (gameObject.name == "crab_vibrate" || gameObject.name=="saru_dark" || gameObject.name=="saru") StartCoroutine ("Vibrate");
 
 		spriteRenderer = GetComponent<SpriteRenderer> ();//フェードインで表示させるために使う。
 	}
@@ -73,15 +73,15 @@ public class CharacterMoveController : MonoBehaviour {
 
 	//定期的にブルブル震えているような動き
 	IEnumerator Vibrate(){
-		while (true) {
+		while (true) {//ブルブルを永遠に繰り返す。
 			for (int i = 1; i < 5; i++) {
 				if (!(i % 2 == 0))
 					transform.Translate (0, 0.5f, 0);
 				else
 					transform.Translate (0,-0.5f,0);
-				yield return new WaitForSeconds (0.1f);
+				yield return new WaitForSeconds (0.1f);//0.1秒感覚で震える。
 			}
-			yield return new WaitForSeconds (1);
+			yield return new WaitForSeconds (1);//1秒ずつ動く。
 		}
 	}
 

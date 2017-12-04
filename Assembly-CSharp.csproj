@@ -87,6 +87,7 @@
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\CameraController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\GetColor.cs" />
+     <Compile Include="Assets\Asset\TinyFire VFX\LightControl.cs" />
      <Compile Include="Assets\Unimgpicker\Samples\PickerController.cs" />
      <Compile Include="Assets\Unimgpicker\Samples\Rotator.cs" />
      <Compile Include="Assets\Unimgpicker\Scripts\IPicker.cs" />

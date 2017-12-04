@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1221760577475978
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,8 +51,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4392080983127896}
   - component: {fileID: 212071446600975410}
+  - component: {fileID: 114190688910533202}
   m_Layer: 0
-  m_Name: crab2
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,8 +68,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4289888871791740}
   - component: {fileID: 212638811473888782}
+  - component: {fileID: 114835979610570664}
   m_Layer: 0
-  m_Name: crab3
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,8 +85,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4252216879890170}
   - component: {fileID: 212165262518497650}
+  - component: {fileID: 114491173177975732}
   m_Layer: 0
-  m_Name: crab1
+  m_Name: crab_vibrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,11 +247,56 @@ Transform:
   m_GameObject: {fileID: 1589879198643548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.53, y: 1.43, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4301118997139076}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114190688910533202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324642655783242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
+--- !u!114 &114491173177975732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470201469979744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
+--- !u!114 &114835979610570664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1408260489046644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ab1aaccdfcc441ab5d1104c78fa1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move1_crab: 0
+  move1_saru: 0
+  animator_crab: {fileID: 0}
+  animator_saru: {fileID: 0}
 --- !u!212 &212071446600975410
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -533,7 +581,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 322ea65715e994d07bf37d3a2e6a2974, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a5a6746be48e4af6897d347b0ccae48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

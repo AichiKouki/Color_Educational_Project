@@ -211,7 +211,7 @@ public class PageController : MonoBehaviour {
 		visualization_mistake.SetActive (true);//読み取った色と正解の色を表示するラベルと、その背景ImageをまとめたGameObjectを表示する。
 		visualization_mistake_label.text = "よみとった色は"+getColor.color_name+"だよ";//読み取った色を正解の色を文字列として表示。
 		yield return new WaitForSeconds (3);//3秒表示したら、次は非表示にする。
-		visualization_mistake.SetActive (false);
+		visualization_mistake.SetActive (false);//間違った色を読み取ったことを知らせてから3秒たったらその表示を非表示にする。
 	}
 
 	//次のページを表示する時に、ページ自体はSetActiveされているが、画面全体はフェードアウトとフェードインする。
@@ -259,15 +259,16 @@ public class PageController : MonoBehaviour {
 		}
 	}
 
-	//1ページ目でカニの色を決定する。(処理は一度だけ)
+	//色を読み取るたびに、色が変わる対象のキャラの色に反映させる。
 	void Determining_color_of_object(float r,float g,float b){
+		spriteRenderer_object[page].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		/*
+		 //色が変わる対象のキャラ全てに色が反映される。
 		for(int i=0;i<spriteRenderer_object.Length;i++){//使うカニの数だけ繰り返す
 			//spriteRenderer_crab[i].color=new Color(getColor.color.r*255/255,getColor.color.g*255/255,getColor.color.b*255/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 			spriteRenderer_object[i].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 		}
 		*/
-		spriteRenderer_object[page].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
 	}
 
 	//デバッグボタン処理(本番ではカメラを使って物語を進めるので)
@@ -280,7 +281,7 @@ public class PageController : MonoBehaviour {
 		Debug.Log ("全ページ数を読み終わった");
 		story_last_until_read = true;//最後のページを読み終わったことを示すフラグをtrueにした。
 		camera_boot.SetActive (false);//全てのページを読み終わったので、カメラを使うボタンを非表示にする。
-		storySelectController.GetColorPanel.SetActive(false);
+		storySelectController.GetColorPanel.SetActive(false);//最後のページになったら、カメラの表示部分は非表示にする。
 		specified_color_Label.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
 		specified_color_background_image.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
 	}

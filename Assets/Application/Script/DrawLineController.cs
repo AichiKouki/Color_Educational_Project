@@ -62,6 +62,15 @@ public class DrawLineController : MonoBehaviour
 	[HideInInspector]
 	public bool done_line_to_invisible=false;
 
+	//絵画する場所を制限するための変数を宣言する。
+	//線を描く範囲を制限する処理関連
+	//Rayを飛ばす
+	// 位置座標
+	private Vector3 position;
+	//制限の範囲にマウスがあるかどうかのフラグ
+	private bool ban=false;//線の絵画を禁止されたかどうか
+
+
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
 		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。
@@ -94,6 +103,31 @@ public class DrawLineController : MonoBehaviour
 		//線を絵画している最中の処理
 		if(Input.GetMouseButton(0))
 		{
+			
+			//線を描ける範囲を制限するための処理
+			// クリックしたスクリーン座標をrayに変換
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);//カメラからマウスのポジションにRayを飛ばす
+			// Rayの当たったオブジェクトの情報を格納する
+			RaycastHit hit = new RaycastHit ();
+			// Vector3でマウス位置座標を取得する
+			position = Input.mousePosition;
+			// Z軸修正
+			position.z = 10f;
+			// マウス位置座標をスクリーン座標からワールド座標に変換する
+			screenToWorldPointPosition = Camera.main.ScreenToWorldPoint (position);
+
+			// オブジェクトにrayが当たった時
+			if (Physics.Raycast (ray, out hit, distance)) {
+				// rayが当たったオブジェクトの名前を取得
+				string objectName = hit.collider.gameObject.name;//Collider2Dだと反応しないので、2Dゲームの場合は2Dオブジェクトでも3Dのようにこライダーを使う
+				Debug.Log(objectName);
+				//Rayに当たったオブジェクトによって、動かすオブジェクとを変更する。
+				if (objectName == "range_draw_unavailable") {
+					ban = true;
+					return;//これにより、以下の絵画する処理が行われない
+				}
+			}
+
 
 			Vector3 startPos = touchPos;//一番最初の座標は42行目での処理で、スクリーン座標を取得している
 			Vector3 endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);//ボタンを押している間取得し続ける
@@ -181,12 +215,13 @@ public class DrawLineController : MonoBehaviour
 	public void Line_all_deletion(){
 		foreach ( Transform n in summarize_object_parent.transform )//線をまとめるオブジェクトを指定して、その空のオブジェクトの子要素を全て取得して、それらを削除して全削除を実現し
 		{
-			GameObject.Destroy(n.gameObject);
+			GameObject.Destroy(n.gameObject);//foreachで渡されたオブジェクトを削除する処理
 		}
 	}
 	
 	//カメラで読み取ってる間も線を表示するようにしたので、読み取る際に線がだんだん邪魔になるので、線を非表示にしたり表示したりするボタンの実装
 	public void Hidden_line(){
+		//線を実際に非表示にする処理。
 		if(done_line_to_invisible==false) summarize_object.SetActive(false);
 		else if(done_line_to_invisible==true) summarize_object.SetActive(true); 
 		done_line_to_invisible=!done_line_to_invisible;//関数が呼ばれるたびに非表示にしたかどうかのフラグを逆にする。
