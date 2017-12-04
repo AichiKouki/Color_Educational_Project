@@ -54,7 +54,7 @@ public class CharacterMoveController : MonoBehaviour {
 			if (move1_saru == true)
 				Move1_Saru ();
 		}
-			
+
 		//フェードインで登場させる
 		if ((gameObject.name=="tree_NoBackground" || gameObject.name=="saru_dark") && is_fadeIn==true) Appearance_at_FadeIn ();
 
@@ -121,7 +121,7 @@ public class CharacterMoveController : MonoBehaviour {
 	void Float_in_the_sky(){
 		//変位を計算
 		//GameObjectを一定の間隔で移動させる方法として三角関数をサイン、コサインを使う
-		float y = amplitude * Mathf.Sin(Time.time * speed);//④移動量の計算
+		float y = amplitude * Mathf.Sin(Time.time * speed);//移動量の計算。一定間隔で移動するには三角関数のサインかコサインを使う
 		transform.position = new Vector2 (transform.position.x,y+1);//上の処理で処理したyの値を位置に反映させている
 	}
 }

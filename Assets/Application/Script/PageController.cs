@@ -80,6 +80,12 @@ public class PageController : MonoBehaviour {
 	[SerializeField]
 	NarrationController narrationController;
 
+	//Page10で炎を表示している部分があるが、正解するとその炎の色が違うものに入れ替えるので、そのための
+	[SerializeField]
+	GameObject fire_red;
+	[SerializeField]
+	GameObject Fire_green;
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -248,11 +254,11 @@ public class PageController : MonoBehaviour {
 			specified_color = "orange";//指定する色を変更
 			specified_color_Label.text = "「オレンジ」をもってきてね";
 			specified_color_background_image.color=new Color(242f/255,167f/255,59f/255,255/255);//242f, 167f, 59f
-		} else if (page==4 || page==9) {
+		} else if (page==4 || page==10) {
 			specified_color = "light_blue";//指定する色を変更
 			specified_color_Label.text = "「水色」をもってきてね";
 			specified_color_background_image.color=new Color(142f/255,252f/255,251f/255,255/255);//142f,252f,251f
-		} else if (page==1 || page==10) {
+		} else if (page==1 || page==9) {
 			specified_color = "yellow_green";//指定する色を変更
 			specified_color_Label.text = "「きみどり」をもってきてね";
 			specified_color_background_image.color=new Color(0f/255,255f/255,0f/255,255/255);//0f,255f,0f
@@ -261,7 +267,12 @@ public class PageController : MonoBehaviour {
 
 	//色を読み取るたびに、色が変わる対象のキャラの色に反映させる。
 	void Determining_color_of_object(float r,float g,float b){
-		spriteRenderer_object[page].color=new Color(r/255,g/255,b/255,255/255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
+		if (!(page == 9)) {
+			spriteRenderer_object [page].color = new Color (r / 255, g / 255, b / 255, 255 / 255);//最初に読み取った色を全てのカニオブジェクトのRTBに設定する。
+		} else {//page9の時は、色を変えるのではなく直接表示、非表示にするので、このページだけはこの処理
+			fire_red.SetActive (false);//元の赤い炎は非表示にする
+			Fire_green.SetActive (true);//正解した黄緑色の炎は表示する。
+		}
 		/*
 		 //色が変わる対象のキャラ全てに色が反映される。
 		for(int i=0;i<spriteRenderer_object.Length;i++){//使うカニの数だけ繰り返す
