@@ -70,7 +70,6 @@ public class DrawLineController : MonoBehaviour
 	//制限の範囲にマウスがあるかどうかのフラグ
 	private bool ban=false;//線の絵画を禁止されたかどうか
 
-
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
 		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。

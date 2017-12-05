@@ -85,6 +85,7 @@
      <Compile Include="Assets\Application\Script\SerialController.cs" />
      <Compile Include="Assets\Application\Script\StorySelectController.cs" />
      <Compile Include="Assets\Application\Script\TitleSceneController.cs" />
+     <Compile Include="Assets\Application\Script\UIController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\CameraController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\GetColor.cs" />
      <Compile Include="Assets\Asset\TinyFire VFX\LightControl.cs" />

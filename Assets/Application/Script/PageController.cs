@@ -82,9 +82,9 @@ public class PageController : MonoBehaviour {
 
 	//Page10で炎を表示している部分があるが、正解するとその炎の色が違うものに入れ替えるので、そのための
 	[SerializeField]
-	GameObject fire_red;
+	GameObject fire_red;//赤い炎のオブジェクトが入る。
 	[SerializeField]
-	GameObject Fire_green;
+	GameObject Fire_green;//緑の炎のオブジェクトが入る。
 
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
@@ -203,7 +203,7 @@ public class PageController : MonoBehaviour {
 		if (page < configured_page_number) {//最終的な指定した数のページよりまだ進んでいなかったら、進む処理
 			storySelectController.story1_gameObject [page].SetActive (false);//ページ数を増加する前に現在のページを非表示にする。
 			page++;//正しい色を読み取れたので、ページを更新するためのページ数を増加させる
-			narrationController.Narration_reproducing(page);
+			narrationController.Narration_reproducing(page);//ナレーション専用のクラスに、ページ数を渡してページごとのナレーションを再生する。
 			if(page<configured_page_number)storySelectController.story1_gameObject [page].SetActive (true);//次のページを表示する。
 			if(page<configured_page_number)set_story_image.sprite = useStory [page];//実際にページをセットする。(現在は使っていない)
 			Specified_Next_Color ();//次の色をランダムに指定
@@ -266,7 +266,7 @@ public class PageController : MonoBehaviour {
 	}
 
 	//色を読み取るたびに、色が変わる対象のキャラの色に反映させる。
-	void Determining_color_of_object(float r,float g,float b){
+	void Determining_color_of_object(float r,float g,float b){//色を読み取るたびに呼ばれる
 
 		if (page == 9) {//例外その1
 			fire_red.SetActive (false);//元の赤い炎は非表示にする
