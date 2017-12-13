@@ -2146,7 +2146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &870109681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4471,6 +4471,7 @@ MonoBehaviour:
   UI3: {fileID: 1305231540}
   UI4: {fileID: 1886843063}
   UI5: {fileID: 1476752834}
+  Line_Hidden_button: {fileID: 15871842}
 --- !u!4 &2141012237
 Transform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class Read_color_in_button : MonoBehaviour {
 	DrawLineController drawLineController;//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 	[SerializeField]
 	ChangeColorController changeColorController;//レインボー機能を止めるため//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+
+	//色を読み取るタイミングなどに、メニュー内のボタンが邪魔なので非表示にするため
 	[SerializeField]
 	GameObject UI1;
 	[SerializeField]
@@ -38,6 +40,8 @@ public class Read_color_in_button : MonoBehaviour {
 	GameObject UI4;
 	[SerializeField]
 	GameObject UI5;
+	[SerializeField]
+	GameObject Line_Hidden_button;
 
 	// Use this for initialization
 	void Start () {
@@ -61,6 +65,7 @@ public class Read_color_in_button : MonoBehaviour {
 		UI3.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI4.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI5.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		Line_Hidden_button.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 
 		if (time_read_color > 2) {//2秒間読み取り中と表示するための演出処理
 			Debug.Log ("読み取り完了");
@@ -78,6 +83,7 @@ public class Read_color_in_button : MonoBehaviour {
 			UI3.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 			UI4.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 			UI5.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+			Line_Hidden_button.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 
 			//GetColorPanelの中の線を隠すボタンを押した状態で色を読み取ると、線が隠れたままを改善
 			drawLineController.summarize_object.SetActive(true);
@@ -142,6 +148,15 @@ public class Read_color_in_button : MonoBehaviour {
 	//物語を選択し直すために、物語選択パネルを表示する処理
 	public void Display_GetColorPanel(){
 		GetColorPanel.SetActive (true);
+
+		camera_boot.SetActive (false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI1.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI2.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI3.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI4.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI5.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+
+
 	}
 
 
