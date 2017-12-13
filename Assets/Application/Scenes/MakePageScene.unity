@@ -243,10 +243,6 @@ Prefab:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1170902232654028, guid: 7e683ca93f2214fce8ba7080fc6b6a90, type: 2}
-      propertyPath: m_Name
-      value: page5(kaigi)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1170902232654028, guid: 7e683ca93f2214fce8ba7080fc6b6a90, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -818,10 +814,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1837518481202532, guid: 9126f698ad29e4da09d9f81abb179808, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9126f698ad29e4da09d9f81abb179808, type: 2}
   m_IsPrefabParent: 0
@@ -1087,10 +1079,6 @@ Prefab:
     - target: {fileID: 4949619028635886, guid: 0d56e5038866c48ff93451846284ebc5, type: 2}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845962698749036, guid: 0d56e5038866c48ff93451846284ebc5, type: 2}
-      propertyPath: m_Name
-      value: page10(saru_korobu)
       objectReference: {fileID: 0}
     - target: {fileID: 1845962698749036, guid: 0d56e5038866c48ff93451846284ebc5, type: 2}
       propertyPath: m_IsActive
