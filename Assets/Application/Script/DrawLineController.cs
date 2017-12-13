@@ -70,6 +70,9 @@ public class DrawLineController : MonoBehaviour
 	//制限の範囲にマウスがあるかどうかのフラグ
 	private bool ban=false;//線の絵画を禁止されたかどうか
 
+	//CanvasのRenderModeを変更消しゴムの位置がmousePositionだけだと指の位置と同じにならなくなったそのための処理
+	Vector3 eraserPos;
+
 	void Start(){
 		effect = gameObject;//エフェクトは最初から生成されている訳ではないので、てきとうに初期化
 		selected_feature="drawLine";//デフォルトは線を描く機能を選択する。
@@ -119,7 +122,7 @@ public class DrawLineController : MonoBehaviour
 			if (Physics.Raycast (ray, out hit, distance)) {
 				// rayが当たったオブジェクトの名前を取得
 				string objectName = hit.collider.gameObject.name;//Collider2Dだと反応しないので、2Dゲームの場合は2Dオブジェクトでも3Dのようにこライダーを使う
-				Debug.Log(objectName);
+				//Debug.Log(objectName);
 				//Rayに当たったオブジェクトによって、動かすオブジェクとを変更する。
 				if (objectName == "range_draw_unavailable") {
 					ban = true;
@@ -175,7 +178,10 @@ public class DrawLineController : MonoBehaviour
 			Debug.DrawRay(ray.origin, ray.direction, Color.red, 3.0f);
 
 			//消しゴムの画像とマウスのポジションを同期させる(消しゴムはただ表示しているだけでこの画像に衝突判定はない)
-			eraser.transform.position = Input.mousePosition;
+			eraserPos = new Vector3(Input.mousePosition.x,Input.mousePosition.y,Input.mousePosition.z);
+			eraserPos.z = 10.0f; //distance of the plane from the camera
+			eraser.transform.position = Camera.main.ScreenToWorldPoint(eraserPos);
+			//eraser.transform.position = Input.mousePosition;
 			// オブジェクトにrayが当たった時に処理
 			if (Physics.Raycast(ray, out hit, distance)){
 			//if(Physics.SphereCast(ray, 5.0f, out hit, 10.0f)) {//球型のRayを作成する
@@ -183,7 +189,7 @@ public class DrawLineController : MonoBehaviour
 				string objectName = hit.collider.gameObject.name;//Rayに衝突したオブジェクト名を格納する
 				deleting_target_object=hit.collider.gameObject;//Rayに衝突したオブジェクトを格納する
 				Destroy(deleting_target_object);//Rayに衝突したオブジェクトを削除する
-				Debug.Log(objectName);//Rayが衝突したオブジェクトの名前を取得
+				//Debug.Log(objectName);//Rayが衝突したオブジェクトの名前を取得
 			}
 		}
 	}
