@@ -13,6 +13,10 @@ public class ScreenShot : MonoBehaviour {
 	private float screenShot_done_indicate_time;//スクリーンショットをしたことを知らせる時間
 	private bool is_screenShot=false;//スクリーンショットをしたかどうかのフラグ
 
+	//canvasのRender Modeが「Screen Space - Camera」ならカメラ状態で線が表示できるけどスクショの時にUIが表示されてしまうから、保存するときだけ「Screen Space Camera - Overlay」にしてすぐ戻す
+	[SerializeField]
+	Canvas canvas;
+
 	void FixedUpdate(){
 		if (is_screenShot==true) {//スクショしている主な部分でフラグを変更している
 			Indicate_done_screenshot ();//スクリーンショットをしたことを知らせる
@@ -22,6 +26,8 @@ public class ScreenShot : MonoBehaviour {
 	//ここを呼び出すことによって、UIをのぞいた部分のスクリーンショットができる
 	public void CaptchaScreen()
 	{
+		canvas.renderMode = RenderMode.ScreenSpaceOverlay;	//canvasのRender Modeが「Screen Space - Camera」ならカメラ状態で線が表示できるけどスクショの時にUIが表示されてしまうから、保存するときだけ「Screen Space Camera - Overlay」にしてすぐ戻す
+
 		Texture2D screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
 		RenderTexture rt = new RenderTexture(screenShot.width, screenShot.height, 24);
 		RenderTexture prev = ArCam.targetTexture;
@@ -33,7 +39,8 @@ public class ScreenShot : MonoBehaviour {
 		screenShot.Apply();//テクスチャの変更を実際に適応させる
 
 		byte[] bytes = screenShot.EncodeToPNG();//Texure2DをPngとして保存
-		UnityEngine.Object.Destroy(screenShot);
+		UnityEngine.Object.Destroy(screenShot);//おそらく、ここでUIを覗く処理をしている。
+		UnityiOS.SaveTexture(bytes, bytes.Length);//画像をカメラロールに保存するための処理(他のサイトのライブラリを使っている。)●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
 
 		//スクショが保存される場所
 		//Users/[ユーザ名]/Library/Application Support/[Company Name]/[Product Name]
@@ -46,6 +53,8 @@ public class ScreenShot : MonoBehaviour {
 
 		//スクリーンショットをしたことを表すフラグを変更する
 		is_screenShot=true;
+
+		canvas.renderMode = RenderMode.ScreenSpaceCamera;	//canvasのRender Modeが「Screen Space - Camera」ならカメラ状態で線が表示できるけどスクショの時にUIが表示されてしまうから、保存するときだけ「Screen Space Camera - Overlay」にしてすぐ戻す
 	}
 
 	//スクリーンショットをしたことを知らせるための処理

@@ -63,6 +63,11 @@
      <Compile Include="Assets\Application\Script\DrawLineController.cs" />
      <Compile Include="Assets\Application\Script\FillScreenController.cs" />
      <Compile Include="Assets\Application\Script\GameController.cs" />
+     <Compile Include="Assets\Application\Script\ImageSaveController.cs" />
+     <Compile Include="Assets\Application\Script\iOSScreenCapture\AVAuthorizationStatus.cs" />
+     <Compile Include="Assets\Application\Script\iOSScreenCapture\PHAuthorizationStatus.cs" />
+     <Compile Include="Assets\Application\Script\iOSScreenCapture\UnityiOS.cs" />
+     <Compile Include="Assets\Application\Script\iOSScreenCapture\UnityiOSScreenCapture.cs" />
      <Compile Include="Assets\Application\Script\Location_sync_Controller.cs" />
      <Compile Include="Assets\Application\Script\MenuSceneController.cs" />
      <Compile Include="Assets\Application\Script\MoviePlayer.cs" />

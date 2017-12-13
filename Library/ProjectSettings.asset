@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 12
   productGUID: 4c252c20d079d450bbf8786319330e97
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 2
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -142,6 +142,7 @@ PlayerSettings:
   resolutionScalingMode: 0
   applicationIdentifier:
     Standalone: com.AichiKouki.Color_Educational_Project
+    iOS: com.AICHIKOUKI.ColorEducationalProject
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
