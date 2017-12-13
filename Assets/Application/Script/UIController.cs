@@ -36,11 +36,11 @@ public class UIController : MonoBehaviour {
 	//UIが移動して表示する処理
 	void Move_UI(){
 		moveTime += Time.deltaTime;
-		if (moveTime < 1.2f) {
+		if (moveTime < 0.72f) {
 			if (UI_slide == false) {
-				drawing_related_ui_panel.transform.Translate (-0.3f,0,0);
+				drawing_related_ui_panel.transform.Translate (-0.5f,0,0);
 			} else {
-				drawing_related_ui_panel.transform.Translate (0.3f,0,0);
+				drawing_related_ui_panel.transform.Translate (0.5f,0,0);
 			}
 		} else {//移動が終わったら
 			move_UI=false;
