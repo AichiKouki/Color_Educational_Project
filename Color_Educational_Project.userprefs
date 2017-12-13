@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{68FDA82F-02D5-B128-A4E1-CA447C611E6C}|単体テスト" StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Application/Script/PageController.cs">
     <Files>
-      <File FileName="Assets/Application/Script/Character/CharacterColorController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Application/Script/Character/CharacterMoveController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Application/Script/PageController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Application/Script/NarrationController.cs" Line="18" Column="47" NotebookId="1" />
-      <File FileName="Assets/Application/Script/StorySelectController.cs" Line="16" Column="18" NotebookId="1" />
+      <File FileName="Assets/Application/Script/PageController.cs" Line="207" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />

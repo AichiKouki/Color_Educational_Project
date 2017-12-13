@@ -25,7 +25,6 @@
 -define:UNITY_2017_1_0
 -define:UNITY_2017_1
 -define:UNITY_2017
--define:UNITY_ANALYTICS
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING
 -define:ENABLE_CLOTH
@@ -101,7 +100,7 @@
 -define:UNITY_IPHONE
 -define:UNITY_IPHONE_API
 -define:SUPPORT_MULTIPLE_DISPLAYS
--define:ENABLE_MONO
+-define:ENABLE_IL2CPP
 -define:NET_2_0_SUBSET
 -define:ENABLE_PROFILER
 -define:DEBUG
@@ -149,6 +148,7 @@
 'Assets/Application/Script/SerialController.cs'
 'Assets/Application/Script/StorySelectController.cs'
 'Assets/Application/Script/TitleSceneController.cs'
+'Assets/Application/Script/UIController.cs'
 'Assets/Application/Script/UseCamera/CameraController.cs'
 'Assets/Application/Script/UseCamera/GetColor.cs'
 'Assets/Asset/TinyFire VFX/LightControl.cs'
