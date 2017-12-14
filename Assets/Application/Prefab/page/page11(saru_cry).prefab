@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 212633805509000814}
   m_Layer: 0
   m_Name: saru02_white_face
-  m_TagString: Untagged
+  m_TagString: character_changing_color
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

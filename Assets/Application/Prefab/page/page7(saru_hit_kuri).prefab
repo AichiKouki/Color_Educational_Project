@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 212609112165858178}
   m_Layer: 0
   m_Name: kuri1
-  m_TagString: Untagged
+  m_TagString: character_changing_color
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

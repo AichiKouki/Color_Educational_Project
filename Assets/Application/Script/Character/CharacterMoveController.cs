@@ -47,7 +47,7 @@ public class CharacterMoveController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//キャラクターによって動く時間とかを変更している。
-		if (gameObject.tag == "crab") {//スクリプトをアタッチしてるオブジェクトがカニだったら、
+		if (gameObject.name == "crab_move_left") {//スクリプトをアタッチしてるオブジェクトがカニだったら、
 			if (move1_crab == true)
 				Move1_Crab ();
 		} else if (gameObject.tag == "saru") {//スクリプトがアタッチされてるオブジェクトのタグがsaruだったら処理

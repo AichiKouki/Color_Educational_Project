@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4626186694254746}
   - component: {fileID: 212281537999536038}
   m_Layer: 0
-  m_Name: 'crab5_white_only_eye '
+  m_Name: crab5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1365570724000722
 GameObject:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 212241965582629790}
   m_Layer: 0
   m_Name: crab5_white_only_eye
-  m_TagString: Untagged
+  m_TagString: character_changing_color
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

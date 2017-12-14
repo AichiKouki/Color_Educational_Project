@@ -8,6 +8,7 @@ TagManager:
   - crab
   - saru
   - crab_rigid
+  - character_changing_color
   layers:
   - Default
   - TransparentFX

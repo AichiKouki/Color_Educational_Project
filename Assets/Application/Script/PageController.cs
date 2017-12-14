@@ -86,6 +86,12 @@ public class PageController : MonoBehaviour {
 	[SerializeField]
 	GameObject Fire_green;//緑の炎のオブジェクトが入る。
 
+	//色が変わるキャラの位置にエフェクトを生成する
+	[SerializeField]
+	GameObject changeColorEffectPre;
+	GameObject changeColorEffect;
+	Vector2 character_changing_color_Pos;
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -117,6 +123,9 @@ public class PageController : MonoBehaviour {
 			camera_boot.SetActive (true);//読み取りが終了したら、カメラ起動ボタンをまた表示する。
 			time_read_color=0;//色読み取り時間をリセットする。
 			colors_reading_start = false;//一度だけ処理するためのもの
+
+			//色を読み終わったタイミングで色が変わるキャラの場所にエフェクトを生成
+			Colors_changing_character_location_effect_generation ();
 
 			//ここから、取得した色を引数にして正しい色かを確かめる関数を呼び出す
 			if (getColor.color_name == "あか") {
@@ -307,5 +316,14 @@ public class PageController : MonoBehaviour {
 		storySelectController.GetColorPanel.SetActive(false);//最後のページになったら、カメラの表示部分は非表示にする。
 		specified_color_Label.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
 		specified_color_background_image.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
+	}
+
+	//色が変わるキャラの位置にエフェクトを生成する
+	void Colors_changing_character_location_effect_generation(){
+		character_changing_color_Pos = GameObject.FindWithTag ("character_changing_color").transform.position;
+		if (character_changing_color_Pos == null) return;
+		changeColorEffect = (GameObject)Instantiate (changeColorEffectPre,transform.position,Quaternion.identity);
+		changeColorEffect.transform.position = character_changing_color_Pos;
+		Debug.Log (character_changing_color_Pos);
 	}
 }
