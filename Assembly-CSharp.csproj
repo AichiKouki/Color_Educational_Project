@@ -94,6 +94,12 @@
      <Compile Include="Assets\Application\Script\UseCamera\CameraController.cs" />
      <Compile Include="Assets\Application\Script\UseCamera\GetColor.cs" />
      <Compile Include="Assets\Asset\TinyFire VFX\LightControl.cs" />
+     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
+     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
+     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
+     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
+     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
+     <Compile Include="Assets\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
      <Compile Include="Assets\Unimgpicker\Samples\PickerController.cs" />
      <Compile Include="Assets\Unimgpicker\Samples\Rotator.cs" />
      <Compile Include="Assets\Unimgpicker\Scripts\IPicker.cs" />
@@ -103,10 +109,18 @@
      <Compile Include="Assets\Unimgpicker\Scripts\PickerUnsupported.cs" />
      <Compile Include="Assets\Unimgpicker\Scripts\Unimgpicker.cs" />
      <None Include="Assets\Editor\NSPhotoLibraryUsageDescription.txt" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
      <None Include="Assets\Font\readme.txt" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
      <None Include="Assets\Plugins\Android\Unimgpicker\AndroidManifest.xml" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
+     <None Include="Assets\Particlecollection_Free samples\READ ME.txt" />
      <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
      <None Include="Assets\Unimgpicker\Editor\NSPhotoLibraryUsageDescription.txt" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Additive.shader" />
+     <None Include="Assets\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
