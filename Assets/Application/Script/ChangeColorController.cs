@@ -26,53 +26,62 @@ public class ChangeColorController : MonoBehaviour {
 		drawLineController.current_color.text="くろ";
 		drawLineController.changeColorNum = 0;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangeBlue(){
 		drawLineController.current_color.text="あお";
 		drawLineController.changeColorNum = 1;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangeGreen(){
 		drawLineController.current_color.text="みどり";
 		drawLineController.changeColorNum = 2;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangeRed(){
 		drawLineController.current_color.text="あか";
 		drawLineController.changeColorNum = 3;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangeYellow(){
 		drawLineController.current_color.text="きいろ";
 		drawLineController.changeColorNum = 4;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangeBrown(){
 		drawLineController.current_color.text="ちゃいろ";
 		drawLineController.changeColorNum = 5;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangePurple(){
 		drawLineController.current_color.text="むらさき";
 		drawLineController.changeColorNum = 6;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangePink(){
 		drawLineController.current_color.text="もも";
 		drawLineController.changeColorNum = 7;//色のオブジェクトの配列の添え字の部分の値を変更
 		start_rainbow=false;
+		drawLineController.DrawLineButton ();
 	}
 
 	public void ChangeRainbow(){
 		drawLineController.current_color.text="レインボー";
 		start_rainbow = true;
+		drawLineController.DrawLineButton ();
 	}
 
 	//ボタンの共通化をしたかったが、ボタン全てにこのスクリプトをアタッチするとそのボタンの個数文同じ処理がされてしまうので、意図しない挙動になるのでやめた
