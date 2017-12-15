@@ -41,6 +41,8 @@ public class Read_color_in_button : MonoBehaviour {
 	[SerializeField]
 	GameObject UI5;
 	[SerializeField]
+	GameObject UI6;
+	[SerializeField]
 	GameObject Line_Hidden_button;
 
 	// Use this for initialization
@@ -148,15 +150,26 @@ public class Read_color_in_button : MonoBehaviour {
 		UI5.SetActive(false);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 	}
 
-	//
+	//色を読み取る時には他のボタンが邪魔になるので、読み取る前は非表示にして読み取ったら表示する処理
 	void Show_and_hide_in_bulk_button(bool judge){//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI1.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI2.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI3.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI4.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		UI5.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI6.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 		Line_Hidden_button.SetActive(judge);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
 	}
 
+	//色を取得するのをやめる処理
+	public void Color_abort_acquisition(){
+		UI1.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI2.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI3.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI4.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		UI5.SetActive(true);//●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●流用するならいらない
+		GetColorPanel.SetActive(false);
+		camera_boot.SetActive (true);
 
+	}
 }
