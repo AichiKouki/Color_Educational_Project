@@ -15,7 +15,7 @@ public class NarrationController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		aud = GetComponent<AudioSource> ();
-		played_opening = true;//デバッグ用。最終的にはこの部分は削除する。
+		//played_opening = true;//デバッグ用。最終的にはこの部分は削除する。
 
 		if (played_opening == true) {//OpeningControllerから再生したかどうあkのフラグが変更される。
 			aud.PlayOneShot (narration [0]);

@@ -36,7 +36,7 @@ public class UIController : MonoBehaviour {
 	//UIが移動して表示する処理
 	void Move_UI(){
 		moveTime += Time.deltaTime;
-		if (moveTime < 0.72f) {
+		if (moveTime < 0.72f) {//iPhoneは0.72。iPad Mini 2は、0.53
 			if (UI_slide == false) {
 				drawing_related_ui_panel.transform.Translate (-0.5f,0,0);
 			} else {

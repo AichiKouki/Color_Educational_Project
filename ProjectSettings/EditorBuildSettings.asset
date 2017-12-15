@@ -5,22 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Application/Scenes/TitleScene.unity
     guid: 2ce2035bf40ed47b09d6be9e90eaf474
-  - enabled: 0
+  - enabled: 1
     path: Assets/Application/Scenes/MenuScene.unity
     guid: 4041816e6ca9340c9bdc78e5702b689f
   - enabled: 1
     path: Assets/Application/Scenes/DrawingScene.unity
     guid: 45f68801f4dfa4382bf174dd3674c5c3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Application/Scenes/StoryScene.unity
     guid: 51f78e2f592b04a96ab1774cf8d4c22d
   - enabled: 0
     path: 
     guid: 255c2e589eff248d8bc7d52d1deb34a0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Application/Scenes/AlbumScene.unity
     guid: f7f5d16e1a4bd45b3a93a3088393d3e5
   - enabled: 0
@@ -29,10 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Application/Scenes/Use_SumahoCamera.unity
     guid: f35d3bebaff384358917250c83f4c4b0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Application/Scenes/ColoringScene.unity
     guid: 6cfa8d734983d46698ebe1d845319277
-  - enabled: 0
+  - enabled: 1
     path: Assets/Application/Scenes/Sarukani_Opening.unity
     guid: 705c766304d14493a88231ea2f28ad96
   - enabled: 0

@@ -47,6 +47,7 @@ public class GetColor : MonoBehaviour
 			//if(sceneName=="Use_SumahoCamera") tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//(670,377)がiPhone 6Sの真ん中の座標となる
 			//else if(sceneName=="StoryScene") tex.ReadPixels(new Rect(200, 650, 1, 1), 0, 0);//(670,377)が左上に画面を表示した時の真ん中となる
 			tex.ReadPixels(new Rect(670, 377, 1, 1), 0, 0);//画面をいっぱい使って色を読み取らせたいので、画面の真ん中の位置の座標を指定する。
+			//tex.ReadPixels(new Rect(1022.6f, 779.9f, 1, 1), 0, 0);//iPad Mini 2の場合の座標
 			//tex.ReadPixels(new Rect(screenToWorldPointPosition.x, screenToWorldPointPosition.y, 1, 1), 0, 0);
 			color = tex.GetPixel(0,0);//画面のピクセルを取得したのでその1ビットだけ取得して色を抽出した
 			//Debug.Log (pos);

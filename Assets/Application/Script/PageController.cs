@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PageController : MonoBehaviour {
 	//全てのページ
@@ -54,6 +55,8 @@ public class PageController : MonoBehaviour {
 	//最後のページになった時の処理
 	public int configured_page_number=0;//StorySelectControllerで、配列の数(自分で設定したページ数によってページ数が変わるようにしているので、その値を取得する)
 	private bool story_last_until_read=false;
+	[SerializeField]
+	GameObject page_final;
 
 	//次のページを表示する時に、ページ自体はSetActiveされているが、画面全体はフェードアウトとフェードインする。
 	[SerializeField]
@@ -92,6 +95,15 @@ public class PageController : MonoBehaviour {
 	GameObject changeColorEffect;
 	Vector2 character_changing_color_Pos;
 
+	//ページごとの文章を表示する処理
+	[SerializeField]
+	Text picture_book_sentence_text;//物語の文章を表示するためのTextの部分
+	[SerializeField]
+	Image picture_book_sentence_background;//文章を表示する部分の
+	private string[] picture_book_sentence;//物語の文章が直接入る
+	private float sentence_fade_in_fade_out_time;
+	private bool  do_sentence_fade_in_fade_out=false;	
+
 	void Start () {
 		set_story_image = GetComponent<Image> ();//コンポーネント取得
 		specified_color="orange";//最初は赤色に指定●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
@@ -101,12 +113,20 @@ public class PageController : MonoBehaviour {
 		//RGB_informationクラスを使って、指定した色のRGBを取得している
 		//RGB_data=RGB_Information.Get_RGB ("オレンジ");
 		//Debug.Log (RGB_data[0]);//RGB_dataのRGB情報を取得してみる。
+		picture_book_sentence=new string[]{"","","かえりみちのとちゅう、カニはサルにこえをかけられました。\nカニさんカニさん。そのおにぎりとこのカキのたねを\nこうかんしようぜ。サルとカニはおたがいのものをこうかんしました。",
+			"カニは、サルとこうかんしたかきのたねをりっぱにそだてました。","","カニ「サルさんサルさん、はやくカキのたねをとっておくれ。」\nサル「うるさいなぁ。ほら、これでもやるよ。」\n","かたいかきのみをぶつけられたカニは、おおけがをして\nしまいました。カニのこどもたちは、くり、うす、ハチを呼んで、サルにしかえしをすることにしました。",
+			"ある日、猿が家に帰ってきて、囲炉裏(いろり)に近づくと","囲炉裏(いろり)でアツアツになった栗が、猿に向かって\n弾け飛びます。\nサル「あちち、あちちちち！」",
+			"やけどをしてしまったサルはいそいでやけどをひやそうと、すいそうにちかづきます。しかしこんどは、すいそうで待っていたハチにさされてしまいました。\nサル「いたい、いたい〜」",
+			"サルはハチからにげようとはしりまわります。すると、ゆかのいしにつまずいて、ころんでしまいまいした。","ころんだサルの上にやねからうすがおちてきました。\nサル「ぐ、ウェ〜」",
+			"ウスにつぶされてサルはおおけがをしてしまいました。\nサル「ごめんなさい、もういじわるはしないから、ゆるしてください」\nそれから、かいしんしたサルは、みんなとなかよくなりました。\n"};
 	}
 		
 	void FixedUpdate () {
 		//Debug.Log (specified_color);//常に色の状態を確認する。
 		if(colors_reading_start==true) ReadColor();//色を読み取る処理
-		if (page_fadeIn_fadeOut == true) next_page_display_when_fade_in_with_fade_out ();//次のページをフェードインで表示する処理		
+		if (page_fadeIn_fadeOut == true) next_page_display_when_fade_in_with_fade_out ();//次のページをフェードインで表示する処理	
+
+		if(do_sentence_fade_in_fade_out==true) Fade_in_fade_out_picture_book_sentence ();//物語の文章の部分をフェードアウトしたりフェードインしたりする
 	}
 
 	//色を読み取る処理。読み取りボタンが押されたら開始
@@ -316,6 +336,14 @@ public class PageController : MonoBehaviour {
 		storySelectController.GetColorPanel.SetActive(false);//最後のページになったら、カメラの表示部分は非表示にする。
 		specified_color_Label.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
 		specified_color_background_image.color = new Color (255/255,255/255,255/255,0/255);//ページを読み終わっても色が指定されるので非表示にする。
+		page_final.SetActive(true);
+		StartCoroutine ("transition_to_menuscene");//全部のページが終わったら数秒後にMenuSceneに戻る処理
+	}
+
+
+	IEnumerator transition_to_menuscene(){
+		yield return new WaitForSeconds (3);
+		SceneManager.LoadScene ("MenuScene");
 	}
 
 	//色が変わるキャラの位置にエフェクトを生成する
@@ -326,4 +354,21 @@ public class PageController : MonoBehaviour {
 		changeColorEffect.transform.position = character_changing_color_Pos;
 		Debug.Log (character_changing_color_Pos);
 	}
+
+	//物語の文章をフェードインしたりフェードアウトしたりする処理
+	void Fade_in_fade_out_picture_book_sentence(){
+		sentence_fade_in_fade_out_time += Time.deltaTime;
+
+	}
+
+	/*
+		//ページごとの文章を表示する処理
+	[SerializeField]
+	Text picture_book_sentence_text;//物語の文章を表示するためのTextの部分
+	[SerializeField]
+	Image picture_book_sentence_background;//文章を表示する部分の
+	private string[] picture_book_sentence;//物語の文章が直接入る
+	private float sentence_fade_in_fade_out_time;
+	private bool do_sentence_fade_in_fade_out=false;
+	*/
 }
