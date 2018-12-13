@@ -3,4 +3,4 @@
 プラットフォームはIOS対応です。
 xcodeでビルドする際は、写真を扱うプロパティとカメラ機能のフレームワークの追加が必要です。
 ・PBL発表会で配ったチラシです  
-<img stc="https://github.com/AichiKouki/Color_Educational_Project/issues/1#issue-390509570" alt="チラシ" title="チラシ">
+<img stc="https://user-images.githubusercontent.com/25785113/49915235-ca48ea00-fed7-11e8-9d2b-35bc7d8e3002.png" alt="チラシ" title="チラシ">
